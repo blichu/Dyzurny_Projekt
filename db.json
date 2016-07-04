@@ -1,0 +1,24 @@
+{
+  "lol": [
+    {
+      "id": 0,
+      "name": "Wojtek",
+        "surname": "Strach"
+    },
+    {
+      "id": 1,
+        "name": "Kamil",
+        "surname": "Kot"
+    },
+    {
+      "id": 2,
+      "name": "Maciej",
+      "surname": "Blicharz"
+    },
+    {
+      "id": 3,
+      "name": "asdas",
+      "surname": "asdasd"      
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    </head>
+    <body>
+        <table id="example"  class="display" cellspacing="0" width="100%"> 
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+            </tfoot> 
+            <tbody id="tbodyy">
+                <script>
+                    var response;
+                 
+                    $(document).ready(function() {
+                       // $('#example').DataTable();
+                       loadData();
+                    } );
+
+                    function loadData() {
+                        $.get( "http://127.0.0.1:3000/lol", function(r) {
+                        response = r;
+                        for(var i=0; i<response.length; i++) {                        
+                           $("#tbodyy").append("<tr><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
+                        }
+                        $('#example').DataTable();  
+                    });  
+                    }
+                </script> 
+            </tbody> 
+        </table>
+
+
+    </body>
+</html>
