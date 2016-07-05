@@ -25,17 +25,27 @@
                     var response;
                  
                     $(document).ready(function() {
-                       // $('#example').DataTable();
                        loadData();
                     } );
 
                     function loadData() {
-                        $.get( "http://127.0.0.1:3000/lol", function(r) {
+//                        $.get( "http://127.0.0.1:3000/lol", function(r) {
+                        $.get( "http://192.168.15.105:3000/lol", function(r) {
                         response = r;
                         for(var i=0; i<response.length; i++) {                        
                            $("#tbodyy").append("<tr><td><img src=" + response[i].avatarLink + "></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
                         }
-                        $('#example').DataTable();  
+//                        $('#example').DataTable();
+                        $('#example').dataTable( {
+                            "columns": [
+                                { "width": "20%" },
+                                null,
+                                null
+                            ],
+                            "columnDefs": [
+                                { "width": "20%", "targets": 0 }
+                            ]
+                        } );
                     });  
                     }
                 </script> 
