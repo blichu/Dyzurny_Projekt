@@ -6,51 +6,55 @@ $(document).ready(function () {
 //            addData("x", "y");
 });
 
+function clearData() {
+    for(var i=0; i<lastId; i++) {
+        // $("#tbodyy").get
+        $('#' + i).remove();
+    }
+    loadData(true);
+}
+
 function loadData(clear) {
     $.get("http://192.168.15.105:3000/lol", function (r) {
         response = r;
         for (var i = 0; i < response.length; i++) {
             lastId = response[i].id;
-            // if(clear) {
-            //     for(var i=0; i<1; i++){
-            //         $("#" + i).remove();
-            //     }
-            //
-            // }
             $("#tbodyy")
                 .append("" +
                     "<tr id='" + lastId + "'><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td>" +
                     "<td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
         }
-        $(document).ready(function() {
-            var table = $('#example').dataTable({
-                // ajax: "data.json",
+        if(! clear) {
+            $(document).ready(function () {
+                var table = $('#example').dataTable({
+                    // ajax: "data.json",
 //                        select: true,
-                "columnDefs": [
-                    {"width": "5%", "targets": 0}
-                ]
+                    "columnDefs": [
+                        {"width": "5%", "targets": 0}
+                    ]
+                });
+                $('#example tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        table.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                });
+
+                $('#deleteButton').click(function () {
+                    removeData(table.$('tr.selected').attr('id'));
+                    table.$('tr.selected')
+                    // table.row('.selected').remove().draw( true);
+                    // var table = $('#example').dataTable();
+                    // $('#example').DataTable().ajax.reload();
+                    //
+
+                    // table.reload(true, null);
+                });
             });
-            $('#example tbody').on( 'click', 'tr', function () {
-                if ( $(this).hasClass('selected') ) {
-                    $(this).removeClass('selected');
-                }
-                else {
-                    table.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                }
-            } );
-
-            $('#deleteButton').click( function () {
-                removeData(table.$('tr.selected').attr('id'));
-                table.$('tr.selected')
-                // table.row('.selected').remove().draw( true);
-                // var table = $('#example').dataTable();
-                // $('#example').DataTable().ajax.reload();
-                //
-
-                // table.reload(true, null);
-            } );
-        } );
+        }
     })
 };
 function addData() {
@@ -73,7 +77,7 @@ function addData() {
         //     .append("" +
         //         "<tr id='" + lastId + 1 + "'><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td>" +
         //         "<td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
-        loadData(true);
+        clearData();
     });
 }
 function removeData(id) {
