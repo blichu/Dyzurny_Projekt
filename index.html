@@ -1,58 +1,117 @@
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" href="style.css">
-        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    </head>
-    <body>
-        <div id="addForm">
-
-        </div>
-        <div id="removeForm">
-
-        </div>
-        <table id="example"  class="display" cellspacing="0" width="100%"> 
-            <thead>
-                <tr>
-                    <th>Avatar</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>Avatar</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                </tr>
-            </tfoot> 
-            <tbody id="tbodyy">
-                <script>
-                    var response;
-                 
-                    $(document).ready(function() {
-                       loadData();
-                    } );
-
-                    function loadData() {
-                        $.get( "http://192.168.15.105:3000/lol", function(r) {
-                        response = r;
-                        for(var i=0; i<response.length; i++) {                        
-                           $("#tbodyy").append("<tr><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
-                        }
-                        $('#example').dataTable( {
-                            "columnDefs": [
-                                { "width": "5%", "targets": 0 }
-                            ]
-                            } );
-                        })};
-                    //                    function removeData(){}
-
-                </script>
-            </tbody> 
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+<div id="addForm">
+    <form action="">
+        <table>
+            <tr>
+                <td>Imię</td>
+                <td><input type="text" name="nameField"/><br/></td>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td><input type="text" name="surnameField"/><br/></td>
+            </tr>
+            <tr>
+                <td>Avatar</td>
+                <td><input type="text" name="imagePath" size="9" disabled="disabled"/>
+                    <button type="button">Wybierz...</button>
+                    <br/></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Dodaj</button>
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
         </table>
+    </form>
+</div>
+<div id="removeForm">
+    <table>
+        <tr>
+            <td>
+                Imię
+            </td>
+            <td>
+                <input type="text" name="nameField"/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nazwisko
+            </td>
+            <td>
+                <input type="text" name="surnameField"/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Avatar
+            </td>
+            <td>
+                <input type="text" name="imagePath" size="9" disabled="disabled"/>
+                <button type="button">Wybierz...</button>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Usuń</button>
+                <button type="reset">Reset</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Avatar</th>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Avatar</th>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    </tfoot>
+    <tbody id="tbodyy">
+    <script>
+        var response;
+
+        $(document).ready(function () {
+            loadData();
+        });
+
+        function loadData() {
+            $.get("http://192.168.15.105:3000/lol", function (r) {
+                response = r;
+                for (var i = 0; i < response.length; i++) {
+                    $("#tbodyy").append("<tr><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
+                }
+                $('#example').dataTable({
+                    "columnDefs": [
+                        {"width": "5%", "targets": 0}
+                    ]
+                });
+            })
+        }
+        ;
+        //                    function removeData(){}
+
+    </script>
+    </tbody>
+</table>
 
 
-    </body>
+</body>
 </html>

@@ -11,12 +11,10 @@ html body {
     padding: 0;
     margin: 0;
     float: left;
-    background-color: red;
 }
 #removeForm {
     width: 50%;
     padding: 0;
     margin: 0;
     float: right;
-    background-color: aqua;
 }
