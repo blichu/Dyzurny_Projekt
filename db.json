@@ -3,22 +3,26 @@
     {
       "id": 0,
       "name": "Wojtek",
-        "surname": "Strach"
+      "surname": "Strach",
+      "avatarLink": "http://m.ppe.pl/upload/images/articles/20/26/91/2026916063.jpg"
     },
     {
       "id": 1,
-        "name": "Kamil",
-        "surname": "Kot"
+      "name": "Kamil",
+      "surname": "Kot",
+      "avatarLink": "http://www.z-cartoon.pl/uploads/5/7/2/4/5724732/2002683_orig.jpg"
     },
     {
       "id": 2,
       "name": "Maciej",
-      "surname": "Blicharz"
+      "surname": "Blicharz",
+      "avatarLink": "http://m.ppe.pl/upload/images/articles/20/26/91/2026916063.jpg"
     },
     {
       "id": 3,
       "name": "asdas",
-      "surname": "asdasd"      
+      "surname": "asdasd",
+      "avatarLink": "http://www.z-cartoon.pl/uploads/5/7/2/4/5724732/2002683_orig.jpg"
     }
   ]
 }
