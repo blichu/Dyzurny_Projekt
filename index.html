@@ -4,23 +4,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 <div id="addForm">
-    <form action="">
+    <form action="javascript:addData()">
         <table>
             <tr>
                 <td>Imię</td>
-                <td><input type="text" name="nameField"/><br/></td>
+                <td><input type="text" id="nameField"/><br/></td>
             </tr>
             <tr>
                 <td>Nazwisko</td>
-                <td><input type="text" name="surnameField"/><br/></td>
+                <td><input type="text" id="surnameField"/><br/></td>
             </tr>
             <tr>
                 <td>Avatar</td>
-                <td><input type="text" name="imagePath" size="9" disabled="disabled"/>
+                <td><input type="text" id="avatarField" name="imagePath" size="9" disabled="disabled"/>
                     <button type="button">Wybierz...</button>
                     <br/></td>
             </tr>
@@ -40,7 +41,9 @@
                 Imię
             </td>
             <td>
-                <input type="text" name="nameField"/><br/>
+                <select name="nameSelect">
+
+                </select>
             </td>
         </tr>
         <tr>
@@ -48,22 +51,14 @@
                 Nazwisko
             </td>
             <td>
-                <input type="text" name="surnameField"/><br/>
+                <select name="surnameSelect">
+
+                </select>
             </td>
         </tr>
         <tr>
             <td>
-                Avatar
-            </td>
-            <td>
-                <input type="text" name="imagePath" size="9" disabled="disabled"/>
-                <button type="button">Wybierz...</button>
-                <br/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button type="submit">Usuń</button>
+                <button type="submit" id="deleteButton">Usuń</button>
                 <button type="reset">Reset</button>
             </td>
         </tr>
@@ -90,6 +85,7 @@
 
         $(document).ready(function () {
             loadData();
+//            addData("x", "y");
         });
 
         function loadData() {
@@ -98,16 +94,64 @@
                 for (var i = 0; i < response.length; i++) {
                     $("#tbodyy").append("<tr><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
                 }
-                $('#example').dataTable({
-                    "columnDefs": [
-                        {"width": "5%", "targets": 0}
-                    ]
-                });
-            })
-        }
-        ;
-        //                    function removeData(){}
+//                $('#example').dataTable({
+//                    select: true,
+//                    "columnDefs": [
+//                        {"width": "5%", "targets": 0}
+//                    ]
+//                });
+                $(document).ready(function() {
+                    var table = $('#example').dataTable({
+//                        select: true,
+                        "columnDefs": [
+                            {"width": "5%", "targets": 0}
+                        ]
+                    });
+                    $('#example tbody').on( 'click', 'tr', function () {
+                        if ( $(this).hasClass('selected') ) {
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            table.$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+                    } );
 
+                    $('#deleteButton').click( function () {
+                        removeData();
+//                        table.row('.selected').remove().draw( false );
+                    } );
+                } );
+            })
+        };
+        function addData() {
+            $.ajax({
+                type: 'POST',
+                url: 'http://192.168.15.105:3000/lol',
+                data:
+                '{"name":"' +
+                $('#nameField').val() +
+                '", "surname":"' +
+                $('#surnameField').val() +
+                '", "avatar":"' +
+                $('#avatarField').val() +
+                '"}',
+                success: function(data) { alert('data: ' + data); },
+                contentType: "application/json",
+                dataType: 'json'
+            });
+        }
+        function removeData() {
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://192.168.15.105:3000/lol',
+                data: '{"id":"1"}',
+                success: function(data) { alert('data: ' + data); },
+                error: function (data) {alert('deleteFail');},
+                contentType: "application/json",
+                dataType: 'json'
+            });
+        }
     </script>
     </tbody>
 </table>
