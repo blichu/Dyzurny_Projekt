@@ -1,21 +1,12 @@
 var response;
-var lastId;
 
 $(document).ready(function () {
     loadData(false);
 //            addData("x", "y");
 });
 
-function clearData() {
-    for(var i=0; i<lastId; i++) {
-        // $("#tbodyy").get
-        $('#' + i).remove();
-    }
-    loadData(true);
-}
-
 function loadData(clear) {
-    $.get("http://192.168.15.105:3000/lol", function (r) {
+    $.get("http://localhost:3000/lol", function (r) {
         response = r;
         for (var i = 0; i < response.length; i++) {
             lastId = response[i].id;
@@ -58,32 +49,45 @@ function loadData(clear) {
     })
 };
 function addData() {
-    $.ajax({
-        type: 'POST',
-        url: 'http://192.168.15.105:3000/lol',
-        data:
-        '{"name":"' +
-        $('#nameField').val() +
-        '", "surname":"' +
-        $('#surnameField').val() +
-        '", "avatar":"' +
-        $('#avatarField').val() +
-        '"}',
-        // success: function(data) { alert('data: ' + data); },
-        contentType: "application/json",
-        dataType: 'json'
-    }).done(function() {
-        // $("#tbodyy")
-        //     .append("" +
-        //         "<tr id='" + lastId + 1 + "'><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td>" +
-        //         "<td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
-        clearData();
-    });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: 'http://localhost:3000/lol',
+    //     data:
+    //     '{"name":"' +
+    //      +
+    //     '", "surname":"' +
+    //     $('#surnameField').val() +
+    //     '", "avatar":"' +
+    //     $('#avatarField').val() +
+    //     '"}',
+    //     // success: function(data) { alert('data: ' + data); },
+    //     contentType: "application/json",
+    //     dataType: 'json'
+    // }).done(function() {
+    //     // $("#tbodyy")
+    //     //     .append("" +
+    //     //         "<tr id='" + lastId + 1 + "'><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td>" +
+    //     //         "<td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
+    // });
+    // $.post( "http://localhost:3000/lol/", function( data ) {
+    //     alert(data);
+    //     // $( ".result" ).html( data );
+    // });
+    $.post( "http://localhost:3000/lol", {  name: "\"" + $('#nameField').val() + "\"",
+                                            surname: "\"" + $('#surnameField').val() + "\"",
+                                            avatar: "\"" + $('#avatarField').val() + "\""})
+        .done(function( data ) {
+            $("#tbodyy")
+                .append("" +
+                    "<tr id='" + data.id + "'><td><img class=\"avatars\" src=" + $('#avatarField').val() + "></td>" +
+                    "<td>" + $('#nameField').val() + "</td>" + "<td>" + $('#surnameField').val() + "</td></tr>");
+        });
+
 }
 function removeData(id) {
     $.ajax({
         type: 'DELETE',
-        url: 'http://192.168.15.105:3000/lol/' + id,
+        url: 'http://localhost:3000/lol/' + id,
         // success: function(data) { alert('data: ' + data); },
         // error: function (data) {alert('deleteFail');},
         contentType: "application/json",
