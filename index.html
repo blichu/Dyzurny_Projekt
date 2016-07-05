@@ -8,12 +8,14 @@
         <table id="example"  class="display" cellspacing="0" width="100%"> 
             <thead>
                 <tr>
+                    <th>Avatar</th>
                     <th>Name</th>
                     <th>Surname</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
+                    <th>Avatar</th>
                     <th>Name</th>
                     <th>Surname</th>
                 </tr>
@@ -31,7 +33,7 @@
                         $.get( "http://127.0.0.1:3000/lol", function(r) {
                         response = r;
                         for(var i=0; i<response.length; i++) {                        
-                           $("#tbodyy").append("<tr><td><img src='http://www.z-cartoon.pl/uploads/5/7/2/4/5724732/2002683_orig.jpg'></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
+                           $("#tbodyy").append("<tr><td><img src=" + response[i].avatarLink + "></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
                         }
                         $('#example').DataTable();  
                     });  
