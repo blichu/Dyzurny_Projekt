@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="javascript.js"></script>
 </head>
 <body>
 <div id="addForm">
@@ -80,79 +81,7 @@
     </tr>
     </tfoot>
     <tbody id="tbodyy">
-    <script>
-        var response;
 
-        $(document).ready(function () {
-            loadData();
-//            addData("x", "y");
-        });
-
-        function loadData() {
-            $.get("http://192.168.15.105:3000/lol", function (r) {
-                response = r;
-                for (var i = 0; i < response.length; i++) {
-                    $("#tbodyy").append("<tr><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
-                }
-//                $('#example').dataTable({
-//                    select: true,
-//                    "columnDefs": [
-//                        {"width": "5%", "targets": 0}
-//                    ]
-//                });
-                $(document).ready(function() {
-                    var table = $('#example').dataTable({
-//                        select: true,
-                        "columnDefs": [
-                            {"width": "5%", "targets": 0}
-                        ]
-                    });
-                    $('#example tbody').on( 'click', 'tr', function () {
-                        if ( $(this).hasClass('selected') ) {
-                            $(this).removeClass('selected');
-                        }
-                        else {
-                            table.$('tr.selected').removeClass('selected');
-                            $(this).addClass('selected');
-                        }
-                    } );
-
-                    $('#deleteButton').click( function () {
-                        removeData();
-//                        table.row('.selected').remove().draw( false );
-                    } );
-                } );
-            })
-        };
-        function addData() {
-            $.ajax({
-                type: 'POST',
-                url: 'http://192.168.15.105:3000/lol',
-                data:
-                '{"name":"' +
-                $('#nameField').val() +
-                '", "surname":"' +
-                $('#surnameField').val() +
-                '", "avatar":"' +
-                $('#avatarField').val() +
-                '"}',
-                success: function(data) { alert('data: ' + data); },
-                contentType: "application/json",
-                dataType: 'json'
-            });
-        }
-        function removeData() {
-            $.ajax({
-                type: 'DELETE',
-                url: 'http://192.168.15.105:3000/lol',
-                data: '{"id":"1"}',
-                success: function(data) { alert('data: ' + data); },
-                error: function (data) {alert('deleteFail');},
-                contentType: "application/json",
-                dataType: 'json'
-            });
-        }
-    </script>
     </tbody>
 </table>
 
