@@ -41,12 +41,12 @@
                         for(var i=0; i<response.length; i++) {                        
                            $("#tbodyy").append("<tr><td><img class=\"avatars\" src=" + response[i].avatarLink + "></td><td>" + response[i].name + "</td>" + "<td>" + response[i].surname + "</td></tr>");
                         }
-                       $('#example').dataTable( {
+                        $('#example').dataTable( {
                             "columnDefs": [
                                 { "width": "5%", "targets": 0 }
                             ]
                             } );
-                    })};
+                        })};
                     //                    function removeData(){}
 
                 </script>
