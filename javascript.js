@@ -1,27 +1,43 @@
 var response;
-var tableGlobal;
 
 $(document).ready(function () {
-    loadData();
+    initLoadData();
 });
-
 function clearForm(formName){
     if(formName == "addForm"){
         $('#nameField').val('');
         $('#surnameField').val('');
     }
-    //TODO: Dodać kolejne formy, jeśli się nowe pojawią :)))
+    //TODO: Dodać kolejne formy, jeśli się nowe pojawią :)
 }
-
 function addRowToTable(id, avatarLink, name, surname){
     $("#tbodyy")
         .append("" +
-            "<tr id='" + id + "'><td><img class=\"avatars\" src=" + avatarLink + "></td>" +
-            "<td>" + name + "</td>" + "<td>" + surname + "</td></tr>");
-    // buildTable();
+            "<tr id=\"" + id + "\">" +
+                "<td>" +
+                    id +
+                "</td>" +
+                "<td>" +
+                    "<img class=\"avatars\" src=" + avatarLink + ">" +
+                "</td>" +
+                "<td>" +
+                    name +
+                "</td>" +
+                "<td>" +
+                    surname +
+                "</td>" +
+            "</tr>");
 }
-
-function loadData() {
+function correctAddRowToTable(id, avatarLink, name, surname) {
+    // alert("add");
+    $('#example').DataTable().row.add( [
+        id,
+        avatarLink,
+        name,
+        surname
+    ] ).draw( true );
+}
+function initLoadData() {
     $.get("http://localhost:3000/lol", function (r) {
         response = r;
         for (var i = 0; i < response.length; i++) {
@@ -30,27 +46,26 @@ function loadData() {
         }
         buildTable();
     })
-};
-
-function buildTable() {
-    // $(document).ready(function () {
-        var table = $('#example').dataTable({
-            "paging": false,
-            "columnDefs": [
-                {"width": "5%", "targets": 0}
-            ]
-        });
-    this.tableGlobal = table;
-    selectRowAction(table);
-        removeButtonAction(table);
-    // });
 }
-
-function removeButtonAction(table) {
-    $('#deleteButton').click(function () {
-        removeData(table.$('tr.selected').attr('id'));
-        table.$('tr.selected')
+function buildTable() {
+    var table = $('#example').dataTable({
+        "paging": false,
+        "columnDefs": [
+            // {"width": "5%", "targets": 0}
+            {
+                "width": "5%",
+                "targets": 1
+            },
+            // {
+            //     "visible": false,
+            //     "targets": 0
+            // }
+        ]
     });
+    selectRowAction(table);
+    removeButtonAction(table);
+    addButtonAction(table);
+    // }
 }
 function selectRowAction(table) {
     $('#example tbody').on('click', 'tr', function () {
@@ -63,17 +78,28 @@ function selectRowAction(table) {
         }
     });
 }
-
-function addData() {
-    $.post( "http://localhost:3000/lol", {  name: $('#nameField').val(),
-                                            surname: $('#surnameField').val(),
-                                            avatar: $('#avatarField').val()})
+function removeButtonAction(table) {
+    $('#deleteButton').click(function () {
+        removeData(table.$('tr.selected').attr('id'));
+        // table.$('tr.selected')
+        // var row = $(this).closest("tr").get(id);
+        table.fnDeleteRow(table.$('tr.selected'));
+    });
+}
+function addButtonAction(table) {
+    $('#addButton').click(function () {
+        $.post( "http://localhost:3000/lol", {
+            name: $('#nameField').val(),
+            surname: $('#surnameField').val(),
+            avatar: $('#avatarField').val()
+        })
         .done(function( data ) {
-            addRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
-            selectRowAction(tableGlobal);
-            removeButtonAction(tableGlobal);
+            // addRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
+            correctAddRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
             clearForm("addForm");
         });
+    });
+    // $('#addButton').click();
 }
 function removeData(id) {
     $.ajax({
@@ -82,6 +108,7 @@ function removeData(id) {
         contentType: "application/json",
         dataType: 'json'
     }).done(function() {
-        $('#' + id).remove();
+        // $('#' + id).remove();
+
     });
 }
