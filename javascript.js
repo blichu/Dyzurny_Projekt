@@ -9,6 +9,7 @@ function addRowToTable(id, avatarLink, name, surname){
         .append("" +
             "<tr id='" + id + "'><td><img class=\"avatars\" src=" + avatarLink + "></td>" +
             "<td>" + name + "</td>" + "<td>" + surname + "</td></tr>");
+    // buildTable();
 }
 
 function loadData() {
@@ -18,30 +19,41 @@ function loadData() {
             lastId = response[i].id;
             addRowToTable(lastId, response[i].avatarLink, response[i].name, response[i].surname);
         }
-        $(document).ready(function () {
-            var table = $('#example').dataTable({
-                "paging": false,
-                "columnDefs": [
-                    {"width": "5%", "targets": 0}
-                ]
-            });
-            $('#example tbody').on('click', 'tr', function () {
-                if ($(this).hasClass('selected')) {
-                    $(this).removeClass('selected');
-                }
-                else {
-                    table.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                }
-            });
-
-            $('#deleteButton').click(function () {
-                removeData(table.$('tr.selected').attr('id'));
-                table.$('tr.selected')
-            });
-        });
+        buildTable();
     })
 };
+
+function buildTable() {
+    $(document).ready(function () {
+        var table = $('#example').dataTable({
+            "paging": false,
+            "columnDefs": [
+                {"width": "5%", "targets": 0}
+            ]
+        });
+        selectRowAction(table);
+        removeButtonAction(table);
+    });
+}
+
+function removeButtonAction(table) {
+    $('#deleteButton').click(function () {
+        removeData(table.$('tr.selected').attr('id'));
+        table.$('tr.selected')
+    });
+}
+function selectRowAction(table) {
+    $('#example tbody').on('click', 'tr', function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+}
+
 function addData() {
     $.post( "http://localhost:3000/lol", {  name: $('#nameField').val(),
                                             surname: $('#surnameField').val(),
