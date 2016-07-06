@@ -56,6 +56,42 @@
       "surname": "\"aaaa\"",
       "avatar": "\"\"",
       "id": 9
+    },
+    {
+      "name": "\"gdfg\"",
+      "surname": "\"dfgdf\"",
+      "avatar": "\"\"",
+      "id": 10
+    },
+    {
+      "name": "\"gdfg\"",
+      "surname": "\"dfgdf\"",
+      "avatar": "\"\"",
+      "id": 11
+    },
+    {
+      "name": "\"gdfg\"",
+      "surname": "\"dfgdf\"",
+      "avatar": "\"\"",
+      "id": 12
+    },
+    {
+      "name": "\"zzzzzzzzzz\"",
+      "surname": "\"zzzzzzzzzzzzz\"",
+      "avatar": "\"\"",
+      "id": 13
+    },
+    {
+      "name": " + $('#nameField').val() + ",
+      "surname": " + $('#surnameField').val() + ",
+      "avatar": " + $('#avatarField').val() + ",
+      "id": 14
+    },
+    {
+      "name": "\"wwww\"",
+      "surname": "\"wwwwww\"",
+      "avatar": "\"\"",
+      "id": 15
     }
   ]
 }
