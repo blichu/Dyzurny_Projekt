@@ -73,8 +73,8 @@ function addData() {
             addRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
             selectRowAction(tableGlobal);
             removeButtonAction(tableGlobal);
+            clearForm();
         });
-    clearForm();
 }
 function removeData(id) {
     $.ajax({
