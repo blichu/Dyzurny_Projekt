@@ -1,7 +1,7 @@
 var response;
 
 $(document).ready(function () {
-    loadData(false);
+    loadData();
 });
 
 function addRowToTable(id, avatarLink, name, surname){
@@ -11,37 +11,35 @@ function addRowToTable(id, avatarLink, name, surname){
                     "<td>" + name + "</td>" + "<td>" + surname + "</td></tr>");
 }
 
-function loadData(clear) {
+function loadData() {
     $.get("http://localhost:3000/lol", function (r) {
         response = r;
         for (var i = 0; i < response.length; i++) {
             lastId = response[i].id;
             addRowToTable(lastId, response[i].avatarLink, response[i].name, response[i].surname);
         }
-        if(! clear) {
-            $(document).ready(function () {
-                var table = $('#example').dataTable({
-                    "paging": false,
-                    "columnDefs": [
-                        {"width": "5%", "targets": 0}
-                    ]
-                });
-                $('#example tbody').on('click', 'tr', function () {
-                    if ($(this).hasClass('selected')) {
-                        $(this).removeClass('selected');
-                    }
-                    else {
-                        table.$('tr.selected').removeClass('selected');
-                        $(this).addClass('selected');
-                    }
-                });
-
-                $('#deleteButton').click(function () {
-                    removeData(table.$('tr.selected').attr('id'));
-                    table.$('tr.selected')
-                });
+        $(document).ready(function () {
+            var table = $('#example').dataTable({
+                "paging": false,
+                "columnDefs": [
+                    {"width": "5%", "targets": 0}
+                ]
             });
-        }
+            $('#example tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('#deleteButton').click(function () {
+                removeData(table.$('tr.selected').attr('id'));
+                table.$('tr.selected')
+            });
+        });
     })
 };
 function addData() {
@@ -49,10 +47,6 @@ function addData() {
                                             surname: $('#surnameField').val(),
                                             avatar: $('#avatarField').val()})
         .done(function( data ) {
-            // $("#tbodyy")
-            //     .append("" +
-            //         "<tr id='" + data.id + "'><td><img class=\"avatars\" src=" + $('#avatarField').val() + "></td>" +
-            //         "<td>" + $('#nameField').val() + "</td>" + "<td>" + $('#surnameField').val() + "</td></tr>");
             addRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
         });
 
