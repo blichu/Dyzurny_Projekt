@@ -59,10 +59,10 @@ function buildTable() {
                 "width": "5%",
                 "targets": 1
             },
-            // {
-            //     "visible": false,
-            //     "targets": 0
-            // }
+            {
+                "visible": false,
+                "targets": 0
+            }
         ]
     });
     selectRowAction(table);
@@ -83,13 +83,6 @@ function selectRowAction(table) {
     });
 }
 
-function addData() {
-    $.post("http://localhost:3000/lol", {
-        name: $('#nameField').val(),
-        surname: $('#surnameField').val(),
-        avatar: $('#avatarURL').val()
-    })
-}
 function removeButtonAction(table) {
     $('#deleteButton').click(function () {
         removeData(table.$('tr.selected').attr('id'));
@@ -103,13 +96,13 @@ function addButtonAction(table) {
         $.post( "http://localhost:3000/lol", {
             name: $('#nameField').val(),
             surname: $('#surnameField').val(),
-            avatar: $('#avatarField').val()
+            avatarLink: $('#avatarURL').val()
         })
         .done(function( data ) {
             // addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
             // selectRowAction(tableGlobal);
             // removeButtonAction(tableGlobal);
-            correctAddRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
+            correctAddRowToTable(data.id, "<img class='avatars' src='" + $('#avatarURL').val() + "'>", $('#nameField').val(), $('#surnameField').val());
             clearForm("addForm");
         });
     });
@@ -117,7 +110,7 @@ function addButtonAction(table) {
 }
 function viewButtonAction() {
     $("#viewButton").click(function () {
-        document.getElementById("imageView").innerHTML = "<img height='200px' src='" + $('#avatarURL').val() + "'>";
+        document.getElementById("imageView").innerHTML = "<img height='70px' class='avatars' src='" + $('#avatarURL').val() + "'>";
     });
 }
 function removeData(id) {

@@ -1,70 +1,96 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="jquery.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-1.12.3.js"></script>-->
+    <script src="jquery2.js"></script>
+
+
+
+    <!--<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>-->
+    <script src="dataTables.js"></script>
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">-->
+    <!--<link rel="stylesheet" href="dataTables.css">-->
+    <link rel="stylesheet" href="dataTablesEdited.css">
+
     <script src="javascript.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="addForm">
-    <table>
-        <tr>
-            <td>Imię</td>
-            <td><input type="text" id="nameField"/><br/></td>
-            <td rowspan="3" id="imageView"></td>
-        </tr>
-        <tr>
-            <td>Nazwisko</td>
-            <td><input type="text" id="surnameField"/><br/></td>
-        </tr>
-        <tr>
-            <td>Avatar</td>
-            <td><input type="text" id="avatarField" name="imagePath" size="9" disabled="disabled"/>
-                <button type="button">Wybierz...</button>
-                <br/>
-            </td>
-        </tr>
-        <tr>
-            <td>URL</td>
-            <td><input type="text" id="avatarURL" name="imageUrl"></td>
-            <td><button id="viewButton" type="button">Podgląd</button></td>
-        </tr>
-        <tr>
-            <td>
-                <button id="addButton" type="submit">Dodaj</button>
-                <button type="reset">Reset</button>
-            </td>
-        </tr>
+<div class="header">
+    <div id="logo">
+        <img id="logoImage" src="dyzur.png"/>
+    </div>
+    <!--<div id="siteLogo">-->
+        <!--REZERWACJA DYŻURÓW-->
+    <!--</div>-->
+    <div id="addForm">
+        <div id="addFormTable">
+            <table id="headerTable">
+                <tr>
+                    <td>Name</td>
+                    <td colspan="2"><input type="text" id="nameField"/><br/></td>
+                    <td rowspan="3" align="right" id="imageView"><img id="avatarViewImage" src="noImage.png"></td>
+                </tr>
+                <tr>
+                    <td>Surname</td>
+                    <td colspan="2"><input type="text" id="surnameField"/><br/></td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td>Avatar</td>-->
+                    <!--<td><input type="text" id="avatarField" name="imagePath" size="9" disabled="disabled"/>-->
+                        <!--<button type="button">Wybierz...</button>-->
+                        <!--<br/>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td>Avatar URL</td>
+                    <td><input type="text" id="avatarURL" name="imageUrl"></td>
+                    <td align="right"><button id="viewButton" type="button">View</button></td>
+                </tr>
+            </table>
+        </div>
+        <div id="addFormButtons">
+            <table width="100%">
+                <tr>
+                    <td id="addButtonTd">
+                        <button id="addButton">Add person</button>
+                    </td>
+                    <td id="resetButtonTd">
+                        <button id="resetButton">Reset</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="removeForm" align="center">
+        <button type="submit" id="deleteButton">Remove selected</button>
+    </div>
+</div>
+<div class="content">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Avatar</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+        </thead>
+        <!--<tfoot>-->
+            <!--<tr>-->
+                <!--<th>Id</th>-->
+                <!--<th>Avatar</th>-->
+                <!--<th>Name</th>-->
+                <!--<th>Surname</th>-->
+            <!--</tr>-->
+        <!--</tfoot>-->
+        <tbody id="tbodyy">
+
+        </tbody>
     </table>
 </div>
-<div id="removeForm">
-    <button type="submit" id="deleteButton">Usuń</button>
-</div>
-<table id="example" class="display" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Avatar</th>
-            <th>Name</th>
-            <th>Surname</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th>Id</th>
-            <th>Avatar</th>
-            <th>Name</th>
-            <th>Surname</th>
-        </tr>
-    </tfoot>
-    <tbody id="tbodyy">
-
-    </tbody>
-</table>
-
-
 </body>
 </html>

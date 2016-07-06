@@ -1,0 +1,104 @@
+$headerColor: rgb(150,150,150);
+$headerSize: 120px;
+
+.avatars {
+  max-width: 100%;
+}
+#avatarViewImage {
+  height: $headerSize - 50;
+}
+html body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+#logo {
+  width: 50%;
+  height: $headerSize;
+  align-items: center;
+  align-content: center;
+  background-color: $headerColor;
+  float: left;
+}
+#logoImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+#addButtonTd {
+  width: 50%;
+}
+#resetButtonTd {
+  width: 50%;
+}
+#addButton {
+  width: 100%;
+}
+#resetButton {
+  width: 100%;
+}
+#addForm {
+  width: 30%;
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  height: $headerSize;
+  padding: 0;
+  margin: 0;
+  float: left;
+  background-color: $headerColor;
+  #addFormTable {
+    #headerTable {
+
+    }
+  }
+}
+#headerTable {
+  background-color: $headerColor;
+  width: 100%;
+}
+#nameField {
+  width: 100%;
+}
+#surnameField {
+  width: 100%;
+}
+#removeForm {
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  width: 20%;
+  height: $headerSize;
+  padding: 0;
+  margin: 0;
+  float: right;
+  background-color: $headerColor;
+  #deleteButton {
+    width: 30%;
+    height: 80%;
+    //align-items: center;
+
+    //align-items: right;
+  }
+}
+​.header {
+  height:$headerSize;
+}
+.content {
+  position: absolute;
+  top: $headerSize;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow-y: scroll;
+}
+tr td {
+  margin: 0;
+  padding: 0;
+}
+button {
+  border: 0;
+  min-height: 20px;
+  &:hover {
+    background-color: rgb(200,200,200);
+  }
+}

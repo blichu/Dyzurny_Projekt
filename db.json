@@ -1,46 +1,34 @@
 {
   "lol": [
     {
-      "id": 0,
-      "name": "Wojtek",
-      "surname": "Strach",
-      "avatarLink": "http://m.ppe.pl/upload/images/articles/20/26/91/2026916063.jpg"
-    },
-    {
-      "id": 1,
-      "name": "Kamil",
-      "surname": "Kot",
-      "avatarLink": "http://www.z-cartoon.pl/uploads/5/7/2/4/5724732/2002683_orig.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Maciej",
-      "surname": "Blicharz",
-      "avatarLink": "http://m.ppe.pl/upload/images/articles/20/26/91/2026916063.jpg"
-    },
-    {
-      "id": 3,
-      "name": "asdas",
-      "surname": "asdasd",
-      "avatarLink": "http://www.z-cartoon.pl/uploads/5/7/2/4/5724732/2002683_orig.jpg"
-    },
-    {
-      "name": "asdfasdf",
-      "surname": "asdfasdf",
-      "avatar": "",
-      "id": 4
-    },
-    {
-      "name": "Janek",
-      "surname": "Bazan",
-      "avatar": "",
-      "id": 5
-    },
-    {
-      "name": "",
-      "surname": "",
-      "avatar": "",
+      "name": "Zbigniew",
+      "surname": "Suraj",
+      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
       "id": 6
+    },
+    {
+      "name": "Jan",
+      "surname": "Bazan",
+      "avatarLink": "http://fenix.univ.rzeszow.pl/bazan/jbazan.jpg",
+      "id": 7
+    },
+    {
+      "name": "Rafał",
+      "surname": "Rak",
+      "avatarLink": "http://www.ur.edu.pl/image/72070/default/Rafal_Rak.jpg",
+      "id": 8
+    },
+    {
+      "name": "Katarzyna",
+      "surname": "Gawrol",
+      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/kgarwol1.jpg",
+      "id": 43
+    },
+    {
+      "name": "Piotr",
+      "surname": "Grochowalski",
+      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/grochowalski.gif",
+      "id": 44
     }
   ]
 }
