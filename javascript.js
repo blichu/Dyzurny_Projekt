@@ -6,9 +6,9 @@ $(document).ready(function () {
 
 function addRowToTable(id, avatarLink, name, surname){
     $("#tbodyy")
-                .append("" +
-                    "<tr id='" + id + "'><td><img class=\"avatars\" src=" + avatarLink + "></td>" +
-                    "<td>" + name + "</td>" + "<td>" + surname + "</td></tr>");
+        .append("" +
+            "<tr id='" + id + "'><td><img class=\"avatars\" src=" + avatarLink + "></td>" +
+            "<td>" + name + "</td>" + "<td>" + surname + "</td></tr>");
 }
 
 function loadData() {
