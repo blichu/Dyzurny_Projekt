@@ -10,7 +10,7 @@ function clearForm(formName){
         $('#nameField').val('');
         $('#surnameField').val('');
     }
-    //TODO: Dodać kolejne formy, jeśli się nowe pojawią :)
+    //TODO: Dodać kolejne formy, jeśli się nowe pojawią :)))
 }
 
 function addRowToTable(id, avatarLink, name, surname){
