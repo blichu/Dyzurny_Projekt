@@ -1,4 +1,5 @@
 var response;
+var tableGlobal;
 
 $(document).ready(function () {
     loadData();
@@ -24,16 +25,17 @@ function loadData() {
 };
 
 function buildTable() {
-    $(document).ready(function () {
+    // $(document).ready(function () {
         var table = $('#example').dataTable({
             "paging": false,
             "columnDefs": [
                 {"width": "5%", "targets": 0}
             ]
         });
-        selectRowAction(table);
+    this.tableGlobal = table;
+    selectRowAction(table);
         removeButtonAction(table);
-    });
+    // });
 }
 
 function removeButtonAction(table) {
@@ -60,6 +62,8 @@ function addData() {
                                             avatar: $('#avatarField').val()})
         .done(function( data ) {
             addRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
+            selectRowAction(tableGlobal);
+            removeButtonAction(tableGlobal);
         });
 
 }
