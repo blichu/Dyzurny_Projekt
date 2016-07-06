@@ -1,8 +1,10 @@
 var response;
+var tableGlobal;
 
 $(document).ready(function () {
     initLoadData();
 });
+
 function clearForm(formName){
     if(formName == "addForm"){
         $('#nameField').val('');
@@ -10,6 +12,7 @@ function clearForm(formName){
     }
     //TODO: Dodać kolejne formy, jeśli się nowe pojawią :)
 }
+
 function addRowToTable(id, avatarLink, name, surname){
     $("#tbodyy")
         .append("" +
@@ -65,6 +68,7 @@ function buildTable() {
     selectRowAction(table);
     removeButtonAction(table);
     addButtonAction(table);
+    viewButtonAction();
     // }
 }
 function selectRowAction(table) {
@@ -77,6 +81,14 @@ function selectRowAction(table) {
             $(this).addClass('selected');
         }
     });
+}
+
+function addData() {
+    $.post("http://localhost:3000/lol", {
+        name: $('#nameField').val(),
+        surname: $('#surnameField').val(),
+        avatar: $('#avatarURL').val()
+    })
 }
 function removeButtonAction(table) {
     $('#deleteButton').click(function () {
@@ -94,12 +106,19 @@ function addButtonAction(table) {
             avatar: $('#avatarField').val()
         })
         .done(function( data ) {
-            // addRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
-            correctAddRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
+            // addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
+            // selectRowAction(tableGlobal);
+            // removeButtonAction(tableGlobal);
+            correctAddRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
             clearForm("addForm");
         });
     });
     // $('#addButton').click();
+}
+function viewButtonAction() {
+    $("#viewButton").click(function () {
+        document.getElementById("imageView").innerHTML = "<img height='200px' src='" + $('#avatarURL').val() + "'>";
+    });
 }
 function removeData(id) {
     $.ajax({

@@ -14,6 +14,7 @@
         <tr>
             <td>Imię</td>
             <td><input type="text" id="nameField"/><br/></td>
+            <td rowspan="3" id="imageView"></td>
         </tr>
         <tr>
             <td>Nazwisko</td>
@@ -23,62 +24,41 @@
             <td>Avatar</td>
             <td><input type="text" id="avatarField" name="imagePath" size="9" disabled="disabled"/>
                 <button type="button">Wybierz...</button>
-                <br/></td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td><input type="text" id="avatarURL" name="imageUrl"></td>
+            <td><button id="viewButton" type="button">Podgląd</button></td>
         </tr>
         <tr>
             <td>
                 <button id="addButton" type="submit">Dodaj</button>
-                <!--<button type="reset">Reset</button>-->
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="javascript:removeData()">
-    <table>
-        <tr>
-            <td>
-                Imię
-            </td>
-            <td>
-                <select name="nameSelect">
-
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Nazwisko
-            </td>
-            <td>
-                <select name="surnameSelect">
-
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button type="submit" id="deleteButton">Usuń</button>
                 <button type="reset">Reset</button>
             </td>
         </tr>
     </table>
 </div>
+<div id="removeForm">
+    <button type="submit" id="deleteButton">Usuń</button>
+</div>
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
-    <tr>
-        <th>Id</th>
-        <th>Avatar</th>
-        <th>Name</th>
-        <th>Surname</th>
-    </tr>
+        <tr>
+            <th>Id</th>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
     </thead>
     <tfoot>
-    <tr>
-        <th>Id</th>
-        <th>Avatar</th>
-        <th>Name</th>
-        <th>Surname</th>
-    </tr>
+        <tr>
+            <th>Id</th>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
     </tfoot>
     <tbody id="tbodyy">
 
