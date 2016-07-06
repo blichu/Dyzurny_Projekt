@@ -5,6 +5,15 @@ $(document).ready(function () {
     loadData();
 });
 
+function clearForm(){
+    // if(formName.isEqual("addForm")){
+    //     document.getElementById('nameField').value='';
+    $('#nameField').val('');
+    $('#surnameField').val('');
+        // document.getElementById('surnameField').value='';
+    // }
+}
+
 function addRowToTable(id, avatarLink, name, surname){
     $("#tbodyy")
         .append("" +
@@ -65,7 +74,7 @@ function addData() {
             selectRowAction(tableGlobal);
             removeButtonAction(tableGlobal);
         });
-
+    clearForm();
 }
 function removeData(id) {
     $.ajax({
