@@ -5,13 +5,12 @@ $(document).ready(function () {
     loadData();
 });
 
-function clearForm(){
-    // if(formName.isEqual("addForm")){
-    //     document.getElementById('nameField').value='';
-    $('#nameField').val('');
-    $('#surnameField').val('');
-        // document.getElementById('surnameField').value='';
-    // }
+function clearForm(formName){
+    if(formName == "addForm"){
+        $('#nameField').val('');
+        $('#surnameField').val('');
+    }
+    //TODO: Dodać kolejne formy, jeśli się nowe pojawią :)
 }
 
 function addRowToTable(id, avatarLink, name, surname){
@@ -73,7 +72,7 @@ function addData() {
             addRowToTable(data.id, $('#avatarField').val(), $('#nameField').val(), $('#surnameField').val());
             selectRowAction(tableGlobal);
             removeButtonAction(tableGlobal);
-            clearForm();
+            clearForm("addForm");
         });
 }
 function removeData(id) {
