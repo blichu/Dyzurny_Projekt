@@ -21,6 +21,7 @@ function loadData(clear) {
         if(! clear) {
             $(document).ready(function () {
                 var table = $('#example').dataTable({
+                    "paging": false,
                     "columnDefs": [
                         {"width": "5%", "targets": 0}
                     ]
@@ -44,9 +45,9 @@ function loadData(clear) {
     })
 };
 function addData() {
-    $.post( "http://localhost:3000/lol", {  name: "\"" + $('#nameField').val() + "\"",
-                                            surname: "\"" + $('#surnameField').val() + "\"",
-                                            avatar: "\"" + $('#avatarField').val() + "\""})
+    $.post( "http://localhost:3000/lol", {  name: $('#nameField').val(),
+                                            surname: $('#surnameField').val(),
+                                            avatar: $('#avatarField').val()})
         .done(function( data ) {
             // $("#tbodyy")
             //     .append("" +
