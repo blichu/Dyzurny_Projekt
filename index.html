@@ -2,26 +2,47 @@
 <head>
     <meta charset="UTF-8">
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-    <script src="jquery.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-1.12.3.js"></script>-->
+    <!--&lt;!&ndash;<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>&ndash;&gt;-->
+
     <script src="jquery2.js"></script>
 
 
 
-    <!--<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>-->
+
+    <script src="jquery.js"></script>
+
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+    <!--&lt;!&ndash;<script src="https://code.jquery.com/jquery-1.12.3.js"></script>&ndash;&gt;-->
+
+
+
+    <!--&lt;!&ndash;<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>&ndash;&gt;-->
     <script src="dataTables.js"></script>
-    <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">-->
-    <!--<link rel="stylesheet" href="dataTables.css">-->
+    <script src="javascript.js"></script>
+    <!--&lt;!&ndash;<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">&ndash;&gt;-->
+    <link rel="stylesheet" href="dataTables.css">
     <link rel="stylesheet" href="dataTablesEdited.css">
 
-    <script src="javascript.js"></script>
+    <!--<script src="javascript.js"></script>-->
     <link rel="stylesheet" href="style.css">
+
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
+    <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css" />-->
 </head>
 <body>
 <div class="header">
     <div id="logo">
-        <img id="logoImage" src="dyzur.png"/>
+        <img id="logoImage" src="logoConnectedDigital.svg"/>
     </div>
     <!--<div id="siteLogo">-->
         <!--REZERWACJA DYŻURÓW-->
@@ -70,27 +91,105 @@
     </div>
 </div>
 <div id="content">
-    <table id="example" class="display" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Avatar</th>
-                <th>Name</th>
-                <th>Surname</th>
-            </tr>
-        </thead>
-        <!--<tfoot>-->
+    <div id="table">
+        <!--<table id="tableee" class="display" cellspacing="0">-->
+            <!--<thead>-->
             <!--<tr>-->
                 <!--<th>Id</th>-->
                 <!--<th>Avatar</th>-->
                 <!--<th>Name</th>-->
                 <!--<th>Surname</th>-->
             <!--</tr>-->
-        <!--</tfoot>-->
-        <tbody id="tbodyy">
+            <!--</thead>-->
+            <!--&lt;!&ndash;<tfoot>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Id</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Avatar</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Name</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;<th>Surname</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tfoot>&ndash;&gt;-->
+            <!--<tbody id="tbodyy">-->
 
-        </tbody>
-    </table>
+            <!--</tbody>-->
+        <!--</table>-->
+        <!--<table id="htmlTable">-->
+            <!--<tr id="htmlTableTop">-->
+                <!--<td style='height: 50px'>-->
+                    <!--Avatar-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--Name-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--Surname-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+        <ol id="selectable">
+            <li class="ui-state-default">
+                <table width="100%">
+                    <tr>
+                        <td style="text-align: center; width: 10%">
+                            Avatar
+                        </td>
+                        <td style="text-align: center; width: 45%">
+                            Name
+                        </td>
+                        <td style="text-align: center; width: 45%">
+                            Surname
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+
+    </div>
+    <div id="calandar">
+        <div id="calandarBanner">
+            Sierpień 2016
+        </div>
+        <div class="weekdays">
+            <span>Poniedziałek</span>
+        </div>
+        <div class="weekdays">
+            Wtorek
+        </div>
+        <div class="weekdays">
+            Środa
+        </div>
+        <div class="weekdays">
+            Czwartek
+        </div>
+        <div class="weekdays">
+            Piątek
+        </div>
+        <div id="dayscontainter">
+            <div id="container1" class="daysdivs panel-body box-container" style="background-color: crimson">
+                <div itemid="itm-1" class="drag btn btn-default box-item"></div>
+                <div itemid="itm-2" class="drag btn btn-default box-item"></div>
+            </div>
+            <div id="container2" class="daysdivs panel-body box-container" style="background-color: darkorange">
+                <div itemid="itm-3" class="drag btn btn-default box-item"></div>
+                <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
+            </div>
+            <div id="container3" class="daysdivs panel-body box-container" style="background-color: blue">
+                <div itemid="itm-4" class="drag btn btn-default box-item"></div>
+                <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
+            </div>
+            <div id="container4" class="daysdivs panel-body box-container" style="background-color: green">
+                <div itemid="itm-5" class="drag btn btn-default box-item"></div>
+                <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
+            </div>
+            <div id="container5" class="daysdivs panel-body box-container" style="background-color: black">
+                <div itemid="itm-6" class="drag btn btn-default box-item"></div>
+                <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 </body>
 </html>

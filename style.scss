@@ -1,10 +1,20 @@
-$headerColor: rgb(150,150,150);
+$headerColor: #ffab44;
+$headerButtons: #ff9c38;
+$headerButtonsBorder: #ff8426;
 $headerSize: 120px;
 $lightGrey: rgb(220,220,220);
 $darkGrey: rgb(200,200,200);
 
 .avatars {
   max-width: 100%;
+}
+#feedback { font-size: 1.4em; }
+#selectable .ui-selecting { background: #FECA40; }
+#selectable .ui-selected { background: #F39814; color: white; }
+#selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+#selectable li { margin: 3px; padding: 1px; float: left; width: 95%; height: 80px; font-size: 1em; text-align: center; }
+#container1 {
+  background-color: red;
 }
 #avatarViewImage {
   height: $headerSize - 50;
@@ -48,11 +58,6 @@ html body {
   margin: 0;
   float: left;
   background-color: $headerColor;
-  #addFormTable {
-    #headerTable {
-
-    }
-  }
 }
 #example_filter {
   background-color: $darkGrey;
@@ -60,7 +65,8 @@ html body {
 }
 #example_info {
   background-color: $lightGrey;
-}#example_wrapper {
+}
+#example_wrapper {
   background-color: $lightGrey;
 }
 #headerTable {
@@ -83,12 +89,12 @@ html body {
   margin: 0;
   float: right;
   background-color: $headerColor;
-  #deleteButton {
-    width: 30%;
-    height: 80%;
-    //align-items: center;
-    //align-items: right;
-  }
+}
+#deleteButton {
+  width: 30%;
+  height: 80%;
+  //align-items: center;
+  //align-items: right;
 }
 ​.header {
   height:$headerSize;
@@ -107,8 +113,12 @@ html body {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  width: 30%;
   height: auto;
+
+}
+#table {
+  width: 30%;
+  float: left;
   overflow-y: scroll;
   & td {
     text-align: center;
@@ -123,17 +133,98 @@ html body {
     background-color: rgb(100,100,100);
     outline: 1px solid slategrey;
   }
+  background-color: rgb(210,210,210);
+  height: 100%;
+
+}
+
+//tr td {
+//  margin: 0;
+//  padding: 0;
+//}
+button {
+  background-color: $headerButtons;
+  border-color: $headerButtonsBorder;
+  border-style: solid;
+  border-width: 2px;
+  //border
+  min-height: 20px;
+  &:hover {
+    //background-color:;
+  }
 }
 
 
-tr td {
+
+
+
+.box-container {
+  height: 200px;
+}
+
+
+
+
+.box-item {
+  width: 100%;
+  z-index: 1000
+}
+#calandar {
+  width: 70%;
+  float: right;
+}
+#calandarBanner {
+  text-align: center;
+  height: 10%;
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  background-color: #359A35;
+}
+.weekdays {
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  width: 20%;
+  background-color:#ddd;
+  float: left;
+  text-align: center;
+  height: 5%;
+}
+#dayscontainter {
+  width: 100%;
+}
+.drag {
+  width: 100px;
+  background-color: darkslateblue;
+  height: 20px;
+  padding: 50px;
+  clear: both;
+  text-align: center;
+}
+.daysdivs{
+  width: 20%;
+  float: left;
+  height: 20%;
+}
+#htmlTable {
+  width: 100%;
+}
+#htmlTable tr td {
+  border: 5px;
+}
+#htmlTableTop {
+  background-color: $darkGrey;
+  height: 10%;
+}
+#htmlTableTop tr td {
   margin: 0;
   padding: 0;
 }
-button {
-  border: 0;
-  min-height: 20px;
-  &:hover {
-    background-color: rgb(200,200,200);
-  }
-}
+
+
+
+
+
+
+
