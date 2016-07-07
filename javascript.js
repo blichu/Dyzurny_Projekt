@@ -118,7 +118,7 @@ function addButtonAction(table) {
             // addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
             // selectRowAction(tableGlobal);
             // removeButtonAction(tableGlobal);
-            correctAddRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
+            correctAddRowToTable(data.id, "<img class='avatars' src='" + $('#avatarURL').val() + "'>", $('#nameField').val(), $('#surnameField').val());
             clearForm("addForm");
         });
     });
