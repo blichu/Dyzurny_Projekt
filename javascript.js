@@ -115,7 +115,7 @@ function addButtonAction(table) {
             avatar: $('#avatarField').val()
         })
         .done(function( data ) {
-            // addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
+            // addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());;
             // selectRowAction(tableGlobal);
             // removeButtonAction(tableGlobal);
             correctAddRowToTable(data.id, "<img class='avatars' src='" + $('#avatarURL').val() + "'>", $('#nameField').val(), $('#surnameField').val());
