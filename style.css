@@ -45,6 +45,16 @@ html body {
   float: left;
   background-color: #969696; }
 
+#example_filter {
+  background-color: #c8c8c8;
+  width: 100%; }
+
+#example_info {
+  background-color: gainsboro; }
+
+#example_wrapper {
+  background-color: gainsboro; }
+
 #headerTable {
   background-color: #969696;
   width: 100%; }
@@ -72,8 +82,14 @@ html body {
 ​.header {
   height: 120px; }
 
+.sorting {
+  background-color: #c8c8c8; }
+
+#example_wrapper {
+  background-color: gainsboro; }
+
 #content {
-  background-color: #c8c8c8;
+  background-color: gainsboro;
   position: absolute;
   top: 120px;
   left: 0px;
@@ -82,16 +98,15 @@ html body {
   width: 30%;
   height: auto;
   overflow-y: scroll; }
-
-#content::-webkit-scrollbar {
-  width: 1em; }
-
-#content::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
-
-#content::-webkit-scrollbar-thumb {
-  background-color: #646464;
-  outline: 1px solid slategrey; }
+  #content td {
+    text-align: center; }
+  #content::-webkit-scrollbar {
+    width: 1em; }
+  #content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+  #content::-webkit-scrollbar-thumb {
+    background-color: #646464;
+    outline: 1px solid slategrey; }
 
 tr td {
   margin: 0;

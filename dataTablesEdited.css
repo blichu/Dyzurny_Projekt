@@ -1,15 +1,7 @@
 /*
  * Table styles
  */
-.content td {
-    text-align: center;
-}
-.sorting {
-    background-color: rgb(200,200,200);
-}
-#example_wrapper {
-    background-color: rgb(200,200,200);
-}
+
 table.dataTable {
     width: 100%;
     margin: 0 auto;

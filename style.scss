@@ -1,5 +1,7 @@
 $headerColor: rgb(150,150,150);
 $headerSize: 120px;
+$lightGrey: rgb(220,220,220);
+$darkGrey: rgb(200,200,200);
 
 .avatars {
   max-width: 100%;
@@ -52,6 +54,15 @@ html body {
     }
   }
 }
+#example_filter {
+  background-color: $darkGrey;
+  width: 100%;
+}
+#example_info {
+  background-color: $lightGrey;
+}#example_wrapper {
+  background-color: $lightGrey;
+}
 #headerTable {
   background-color: $headerColor;
   width: 100%;
@@ -76,15 +87,21 @@ html body {
     width: 30%;
     height: 80%;
     //align-items: center;
-
     //align-items: right;
   }
 }
 ​.header {
   height:$headerSize;
 }
+
+.sorting {
+  background-color: $darkGrey;
+}
+#example_wrapper {
+  background-color: $lightGrey;
+}
 #content {
-  background-color: rgb(200,200,200);
+  background-color: $lightGrey;
   position: absolute;
   top: $headerSize;
   left: 0px;
@@ -93,19 +110,22 @@ html body {
   width: 30%;
   height: auto;
   overflow-y: scroll;
-}
-#content::-webkit-scrollbar {
-  width: 1em;
+  & td {
+    text-align: center;
+  }
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(100,100,100);
+    outline: 1px solid slategrey;
+  }
 }
 
-#content::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
 
-#content::-webkit-scrollbar-thumb {
-  background-color: rgb(100,100,100);
-  outline: 1px solid slategrey;
-}
 tr td {
   margin: 0;
   padding: 0;
