@@ -1,0 +1,114 @@
+@charset "UTF-8";
+#calendar{
+    width: 1000px;
+    height: 600px;
+    background-color: #58959a;
+}
+
+#top{
+    display: block;
+    width: 100%;
+    height: 10%;
+    background-color: #8b8b8b;
+}
+
+.centeredText{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#buttonLeft{
+    display: block;
+    width: 10%;
+    height: 100%;
+    background-color: #359A35;
+    float: left;
+    text-align: center;
+}
+
+#buttonLeft:hover{
+    background-color: #9a1725;
+}
+
+#buttonRight{
+    display: block;
+    width: 10%;
+    height: 100%;
+    background-color: #359A35;
+    float: left;
+    text-align: center;
+}
+
+#buttonRight:hover{
+    background-color: #9a1725;
+}
+
+#monthName{
+    float: left;
+    width: 80%;
+    height: 100%;
+    background-color: #455e9a;
+    text-align: center;
+}
+
+#weeksNumbers{
+    width: 10%;
+    height: 90%;
+    background-color: #94219a;
+    text-align: center;
+    float: left;
+}
+
+.weeksLayout{
+    height: 20%;
+    background-color: #0b9a09;
+    text-align: center;
+}
+
+.weeksInLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: 70%;
+    background-color: #0dd90b;
+}
+
+#days{
+    float: left;
+    background-color: #d90d0a;
+    width: 90%;
+    height: 90%;
+}
+
+.weekDaysLayout{
+    width: 100%;
+    height: 20%;
+    background-color: #0dd90b;
+}
+
+.daysLayout{
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: #0b9a09;
+}
+
+.daysInLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 90%;
+    background-color: #0dd90b;
+    text-align: center;
+}
+
+.daysInLayout:hover{
+    background-color: #9a1725;
+}
