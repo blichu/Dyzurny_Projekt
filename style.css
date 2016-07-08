@@ -1,4 +1,15 @@
 @charset "UTF-8";
+.tableElement {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: none;
+  pointer-events: none; }
+
+#columnHeader {
+  background-color: #646464; }
+
 .avatars {
   max-width: 100%; }
 
@@ -41,8 +52,9 @@ html body {
 #logo {
   width: 50%;
   height: 120px;
-  align-items: center;
-  align-content: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: #ffab44;
   float: left; }
 
@@ -127,7 +139,7 @@ html body {
   height: auto; }
 
 #table {
-  width: 30%;
+  width: 30em;
   float: left;
   overflow-y: scroll;
   background-color: #d2d2d2;
@@ -144,10 +156,13 @@ html body {
 
 button {
   background-color: #ff9c38;
-  border-color: #ff8426;
+  border-color: #ff8444;
   border-style: solid;
   border-width: 2px;
   min-height: 20px; }
+  button:hover {
+    background-color: #ff8238;
+    border-color: #ff7124; }
 
 .box-container {
   height: 200px; }
@@ -182,9 +197,9 @@ button {
   width: 100%; }
 
 .drag {
-  width: 100px;
-  height: 20px;
-  clear: both;
+  width: 20em;
+  height: 100px;
+  clear: left;
   text-align: center; }
 
 .daysdivs {

@@ -1,10 +1,24 @@
-$headerColor: #ffab44;
-$headerButtons: #ff9c38;
-$headerButtonsBorder: #ff8426;
+$headerColor: rgb(255,171,68);
+$headerButtons: rgb(255,156,56);
+$headerButtonsBorder: rgb(255,132,68);
+$headerButtonsHover: rgb(255,130,56);
+$headerButtonsBorderHover: rgb(255,113,36);
 $headerSize: 120px;
 $lightGrey: rgb(220,220,220);
 $darkGrey: rgb(200,200,200);
 
+.tableElement {
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  pointer-events: none;
+  pointer-events: none;
+
+}
+#columnHeader {
+  background-color: rgb(100,100,100);
+}
 .avatars {
   max-width: 100%;
 }
@@ -27,8 +41,9 @@ html body {
 #logo {
   width: 50%;
   height: $headerSize;
-  align-items: center;
-  align-content: center;
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
   background-color: $headerColor;
   float: left;
 }
@@ -117,7 +132,7 @@ html body {
 
 }
 #table {
-  width: 30%;
+  width: 30em;
   float: left;
   overflow-y: scroll;
   & td {
@@ -150,7 +165,8 @@ button {
   //border
   min-height: 20px;
   &:hover {
-    //background-color:;
+    background-color: $headerButtonsHover;
+    border-color: $headerButtonsBorderHover;
   }
 }
 
@@ -195,11 +211,11 @@ button {
   width: 100%;
 }
 .drag {
-  width: 100px;
+  width: 20em;
   //background-color: darkslateblue;
-  height: 20px;
+  height: 100px;
   //padding: 50px;
-  clear: both;
+  clear: left;
   text-align: center;
 }
 .daysdivs{
