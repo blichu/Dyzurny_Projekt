@@ -15,8 +15,9 @@
     <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+    <script type="text/javascript" src="jquery-ui.min.js"></script> <!--https://code.jquery.com/ui/1.11.4/jquery-ui.min.js-->
+
 
     <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
     <!--&lt;!&ndash;<script src="https://code.jquery.com/jquery-1.12.3.js"></script>&ndash;&gt;-->
@@ -126,9 +127,10 @@
                 <!--</td>-->
             <!--</tr>-->
         <!--</table>-->
+
         <ol id="selectable">
             <li class="ui-state-default">
-                <table width="100%">
+             <!--   <table width="100%">
                     <tr>
                         <td style="text-align: center; width: 10%">
                             Avatar
@@ -140,7 +142,16 @@
                             Surname
                         </td>
                     </tr>
-                </table>
+                </table>-->
+                <div style="float: left; width: 33%">
+                    Avatar
+                </div>
+                <div style="float: left; width: 33%">
+                    Name
+                </div>
+                <div style="float: left; width: 33%">
+                    Surname
+                </div>
             </li>
         </ol>
 
@@ -166,25 +177,43 @@
         </div>
         <div id="dayscontainter">
             <div id="container1" class="daysdivs panel-body box-container" style="background-color: crimson">
-                <div itemid="itm-1" class="drag btn btn-default box-item"></div>
-                <div itemid="itm-2" class="drag btn btn-default box-item"></div>
-            </div>
-            <div id="container2" class="daysdivs panel-body box-container" style="background-color: darkorange">
-                <div itemid="itm-3" class="drag btn btn-default box-item"></div>
+                <!--<div itemid="itm-1" class="drag btn btn-default box-item"></div>-->
                 <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
             </div>
-            <div id="container3" class="daysdivs panel-body box-container" style="background-color: blue">
-                <div itemid="itm-4" class="drag btn btn-default box-item"></div>
-                <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
-            </div>
-            <div id="container4" class="daysdivs panel-body box-container" style="background-color: green">
-                <div itemid="itm-5" class="drag btn btn-default box-item"></div>
-                <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
-            </div>
-            <div id="container5" class="daysdivs panel-body box-container" style="background-color: black">
-                <div itemid="itm-6" class="drag btn btn-default box-item"></div>
-                <!--<div itemid="itm-2" class="drag btn btn-default box-item"></div>-->
-            </div>
+
+            <!--<table style="height: 100px; width: 100px">-->
+                <!--<tr>-->
+                    <!--<td itemid="itm-3" class="drag btn btn-default box-item" style="background-color: #8a8a8a"></td>-->
+                    <!--<td itemid="itm-4" class="drag btn btn-default box-item" style="background-color: red"></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td itemid="itm-5" class="drag btn btn-default box-item" style="background-color: beige"></td>-->
+                    <!--<td itemid="itm-6" class="drag btn btn-default box-item" style="background-color: green"></td>-->
+                <!--</tr>-->
+            <!--</table>-->
+            <!--<ol>-->
+                <!--<li itemid="itm-3" class="drag btn btn-default box-item" style="background-color: #8a8a8a"></li>-->
+                <!--<li itemid="itm-4" class="drag btn btn-default box-item" style="background-color: #8a8a8a"></li>-->
+                <!--<li itemid="itm-5" class="drag btn btn-default box-item" style="background-color: #8a8a8a"></li>-->
+                <!--<li itemid="itm-6" class="drag btn btn-default box-item" style="background-color: #8a8a8a"></li>-->
+            <!--</ol>-->
+            <!--</div>-->
+            <!--<div id="container2" class="daysdivs panel-body box-container" style="background-color: darkorange">-->
+                <!--<div itemid="itm-3" class="drag btn btn-default box-item"></div>-->
+                <!--&lt;!&ndash;<div itemid="itm-2" class="drag btn btn-default box-item"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div id="container3" class="daysdivs panel-body box-container" style="background-color: blue">-->
+                <!--<div itemid="itm-4" class="drag btn btn-default box-item"></div>-->
+                <!--&lt;!&ndash;<div itemid="itm-2" class="drag btn btn-default box-item"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div id="container4" class="daysdivs panel-body box-container" style="background-color: green">-->
+                <!--<div itemid="itm-5" class="drag btn btn-default box-item"></div>-->
+                <!--&lt;!&ndash;<div itemid="itm-2" class="drag btn btn-default box-item"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div id="container5" class="daysdivs panel-body box-container" style="background-color: black">-->
+                <!--<div itemid="itm-6" class="drag btn btn-default box-item"></div>-->
+                <!--&lt;!&ndash;<div itemid="itm-2" class="drag btn btn-default box-item"></div>&ndash;&gt;-->
+            <!--</div>-->
 
         </div>
 

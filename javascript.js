@@ -1,9 +1,10 @@
 var response;
-var tableGlobal;
+var itmId;
 
 $(document).ready(function () {
+    itmId = 1;
     initLoadData();
-    $( "#selectable" ).selectable();
+    // $( "#selectable" ).selectable();
     $('.box-item').draggable({
         cursor: 'move',
         helper: "clone"
@@ -67,7 +68,6 @@ function clearForm(formName){
         $('#imageView').html("<img height='70px' class='avatars' src='noImage.png'>");
         // document.getElementById("imageView").innerHTML = "<img height='70px' class='avatars' src='noImage.png'>";
     }
-    //TODO: Dodać kolejne formy, jeśli się nowe pojawią :)
 }
 
 function resetButtonAction(){
@@ -93,29 +93,25 @@ function addRowToTable(id, avatarLink, name, surname){
 //         surname +
 //         "</td>" +
 //         "</tr>");
-    $("#selectable").append("" +
-    '<li id=' + id + ' width="100%" class="ui-state-default">' +
-        '<table width="100%">' +
-            '<tr>' +
-                '<td style="width: 10%">' +
-                    '<img class=\"avatars\" src="' + avatarLink + '"/>' +
-                '</td>' +
-                '<td style="width: 45%" style="text-align: center">' +
-                    name +
-                '</td>' +
-                '<td style="width: 45%" style="text-align: center">' +
-                    surname +
-                '</td>' +
-            '</tr>' +
-        '</table>' +
-    '</li>');
+    $("#selectable").append('' +
+        '<li itemid="' + itmId + '"' + id + ' class="ui-state-default">' +
+            '<div style="float: left; width: 33%">' +
+                avatarLink +
+            '</div>' +
+            '<div style="float: left; width: 33%">' +
+                name +
+            '</div>' +
+            '<div style="float: left; width: 33%">' +
+                surname +
+            '</div>' +
+        '</li>');
+    itmId = itmId + 1;
 }
 function initLoadData() {
     $.get("http://localhost:3000/lol", function (r) {
         response = r;
         for (var i = 0; i < response.length; i++) {
-            lastId = response[i].id;
-            addRowToTable(lastId, response[i].avatarLink, response[i].name, response[i].surname);
+            addRowToTable(response[i].id, response[i].avatarLink, response[i].name, response[i].surname);
         }
         buildTable();
     })
@@ -160,7 +156,7 @@ function removeButtonAction() {
         $('.ui-selected').remove();
     });
 }
-function addButtonAction(table) {
+function addButtonAction() {
     $('#addButton').click(function () {
         $.post( "http://localhost:3000/lol", {
             name: $('#nameField').val(),
