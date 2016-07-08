@@ -61,7 +61,7 @@
 }
 
 .weeksLayout{
-    height: 20%;
+    height: 16.67%;
     background-color: #0b9a09;
     text-align: center;
 }
@@ -86,13 +86,13 @@
 
 .weekDaysLayout{
     width: 100%;
-    height: 20%;
+    height: 16.67%;
     background-color: #0dd90b;
 }
 
 .daysLayout{
     float: left;
-    width: 20%;
+    width: 14.285%;
     height: 100%;
     background-color: #0b9a09;
 }
@@ -112,3 +112,4 @@
 .daysInLayout:hover{
     background-color: #9a1725;
 }
+/*lol*/

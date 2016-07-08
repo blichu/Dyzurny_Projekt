@@ -4,21 +4,22 @@
     <link rel="stylesheet" href="calendar.css">
     <meta charset="UTF-8">
     <title>Kalendarz</title>
+    <script src="calendar.js"></script>
 </head>
 <body>
     <div id="calendar">
         <div id="top">
-            <div id="buttonLeft">
+            <div id="buttonLeft" class="lol" onclick="buttonLeftAction()">
                 <div class="centeredText">
                     <<
                 </div>
             </div>
             <div id="monthName">
-                <div class="centeredText">
+                <div id="monthNameText" class="centeredText">
                     Miesiąc
                 </div>
             </div>
-            <div id="buttonRight">
+            <div id="buttonRight" onclick="buttonRightAction()">
                 <div class="centeredText">
                     >>
                 </div>
@@ -60,6 +61,13 @@
                     </div>
                 </div>
             </div>
+            <div class="weeksLayout">
+                <div class="weeksInLayout">
+                    <div class="centeredText">
+                        6
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="days">
             <div class="weekDaysLayout">
@@ -98,40 +106,17 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="weekDaysLayout">
                 <div class="daysLayout">
                     <div class="daysInLayout">
                         <div class="centeredText">
-                            1
+                            6
                         </div>
                     </div>
                 </div>
                 <div class="daysLayout">
                     <div class="daysInLayout">
                         <div class="centeredText">
-                            2
-                        </div>
-                    </div>
-                </div>
-                <div class="daysLayout">
-                    <div class="daysInLayout">
-                        <div class="centeredText">
-                            3
-                        </div>
-                    </div>
-                </div>
-                <div class="daysLayout">
-                    <div class="daysInLayout">
-                        <div class="centeredText">
-                            4
-                        </div>
-                    </div>
-                </div>
-                <div class="daysLayout">
-                    <div class="daysInLayout">
-                        <div class="centeredText">
-                            5
+                            7
                         </div>
                     </div>
                 </div>
@@ -172,40 +157,17 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="weekDaysLayout">
                 <div class="daysLayout">
                     <div class="daysInLayout">
                         <div class="centeredText">
-                            1
+                            6
                         </div>
                     </div>
                 </div>
                 <div class="daysLayout">
                     <div class="daysInLayout">
                         <div class="centeredText">
-                            2
-                        </div>
-                    </div>
-                </div>
-                <div class="daysLayout">
-                    <div class="daysInLayout">
-                        <div class="centeredText">
-                            3
-                        </div>
-                    </div>
-                </div>
-                <div class="daysLayout">
-                    <div class="daysInLayout">
-                        <div class="centeredText">
-                            4
-                        </div>
-                    </div>
-                </div>
-                <div class="daysLayout">
-                    <div class="daysInLayout">
-                        <div class="centeredText">
-                            5
+                            7
                         </div>
                     </div>
                 </div>
@@ -243,6 +205,173 @@
                     <div class="daysInLayout">
                         <div class="centeredText">
                             5
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            6
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            7
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weekDaysLayout">
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            1
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            2
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            3
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            5
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            6
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            7
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weekDaysLayout">
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            1
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            2
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            3
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            5
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            6
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            7
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weekDaysLayout">
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            1
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            2
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            3
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            5
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            6
+                        </div>
+                    </div>
+                </div>
+                <div class="daysLayout">
+                    <div class="daysInLayout">
+                        <div class="centeredText">
+                            7
                         </div>
                     </div>
                 </div>
@@ -251,3 +380,4 @@
     </div>
 </body>
 </html>
+<!--lol-->
