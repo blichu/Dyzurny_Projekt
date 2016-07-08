@@ -9,6 +9,10 @@ $(document).ready(function () {
         cursor: 'move',
         helper: "clone"
     });
+    $( "#container1" ).on( "drop", function( event, ui ) {
+        alert("123");
+    } );
+
     $("#container1").droppable({
         drop: function(event, ui) {
             var itemid = $(event.originalEvent.toElement).attr("itemid");
@@ -18,42 +22,12 @@ $(document).ready(function () {
                 }
             });
         }
-    });
-    $("#container2").droppable({
+    });$("#container2").droppable({
         drop: function(event, ui) {
             var itemid = $(event.originalEvent.toElement).attr("itemid");
             $('.box-item').each(function() {
                 if ($(this).attr("itemid") === itemid) {
                     $(this).appendTo("#container2");
-                }
-            });
-        }
-    });
-    $("#container3").droppable({
-        drop: function(event, ui) {
-            var itemid = $(event.originalEvent.toElement).attr("itemid");
-            $('.box-item').each(function() {
-                if ($(this).attr("itemid") === itemid) {
-                    $(this).appendTo("#container3");
-                }
-            });
-        }
-    });
-    $("#container4").droppable({
-        drop: function(event, ui) {
-            var itemid = $(event.originalEvent.toElement).attr("itemid");
-            $('.box-item').each(function() {
-                if ($(this).attr("itemid") === itemid) {
-                    $(this).appendTo("#container4");
-                }
-            });
-        }
-    }); $("#container5").droppable({
-        drop: function(event, ui) {
-            var itemid = $(event.originalEvent.toElement).attr("itemid");
-            $('.box-item').each(function() {
-                if ($(this).attr("itemid") === itemid) {
-                    $(this).appendTo("#container5");
                 }
             });
         }
@@ -93,19 +67,28 @@ function addRowToTable(id, avatarLink, name, surname){
 //         surname +
 //         "</td>" +
 //         "</tr>");
-    $("#selectable").append('' +
-        '<li itemid="' + itmId + '"' + id + ' class="ui-state-default">' +
-            '<div style="float: left; width: 33%">' +
-                avatarLink +
-            '</div>' +
-            '<div style="float: left; width: 33%">' +
-                name +
-            '</div>' +
-            '<div style="float: left; width: 33%">' +
-                surname +
-            '</div>' +
-        '</li>');
-    itmId = itmId + 1;
+    var tableRowColorR = 170;
+    var tableRowColorG = 170;
+    var tableRowColorB = 170;
+    var roznica = 25;
+    if(itmId%2 === 0) {
+        tableRowColor = "rgb(" + tableRowColorR + "," + tableRowColorG + "," + tableRowColorB + ")";
+    } else {
+        tableRowColor = "rgb(" + (tableRowColorR + roznica) + "," + (tableRowColorG  + roznica) + "," + (tableRowColorB + roznica) + ")";
+    }
+    // $("#selectable").append('' +
+    //     '<li itemid="' + itmId + '"' + id + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
+    //         '<div class="tableElement"; style="float: left; width: 33%">\n' +
+    //             '<img width="70px" style="align-self: center" class="avatars" src="' + avatarLink + '"/>' +
+    //         '</div>' +
+    //         '<div class="tableElement"; style="float: left; width: 33%">' +
+    //             name +
+    //         '</div>' +
+    //         '<div class="tableElement"; style="float: left; width: 33%">' +
+    //             surname +
+    //         '</div>' +
+    //     '</li>');
+    // itmId = itmId + 1;
 }
 function initLoadData() {
     $.get("http://localhost:3000/lol", function (r) {
