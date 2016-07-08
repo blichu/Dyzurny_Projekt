@@ -2,6 +2,8 @@ var response;
 var itmId;
 
 $(document).ready(function () {
+    $('body').css('font-size', ($(window).width() * 0.01) + 'px');
+    $('button').css('font-size', ($(window).width() * 0.01) + 'px');
     $(window).resize(function() {
         $('body').css('font-size', ($(window).width() * 0.01) + 'px');
         $('button').css('font-size', ($(window).width() * 0.01) + 'px');
