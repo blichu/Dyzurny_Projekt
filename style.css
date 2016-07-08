@@ -13,8 +13,8 @@
 .avatars {
   max-width: 100%; }
 
-#feedback {
-  font-size: 1.4em; }
+/*#feedback {*/
+  /*font-size: 1.4em; }*/
 
 #selectable .ui-selecting {
   background: #FECA40; }
@@ -35,7 +35,7 @@
   float: left;
   width: 95%;
   height: 80px;
-  font-size: 1em;
+  /*font-size: 1em;*/
   text-align: center; }
 
 #container1 {
@@ -47,7 +47,9 @@
 html body {
   margin: 0;
   padding: 0;
-  width: 100%; }
+  width: 100%;
+  font-size: 4em;
+}
 
 #logo {
   width: 50%;
@@ -121,7 +123,8 @@ html body {
   height: 80%; }
 
 ​.header {
-  height: 120px; }
+  height: 120px;
+}
 
 .sorting {
   background-color: #c8c8c8; }
@@ -145,7 +148,9 @@ html body {
   background-color: #d2d2d2;
   height: 100%; }
   #table td {
-    text-align: center; }
+    text-align: center;
+    font-size: 100px;
+  }
   #table::-webkit-scrollbar {
     width: 1em; }
   #table::-webkit-scrollbar-track {
@@ -159,7 +164,8 @@ button {
   border-color: #ff8444;
   border-style: solid;
   border-width: 2px;
-  min-height: 20px; }
+  min-height: 20px;
+}
   button:hover {
     background-color: #ff8238;
     border-color: #ff7124; }

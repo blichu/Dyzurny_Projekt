@@ -2,6 +2,10 @@ var response;
 var itmId;
 
 $(document).ready(function () {
+    $(window).resize(function() {
+        $('body').css('font-size', ($(window).width() * 0.01) + 'px');
+        $('button').css('font-size', ($(window).width() * 0.01) + 'px');
+    });
     itmId = 1;
     initLoadData();
     // $( "#selectable" ).selectable();
