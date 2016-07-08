@@ -16,8 +16,29 @@ $(document).ready(function () {
         helper: "clone"
     });
     $( "#container1" ).on( "drop", function( event, ui ) {
-        alert(event.itmId);
+        // alert(ui.draggable.html());
+        // alert(ui.draggable.attr("itemid2"));
+        // alert(ui.draggable.prop("itemid2"));
+        ui.draggable.attr( "id", function( i, val ) {
+            alert(val);
+        });
     } );
+
+    // $( ".box-item" ).on( "dragstop", function( event, ui ) {
+    //     // alert("stop");
+    //     alert(ui.helper.html());
+    // } );
+
+    // $( "#container1" ).on( "drop", function( event, ui ) {
+    //     // alert(ui.draggable.html());
+    //     // alert(ui.draggable.attr("itemid2"));
+    //     ui.draggable.attr("itemid2", function(i, origValue){
+    //         alert(origValue);
+    //     });
+    // } );
+    // $( "#container1" ).on( "drop", function( event, ui ) {
+    //     alert();
+    // } );
 
     $("#container1").droppable({
         drop: function(event, ui) {
