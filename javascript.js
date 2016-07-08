@@ -16,7 +16,7 @@ $(document).ready(function () {
         helper: "clone"
     });
     $( "#container1" ).on( "drop", function( event, ui ) {
-        alert("123");
+        alert(event.itmId);
     } );
 
     $("#container1").droppable({
