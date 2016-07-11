@@ -34,6 +34,33 @@ $(document).ready(function () {
             });
         }
     });
+    $( "#recycleDragContainer" ).on( "drop", function( event, ui ) {
+        // TODO: tutaj usnięcie z bazy
+        ui.draggable.remove();
+    } );
+    $("#recycleDragContainer").droppable({
+        drop: function(event, ui) {
+            var itemid = $(event.originalEvent.toElement).attr("itemid");
+            $('.box-item').each(function() {
+                if ($(this).attr("itemid") === itemid) {
+                    $(this).appendTo("#recycleDragContainer");
+                }
+            });
+        }
+    });
+    $( "#editDragContainer" ).on( "drop", function( event, ui ) {
+        alert("edytuj: " + ui.draggable.attr("itemid"));
+    } );
+    $("#editDragContainer").droppable({
+        drop: function(event, ui) {
+            var itemid = $(event.originalEvent.toElement).attr("itemid");
+            $('.box-item').each(function() {
+                if ($(this).attr("itemid") === itemid) {
+                    $(this).appendTo("#editDragContainer");
+                }
+            });
+        }
+    });
 });
 function initLoadData() {
     $.get("http://localhost:3000/lol", function (r) {
@@ -42,12 +69,12 @@ function initLoadData() {
             addRowToTable(response[i].id, response[i].avatarLink, response[i].name, response[i].surname);
         }
         $( ".box-item" ).on( "dragstart", function( event, ui ) {
-            $('#recycle').css("visibility", "visible");
-            $('#edit').css("visibility", "visible");
+            $('#recycleDragContainer').css("visibility", "visible");
+            $('#editDragContainer').css("visibility", "visible");
         });
         $( ".box-item" ).on( "dragstop", function( event, ui ) {
-            $('#recycle').css("visibility", "hidden");
-            $('#edit').css("visibility", "hidden");
+            $('#recycleDragContainer').css("visibility", "hidden");
+            $('#editDragContainer').css("visibility", "hidden");
         });
         $('.box-item').draggable({
             cursor: 'move',

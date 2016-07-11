@@ -199,9 +199,6 @@ button {
     background-color: #ff8238;
     border-color: #ff7124; }
 
-.box-container {
-  height: 200px; }
-
 .box-item {
   width: 100%;
   z-index: 1000; }
