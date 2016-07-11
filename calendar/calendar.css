@@ -109,6 +109,14 @@
     text-align: center;
 }
 
+.actualDayInLayout{
+    background-color: #0407d9;
+}
+
+.otherMonthLayout{
+    background-color: #d917bb;
+}
+
 .daysInLayout:hover{
     background-color: #9a1725;
 }
