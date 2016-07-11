@@ -11,6 +11,9 @@ $(document).ready(function () {
         $('button').css('font-size', ($(window).width() * 0.01) + 'px');
     });
     itmId = 7;
+    window.onscroll = function () {
+        window.scrollTo(0,0);
+    }
     initLoadData();
     // $( "#selectable" ).selectable();
     // $( ".box-item" ).on( "dragstop", function( event, ui ) {
@@ -31,16 +34,6 @@ $(document).ready(function () {
             });
         }
     });
-    // $("#container2").droppable({
-    //     drop: function(event, ui) {
-    //         var itemid = $(event.originalEvent.toElement).attr("itemid");
-    //         $('.box-item').each(function() {
-    //             // if ($(this).attr("itemid") === itemid) {
-    //             //     $(this).appendTo("#container2");
-    //             // }
-    //         });
-    //     }
-    // });
 });
 function initLoadData() {
     $.get("http://localhost:3000/lol", function (r) {
@@ -49,21 +42,17 @@ function initLoadData() {
             addRowToTable(response[i].id, response[i].avatarLink, response[i].name, response[i].surname);
         }
         $( ".box-item" ).on( "dragstart", function( event, ui ) {
-            // alert("stop");
-            // alert("start");
             $('#recycle').css("visibility", "visible");
-            // $('#recycle').param("visibility", "hidden");
+            $('#edit').css("visibility", "visible");
         });
         $( ".box-item" ).on( "dragstop", function( event, ui ) {
-            // alert("stop");
-            // alert("stop");
-            // alert(ui.helper.html());
             $('#recycle').css("visibility", "hidden");
+            $('#edit').css("visibility", "hidden");
         });
         $('.box-item').draggable({
             cursor: 'move',
             helper: "clone"
-        });3
+        });
         buildTable();
     });
 

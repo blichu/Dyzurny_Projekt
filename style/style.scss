@@ -74,6 +74,9 @@ html body {
   margin: 0;
   padding: 0;
   width: 100%;
+  &::-webkit-scrollbar {
+    width: 0em;
+  }
 }
 #logoBlock {
   width: 50%;
