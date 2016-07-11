@@ -3,30 +3,24 @@ var itmId;
 
 $(document).ready(function () {
     $("#header").load("header.html");
+    // $("#content").load("content.html");
     $('body').css('font-size', ($(window).width() * 0.01) + 'px');
-    $('table').css('font-size', ($(window).width() * 0.01) + 'px');
     $('button').css('font-size', ($(window).width() * 0.01) + 'px');
-    // $('button').css('font-size', ($(window).width() * 0.01) + 'px');
     $(window).resize(function() {
         $('body').css('font-size', ($(window).width() * 0.01) + 'px');
-        $('table').css('font-size', ($(window).width() * 0.01) + 'px');
         $('button').css('font-size', ($(window).width() * 0.01) + 'px');
     });
-    itmId = 1;
+    itmId = 7;
     initLoadData();
     // $( "#selectable" ).selectable();
-    $('.box-item').draggable({
-        cursor: 'move',
-        helper: "clone"
-    });
-    $( "#container1" ).on( "drop", function( event, ui ) {
-        alert(ui.draggable.attr("itemid"));
-    } );
     // $( ".box-item" ).on( "dragstop", function( event, ui ) {
     //     // alert("stop");
     //     alert(ui.helper.html());
-    // } );
+    // });
 
+    $( "#container1" ).on( "drop", function( event, ui ) {
+        alert(ui.draggable.attr("itemid"));
+    } );
     $("#container1").droppable({
         drop: function(event, ui) {
             var itemid = $(event.originalEvent.toElement).attr("itemid");
@@ -36,17 +30,42 @@ $(document).ready(function () {
                 }
             });
         }
-    });$("#container2").droppable({
-        drop: function(event, ui) {
-            var itemid = $(event.originalEvent.toElement).attr("itemid");
-            $('.box-item').each(function() {
-                // if ($(this).attr("itemid") === itemid) {
-                //     $(this).appendTo("#container2");
-                // }
-            });
-        }
     });
+    // $("#container2").droppable({
+    //     drop: function(event, ui) {
+    //         var itemid = $(event.originalEvent.toElement).attr("itemid");
+    //         $('.box-item').each(function() {
+    //             // if ($(this).attr("itemid") === itemid) {
+    //             //     $(this).appendTo("#container2");
+    //             // }
+    //         });
+    //     }
+    // });
 });
+function initLoadData() {
+    $.get("http://localhost:3000/lol", function (r) {
+        response = r;
+        for (var i = 0; i < response.length; i++) {
+            addRowToTable(response[i].id, response[i].avatarLink, response[i].name, response[i].surname);
+        }
+        $( ".box-item" ).on( "dragstart", function( event, ui ) {
+            // alert("stop");
+            // alert("start");
+            $('#userTableFooter').append("<img style='width: 50px; height: 50px' src='../images/recycle.png'>");
+        });
+        $( ".box-item" ).on( "dragstop", function( event, ui ) {
+            // alert("stop");
+            // alert("stop");
+            // alert(ui.helper.html());
+        });
+        $('.box-item').draggable({
+            cursor: 'move',
+            helper: "clone"
+        });3
+        buildTable();
+    });
+
+}
 function clearForm(formName){
     if(formName == "addForm"){
         $('#nameField').val('');
@@ -72,7 +91,7 @@ function addRowToTable(id, avatarLink, name, surname){
         tableRowColor = "rgb(" + (tableRowColorR + roznica) + "," + (tableRowColorG  + roznica) + "," + (tableRowColorB + roznica) + ")";
     }
     $("#selectable").append('' +
-        '<li itemid="' + itmId + '"' + id + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
+        '<li itemid=itm-' + itmId + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
             '<div class="tableElement"; style="float: left; width: 33%">\n' +
                 '<img width="70px" style="align-self: center" class="avatars" src="' + avatarLink + '"/>' +
             '</div>' +
@@ -85,15 +104,7 @@ function addRowToTable(id, avatarLink, name, surname){
         '</li>');
     itmId = itmId + 1;
 }
-function initLoadData() {
-    $.get("http://localhost:3000/lol", function (r) {
-        response = r;
-        for (var i = 0; i < response.length; i++) {
-            addRowToTable(response[i].id, response[i].avatarLink, response[i].name, response[i].surname);
-        }
-        buildTable();
-    })
-}
+
 function buildTable() {
     var table = $('#tableee').dataTable({
         "paging": false,
@@ -117,7 +128,7 @@ function buildTable() {
     // }
 }
 function removeButtonAction() {
-    $('#deleteButton').click(function () {
+    $('#removeButton').click(function () {
         removeData($('.ui-selected').attr('id'));
         $('.ui-selected').remove();
     });

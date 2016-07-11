@@ -1,52 +1,39 @@
-<div id="logoDiv">
+
+<div id="logoBlock">
     <img id="logoImage" src="../images/logoConnectedDigital.svg"/>
 </div>
-<div id="addUserBlock" class="parentOfDynamicSizeElements">
-    <div id="addUserForm" class="leftDynamicSizeElement">
-        <div style="height: 30%">
-            <!--<div class="addUserFormLabel">-->
-                <!--Name-->
-            <!--</div>-->
-
-            <div class="addUserFormInput">
-                <label for="nameField">Name</label>
-                <input type="text" id="nameField"/>
-            </div>
+<div id="addUserBlock">
+    <div style="height: 80%" class="parentOfDynamicSizeElements">
+        <div id="addUserAvatarView" class="rightDynamicSizeElement"> <!--id="imageView"-->
+            <img id="avatarViewImage" src="../images/noImage.png">
         </div>
-        <div style="height: 30%">
-            <div class="addUserFormLabel">
-                Surname
+        <div id="addUserForm" class="leftDynamicSizeElement">
+            <div style="height: 30%;">
+                <label for="nameField" class="addUserFormLabel">Name</label>
+                <input type="text" id="nameField" class="addUserFormInput"/>
             </div>
-            <div class="addUserFormInput">
-                <input type="text" id="surnameField"/>
+            <div style="height: 5%"></div>
+            <div style="height: 30%;">
+                <label for="surnameField" class="addUserFormLabel">Surname</label>
+                <input type="text" class="addUserFormInput" id="surnameField"/>
             </div>
-        </div>
-        <div style="height: 30%">
-            <div class="addUserFormLabel">
-                AvatarUrl
-            </div>
-            <div class="addUserFormInput">
-                <div style="width: 70%; float: left">
-                    <input style="width:100%" type="text" id="avatarURL" name="imageUrl">
-                </div>
-                <div style="width: 30%; float: left">
-                    <button id="viewButton" type="button">View</button>
-                </div>
+            <div style="height: 5%"></div>
+            <div style="height: 30%;">
+                <label for="avatarURL" class="addUserFormLabel">Avatar URL</label>
+                <input type="text" class="addUserFormInput" id="avatarURL"/>
             </div>
         </div>
     </div>
-    <div id="addUserAvatarView" class="rightDynamicSizeElement"> <!--id="imageView"-->
-        <img id="avatarViewImage" src="../images/noImage.png">
+    <div style="height: 2%"></div>
+    <div id="addUserButtons">
+        <div id="addButtonDiv" style="float: left">
+            <button id="addButton">Add person</button>
+        </div>
+        <div id="resetButtonDiv" style="float: left">
+            <button id="resetButton">Reset</button>
+        </div>
     </div>
-    <!--<div id="addUserButtons">-->
-        <!--<div id="addButtonDiv" style="float: left">-->
-            <!--<button id="addButton">Add person</button>-->
-        <!--</div>-->
-        <!--<div id="resetButtonDiv" style="float: left">-->
-            <!--<button id="resetButton">Reset</button>-->
-        <!--</div>-->
-    <!--</div>-->
 </div>
-<div id="removeForm" align="center">
-    <button type="submit" id="deleteButton">Remove selected</button>
+<div id="removeUserBlock" align="center">
+    <button type="submit" id="removeButton">Remove selected</button>
 </div>

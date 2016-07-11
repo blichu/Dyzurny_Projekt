@@ -13,12 +13,10 @@ $darkGrey: rgb(200,200,200);
 .leftDynamicSizeElement {
   overflow: hidden;
   height: 100%;
-  background: #ccc
 }
 .rightDynamicSizeElement {
   float: right;
   height: 100%;
-  background: #888;
   text-align: right;
 }
 .tableElement {
@@ -28,53 +26,45 @@ $darkGrey: rgb(200,200,200);
   flex-direction:column;
   pointer-events: none;
 }
-#addUserBlock {
-  //height: 70%;
-  //position: relative;
-  //he
-
-}
 #addUserForm {
-  width: 70%;
-  display: flex;
-  align-self: center;
-  flex-direction:column;
+  height: 100%;
 }
 #addUserAvatarView {
-  width: 30%;
+  margin-left: 2%;
   height: 100%;
-  float: right;
 }
 .addUserFormLabel {
   width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
   float: left;
 }
 .addUserFormInput {
   width: 70%;
+  height: 100%;
   float: left;
 }
-//table {
-//  font-size: 200px;
-//}
 #columnHeader {
   background-color: rgb(100,100,100);
 }
 .avatars {
   max-width: 100%;
 }
-//#feedback { font-size: 1.4em; }
 #selectable .ui-selecting { background: #FECA40; }
 #selectable .ui-selected { background: #F39814; color: white; }
 #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
-#selectable li { margin: 3px; padding: 1px; float: left; width: 95%; height: 80px; text-align: center; }
+#selectable li { margin: 3px; padding: 1px; float: left; height: 80px; text-align: center; }
 #container1 {
   background-color: red;
 }
 #avatarViewImage {
-  //float: right;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 100%;
   max-height: 100%;
-  ////height: 100%;
 }
 #viewButton {
   width: 100%;
@@ -85,14 +75,12 @@ html body {
   padding: 0;
   width: 100%;
 }
-#logoDiv {
+#logoBlock {
   width: 50%;
-  //height: 100%;
   text-align: center;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  //background-color: $headerColor;
   float: left;
 }
 #logoImage {
@@ -101,32 +89,32 @@ html body {
 }
 #addButtonDiv {
   width: 50%;
+  height: 100%;
 }
 #resetButtonDiv {
   width: 50%;
+  height: 100%;
 }
 #addButton {
   width: 100%;
+  height: 100%;
 }
 #resetButton {
   width: 100%;
+  height: 100%;
 }
 #addUserBlock {
-  //display: flex;
-  //justify-content:center;
-  //flex-direction:column;
-  //height: $headerSize;
-  //padding: 0;
-  //margin: 0;
-  float: left;
-  height: 80%;
   width: 30%;
-  background-color: $headerColor;
+  height: 90%;
+  float: left;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 #addUserButtons {
   width: 100%;
-  height: 20%;
-  clear: both
+  height: 18%;
+  clear: both;
 }
 #example_filter {
   background-color: $darkGrey;
@@ -142,28 +130,20 @@ html body {
   background-color: $headerColor;
   width: 100%;
 }
-#nameField {
-  width: 100%;
-}
-#surnameField {
-  width: 100%;
-}
-#removeForm {
-  display: flex;
-  justify-content:center;
-  flex-direction:column;
+#removeUserBlock {
   width: 20%;
-  height: $headerSize;
+  height: 90%;
   padding: 0;
   margin: 0;
   float: right;
   background-color: $headerColor;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
-#deleteButton {
+#removeButton {
   width: 30%;
-  height: 80%;
-  //align-items: center;
-  //align-items: right;
+  height: 100%;
 }
 ​#header {
   height: 15%;
@@ -185,9 +165,8 @@ html body {
   right: 0px;
   bottom: 0px;
   height: auto;
-
 }
-#table {
+#userTable {
   width: 30%;
   float: left;
   overflow-y: scroll;
@@ -206,37 +185,18 @@ html body {
   }
   background-color: rgb(210,210,210);
   height: 100%;
-
 }
-
-//tr td {
-//  margin: 0;
-//  padding: 0;
-//}
 button {
   background-color: $headerButtons;
-  border-color: $headerButtonsBorder;
-  border-style: solid;
-  border-width: 2px;
-  //border
-  min-height: 20px;
+  border: 2px solid $headerButtonsBorder;
   &:hover {
     background-color: $headerButtonsHover;
     border-color: $headerButtonsBorderHover;
   }
 }
-
-
-
-
-
 .box-container {
   height: 200px;
 }
-
-
-
-
 .box-item {
   width: 100%;
   z-index: 1000
@@ -248,9 +208,6 @@ button {
 #calandarBanner {
   text-align: center;
   height: 10%;
-  display: flex;
-  justify-content:center;
-  flex-direction:column;
   background-color: #359A35;
 }
 .weekdays {
@@ -268,9 +225,7 @@ button {
 }
 .drag {
   width: 20em;
-  //background-color: darkslateblue;
   height: 100px;
-  //padding: 50px;
   clear: left;
   text-align: center;
 }
