@@ -52,7 +52,9 @@ $(document).ready(function () {
         }
     });
     $( "#editDragContainer" ).on( "drop", function( event, ui ) {
-        alert("edytuj: " + ui.draggable.attr("itemid"));
+        // alert("edytuj: " + ui.draggable.attr("itemid"));
+        var id = ui.draggable.attr("id");
+        editData(id);
     } );
     $("#editDragContainer").droppable({
         drop: function(event, ui) {
@@ -144,7 +146,6 @@ function buildTable() {
     // selectRowAction(table);
     // removeButtonAction();
     // addButtonAction(table);
-    // viewButtonAction();
     // resetButtonAction();
     // }
 }
@@ -189,5 +190,57 @@ function removeData(id) {
 }
 
 function editData(id){
-    
+    w2popup.open({
+        title: 'Popup Title',
+        body: '<div style="height: 80%" class="parentOfDynamicSizeElements">' +
+              '<div id="addUserAvatarView" class="rightDynamicSizeElement"> <!--id="imageView"-->' +
+              '<img id="avatarViewImage" src="../images/noImage.png">' +
+              '</div>' +
+              '<div id="addUserForm" class="leftDynamicSizeElement">' +
+              '<div style="height: 30%;">' +
+              '<label for="nameField" class="addUserFormLabel">Name</label>' +
+              '<input type="text" id="nameField" class="addUserFormInput"/>' +
+              '</div>' +
+              '<div style="height: 5%"></div>' +
+              '<div style="height: 30%;">' +
+              '<label for="surnameField" class="addUserFormLabel">Surname</label>' +
+
+              '<div  class="addUserFormInput" style="width: 30%; float: left">' +
+              '<input type="text" id="surnameField"/>' +
+              '<button id="viewButton" type="button">View</button>' +
+              '</div>' +
+
+              '</div>' +
+              '<div style="height: 5%"></div>' +
+              '<div style="height: 30%;">' +
+              '<label for="avatarURL" class="addUserFormLabel">Avatar URL</label>' +
+              '<input type="text" class="addUserFormInput" id="avatarURL"/>' +
+              '</div>' +
+              '</div>' +
+              '</div>' +
+              '<div style="height: 2%"></div>' +
+              '<div id="addUserButtons">' +
+              '<div id="addButtonDiv" style="float: left">' +
+              '<button id="addButton">Add person</button>' +
+              '</div>' +
+              '<div id="resetButtonDiv" style="float: left">' +
+              '<button id="resetButton">Reset</button>' +
+              '</div>' +
+              '</div>'
+    });
+    viewButtonAction();
+
+    $('#addButton').on("click", function(){
+        var name = $('#nameField').val();
+        alert(name);
+        $.ajax({
+            type: 'PUT',
+            url: 'http://localhost:3000/lol/' + id,
+            contentType: "application/json",
+            dataType: 'json',
+            data : JSON.stringify({name: name})
+        })
+    })
+
+
 }

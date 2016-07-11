@@ -4,36 +4,29 @@
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
-      "id": 6
+      "id": 1
     },
     {
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
-      "id": 6
+      "id": 2
     },
     {
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
-      "id": 6
+      "id": 3
+    },
+    {
+      "name": "lololo",
+      "id": 4
     },
     {
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
-      "id": 6
-    },
-    {
-      "name": "Rafał",
-      "surname": "Rak",
-      "avatarLink": "http://www.ur.edu.pl/image/72070/default/Rafal_Rak.jpg",
-      "assigned": "noAssigned",
-      "id": 8
+      "id": 5
     }
   ]
 }
