@@ -22,7 +22,7 @@ $(document).ready(function () {
     // });
 
     $( "#container1" ).on( "drop", function( event, ui ) {
-        alert(ui.draggable.attr("itemid"));
+        alert(ui.draggable.attr("id"));
     } );
     $("#container1").droppable({
         drop: function(event, ui) {
@@ -109,7 +109,7 @@ function addRowToTable(id, avatarLink, name, surname){
         tableRowColor = "rgb(" + (tableRowColorR + roznica) + "," + (tableRowColorG  + roznica) + "," + (tableRowColorB + roznica) + ")";
     }
     $("#selectable").append('' +
-        '<li itemid=itm-' + itmId + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
+        '<li id="' + id + '" itemid=itm-' + itmId + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
             '<div class="tableElement"; style="float: left; width: 33%">\n' +
                 '<img width="70px" style="align-self: center" class="avatars" src="' + avatarLink + '"/>' +
             '</div>' +
@@ -183,4 +183,8 @@ function removeData(id) {
         $('#' + id).remove();
 
     });
+}
+
+function editData(id){
+    
 }
