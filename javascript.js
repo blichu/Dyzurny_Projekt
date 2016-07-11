@@ -21,10 +21,10 @@ $(document).ready(function () {
     //     alert(ui.helper.html());
     // });
 
-    $( "#container1" ).on( "drop", function( event, ui ) {
+    $( "#calendarContainer" ).on( "drop", function( event, ui ) {
         alert(ui.draggable.attr("id"));
     } );
-    $("#container1").droppable({
+    $("#calendarContainer").droppable({
         drop: function(event, ui) {
             var itemid = $(event.originalEvent.toElement).attr("itemid");
             $('.box-item').each(function() {
@@ -35,15 +35,18 @@ $(document).ready(function () {
         }
     });
     $( "#recycleDragContainer" ).on( "drop", function( event, ui ) {
-        // TODO: tutaj usnięcie z bazy
-        ui.draggable.remove();
+        $('#recycleDragContainer').css("visibility", "hidden");
+        $('#editDragContainer').css("visibility", "hidden");
+        removeData(ui.draggable.attr("id"));
+        // alert("usuwam: " + ui.draggable.attr("id"));
+        // ui.draggable.remove();
     } );
     $("#recycleDragContainer").droppable({
         drop: function(event, ui) {
             var itemid = $(event.originalEvent.toElement).attr("itemid");
             $('.box-item').each(function() {
                 if ($(this).attr("itemid") === itemid) {
-                    $(this).appendTo("#recycleDragContainer");
+                    // $(this).appendTo("#recycleDragContainer");
                 }
             });
         }
@@ -56,7 +59,7 @@ $(document).ready(function () {
             var itemid = $(event.originalEvent.toElement).attr("itemid");
             $('.box-item').each(function() {
                 if ($(this).attr("itemid") === itemid) {
-                    $(this).appendTo("#editDragContainer");
+                    // $(this).appendTo("#editDragContainer");
                 }
             });
         }
@@ -66,7 +69,7 @@ function initLoadData() {
     $.get("http://localhost:3000/lol", function (r) {
         response = r;
         for (var i = 0; i < response.length; i++) {
-            addRowToTable(response[i].id, response[i].avatarLink, response[i].name, response[i].surname);
+            addRowToTable(response[i].id, response[i].avatarLink, response[i].name, response[i].surname, response);
         }
         $( ".box-item" ).on( "dragstart", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "visible");
@@ -98,7 +101,7 @@ function resetButtonAction(){
        clearForm("addForm");
     });
 }
-function addRowToTable(id, avatarLink, name, surname){
+function addRowToTable(id, avatarLink, name, surname, assigned){
     var tableRowColorR = 170;
     var tableRowColorG = 170;
     var tableRowColorB = 170;
@@ -109,7 +112,7 @@ function addRowToTable(id, avatarLink, name, surname){
         tableRowColor = "rgb(" + (tableRowColorR + roznica) + "," + (tableRowColorG  + roznica) + "," + (tableRowColorB + roznica) + ")";
     }
     $("#selectable").append('' +
-        '<li id="' + id + '" itemid=itm-' + itmId + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
+        '<li id="' + id + '" assigned "' + assigned + '" itemid=itm-' + itmId + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
             '<div class="tableElement"; style="float: left; width: 33%">\n' +
                 '<img width="70px" style="align-self: center" class="avatars" src="' + avatarLink + '"/>' +
             '</div>' +
@@ -139,30 +142,31 @@ function buildTable() {
         ]
     });
     // selectRowAction(table);
-    removeButtonAction();
-    addButtonAction(table);
-    viewButtonAction();
-    resetButtonAction();
+    // removeButtonAction();
+    // addButtonAction(table);
+    // viewButtonAction();
+    // resetButtonAction();
     // }
 }
 function removeButtonAction() {
-    $('#removeButton').click(function () {
-        removeData($('.ui-selected').attr('id'));
-        $('.ui-selected').remove();
-    });
+    // $('#removeButton').click(function () {
+    //     removeData($('.ui-selected').attr('id'));
+    //     $('.ui-selected').remove();
+    // });
 }
 function addButtonAction() {
     $('#addButton').click(function () {
         $.post( "http://localhost:3000/lol", {
             name: $('#nameField').val(),
             surname: $('#surnameField').val(),
-            avatarLink: $('#avatarURL').val()
+            avatarLink: $('#avatarURL').val(),
+            assigned: "noAssigned"
         })
         .done(function( data ) {
             // addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
             // selectRowAction(tableGlobal);
             // removeButtonAction(tableGlobal);
-            addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
+            addRowToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val(), "noAssigned");
             clearForm("addForm");
         });
     });
@@ -181,7 +185,6 @@ function removeData(id) {
         dataType: 'json'
     }).done(function() {
         $('#' + id).remove();
-
     });
 }
 
