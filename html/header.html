@@ -1,0 +1,52 @@
+<div id="logoDiv">
+    <img id="logoImage" src="../images/logoConnectedDigital.svg"/>
+</div>
+<div id="addUserBlock" class="parentOfDynamicSizeElements">
+    <div id="addUserForm" class="leftDynamicSizeElement">
+        <div style="height: 30%">
+            <!--<div class="addUserFormLabel">-->
+                <!--Name-->
+            <!--</div>-->
+
+            <div class="addUserFormInput">
+                <label for="nameField">Name</label>
+                <input type="text" id="nameField"/>
+            </div>
+        </div>
+        <div style="height: 30%">
+            <div class="addUserFormLabel">
+                Surname
+            </div>
+            <div class="addUserFormInput">
+                <input type="text" id="surnameField"/>
+            </div>
+        </div>
+        <div style="height: 30%">
+            <div class="addUserFormLabel">
+                AvatarUrl
+            </div>
+            <div class="addUserFormInput">
+                <div style="width: 70%; float: left">
+                    <input style="width:100%" type="text" id="avatarURL" name="imageUrl">
+                </div>
+                <div style="width: 30%; float: left">
+                    <button id="viewButton" type="button">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addUserAvatarView" class="rightDynamicSizeElement"> <!--id="imageView"-->
+        <img id="avatarViewImage" src="../images/noImage.png">
+    </div>
+    <!--<div id="addUserButtons">-->
+        <!--<div id="addButtonDiv" style="float: left">-->
+            <!--<button id="addButton">Add person</button>-->
+        <!--</div>-->
+        <!--<div id="resetButtonDiv" style="float: left">-->
+            <!--<button id="resetButton">Reset</button>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<div id="removeForm" align="center">
+    <button type="submit" id="deleteButton">Remove selected</button>
+</div>

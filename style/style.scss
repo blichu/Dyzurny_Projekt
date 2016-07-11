@@ -3,58 +3,106 @@ $headerButtons: rgb(255,156,56);
 $headerButtonsBorder: rgb(255,132,68);
 $headerButtonsHover: rgb(255,130,56);
 $headerButtonsBorderHover: rgb(255,113,36);
-$headerSize: 120px;
+$headerSize: 15%;
 $lightGrey: rgb(220,220,220);
 $darkGrey: rgb(200,200,200);
-
+.parentOfDynamicSizeElements {
+  overflow: hidden;
+  height: 100%;
+}
+.leftDynamicSizeElement {
+  overflow: hidden;
+  height: 100%;
+  background: #ccc
+}
+.rightDynamicSizeElement {
+  float: right;
+  height: 100%;
+  background: #888;
+  text-align: right;
+}
 .tableElement {
   height: 100%;
   display: flex;
   justify-content:center;
   flex-direction:column;
   pointer-events: none;
-  pointer-events: none;
+}
+#addUserBlock {
+  //height: 70%;
+  //position: relative;
+  //he
 
 }
+#addUserForm {
+  width: 70%;
+  display: flex;
+  align-self: center;
+  flex-direction:column;
+}
+#addUserAvatarView {
+  width: 30%;
+  height: 100%;
+  float: right;
+}
+.addUserFormLabel {
+  width: 30%;
+  float: left;
+}
+.addUserFormInput {
+  width: 70%;
+  float: left;
+}
+//table {
+//  font-size: 200px;
+//}
 #columnHeader {
   background-color: rgb(100,100,100);
 }
 .avatars {
   max-width: 100%;
 }
-#feedback { font-size: 1.4em; }
+//#feedback { font-size: 1.4em; }
 #selectable .ui-selecting { background: #FECA40; }
 #selectable .ui-selected { background: #F39814; color: white; }
 #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
-#selectable li { margin: 3px; padding: 1px; float: left; width: 95%; height: 80px; font-size: 1em; text-align: center; }
+#selectable li { margin: 3px; padding: 1px; float: left; width: 95%; height: 80px; text-align: center; }
 #container1 {
   background-color: red;
 }
 #avatarViewImage {
-  height: $headerSize - 50;
+  //float: right;
+  max-width: 100%;
+  max-height: 100%;
+  ////height: 100%;
+}
+#viewButton {
+  width: 100%;
+  float: right;
 }
 html body {
   margin: 0;
   padding: 0;
   width: 100%;
 }
-#logo {
+#logoDiv {
   width: 50%;
-  height: $headerSize;
-  display: flex;
-  justify-content:center;
-  flex-direction:column;
-  background-color: $headerColor;
+  //height: 100%;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  //background-color: $headerColor;
   float: left;
 }
 #logoImage {
   max-width: 100%;
   max-height: 100%;
 }
-#addButtonTd {
+#addButtonDiv {
   width: 50%;
 }
-#resetButtonTd {
+#resetButtonDiv {
   width: 50%;
 }
 #addButton {
@@ -63,16 +111,22 @@ html body {
 #resetButton {
   width: 100%;
 }
-#addForm {
-  width: 30%;
-  display: flex;
-  justify-content:center;
-  flex-direction:column;
-  height: $headerSize;
-  padding: 0;
-  margin: 0;
+#addUserBlock {
+  //display: flex;
+  //justify-content:center;
+  //flex-direction:column;
+  //height: $headerSize;
+  //padding: 0;
+  //margin: 0;
   float: left;
+  height: 80%;
+  width: 30%;
   background-color: $headerColor;
+}
+#addUserButtons {
+  width: 100%;
+  height: 20%;
+  clear: both
 }
 #example_filter {
   background-color: $darkGrey;
@@ -111,8 +165,10 @@ html body {
   //align-items: center;
   //align-items: right;
 }
-​.header {
-  height:$headerSize;
+​#header {
+  height: 15%;
+  width: 100%;
+  background-color: #ffab44;
 }
 
 .sorting {
@@ -132,7 +188,7 @@ html body {
 
 }
 #table {
-  width: 30em;
+  width: 30%;
   float: left;
   overflow-y: scroll;
   & td {

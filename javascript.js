@@ -2,10 +2,14 @@ var response;
 var itmId;
 
 $(document).ready(function () {
+    $("#header").load("header.html");
     $('body').css('font-size', ($(window).width() * 0.01) + 'px');
+    $('table').css('font-size', ($(window).width() * 0.01) + 'px');
     $('button').css('font-size', ($(window).width() * 0.01) + 'px');
+    // $('button').css('font-size', ($(window).width() * 0.01) + 'px');
     $(window).resize(function() {
         $('body').css('font-size', ($(window).width() * 0.01) + 'px');
+        $('table').css('font-size', ($(window).width() * 0.01) + 'px');
         $('button').css('font-size', ($(window).width() * 0.01) + 'px');
     });
     itmId = 1;
@@ -16,28 +20,11 @@ $(document).ready(function () {
         helper: "clone"
     });
     $( "#container1" ).on( "drop", function( event, ui ) {
-        // alert(ui.draggable.html());
-        // alert(ui.draggable.attr("itemid2"));
-        // alert(ui.draggable.prop("itemid2"));
-        ui.draggable.attr( "id", function( i, val ) {
-            alert(val);
-        });
+        alert(ui.draggable.attr("itemid"));
     } );
-
     // $( ".box-item" ).on( "dragstop", function( event, ui ) {
     //     // alert("stop");
     //     alert(ui.helper.html());
-    // } );
-
-    // $( "#container1" ).on( "drop", function( event, ui ) {
-    //     // alert(ui.draggable.html());
-    //     // alert(ui.draggable.attr("itemid2"));
-    //     ui.draggable.attr("itemid2", function(i, origValue){
-    //         alert(origValue);
-    //     });
-    // } );
-    // $( "#container1" ).on( "drop", function( event, ui ) {
-    //     alert();
     // } );
 
     $("#container1").droppable({
@@ -53,47 +40,28 @@ $(document).ready(function () {
         drop: function(event, ui) {
             var itemid = $(event.originalEvent.toElement).attr("itemid");
             $('.box-item').each(function() {
-                if ($(this).attr("itemid") === itemid) {
-                    $(this).appendTo("#container2");
-                }
+                // if ($(this).attr("itemid") === itemid) {
+                //     $(this).appendTo("#container2");
+                // }
             });
         }
     });
 });
-
 function clearForm(formName){
     if(formName == "addForm"){
         $('#nameField').val('');
         $('#surnameField').val('');
         $('#avatarURL').val('');
-        $('#imageView').html("<img height='70px' class='avatars' src='noImage.png'>");
+        $('#imageView').html("<img height='70px' class='avatars' src='images/noImage.png'>");
         // document.getElementById("imageView").innerHTML = "<img height='70px' class='avatars' src='noImage.png'>";
     }
 }
-
 function resetButtonAction(){
     $('#resetButton').click(function(){
        clearForm("addForm");
     });
 }
-
 function addRowToTable(id, avatarLink, name, surname){
-    // $("#tbodyy")
-// .append("" +
-//         "<tr id=\"" + id + "\">" +
-//         // "<td>" +
-//         //     id +
-//         // "</td>" +
-//         "<td width='10%'>" +
-//         "<img class=\"avatars\" src=" + avatarLink + ">" +
-//         "</td>" +
-//         "<td>" +
-//         name +
-//         "</td>" +
-//         "<td>" +
-//         surname +
-//         "</td>" +
-//         "</tr>");
     var tableRowColorR = 170;
     var tableRowColorG = 170;
     var tableRowColorB = 170;
@@ -103,19 +71,19 @@ function addRowToTable(id, avatarLink, name, surname){
     } else {
         tableRowColor = "rgb(" + (tableRowColorR + roznica) + "," + (tableRowColorG  + roznica) + "," + (tableRowColorB + roznica) + ")";
     }
-    // $("#selectable").append('' +
-    //     '<li itemid="' + itmId + '"' + id + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
-    //         '<div class="tableElement"; style="float: left; width: 33%">\n' +
-    //             '<img width="70px" style="align-self: center" class="avatars" src="' + avatarLink + '"/>' +
-    //         '</div>' +
-    //         '<div class="tableElement"; style="float: left; width: 33%">' +
-    //             name +
-    //         '</div>' +
-    //         '<div class="tableElement"; style="float: left; width: 33%">' +
-    //             surname +
-    //         '</div>' +
-    //     '</li>');
-    // itmId = itmId + 1;
+    $("#selectable").append('' +
+        '<li itemid="' + itmId + '"' + id + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
+            '<div class="tableElement"; style="float: left; width: 33%">\n' +
+                '<img width="70px" style="align-self: center" class="avatars" src="' + avatarLink + '"/>' +
+            '</div>' +
+            '<div class="tableElement"; style="float: left; width: 33%">' +
+                name +
+            '</div>' +
+            '<div class="tableElement"; style="float: left; width: 33%">' +
+                surname +
+            '</div>' +
+        '</li>');
+    itmId = itmId + 1;
 }
 function initLoadData() {
     $.get("http://localhost:3000/lol", function (r) {
@@ -148,18 +116,6 @@ function buildTable() {
     resetButtonAction();
     // }
 }
-// function selectRowAction(table) {
-//     $('#selectable').on('click', 'li', function () {
-//         if ($(this).hasClass('selected')) {
-//             $(this).removeClass('selected');
-//         }
-//         else {
-//             table.$('tr.selected').removeClass('selected');
-//             $(this).addClass('selected');
-//         }
-//     });
-// }
-
 function removeButtonAction() {
     $('#deleteButton').click(function () {
         removeData($('.ui-selected').attr('id'));
@@ -199,30 +155,3 @@ function removeData(id) {
 
     });
 }
-
-
-// function initializeResize() {
-//     $('#drag').resizable()
-// }
-// function initializeDrop() {
-//     $(".daysdivs").droppable({
-//         drop: handleDropEvent
-//     });
-// }
-// function handleDropEvent(event, ui) {
-//     var dropped = ui.draggable;
-//     var droppedOn = $(this);
-//     $(dropped).detach().css({
-//         top:0,
-//         left: 0,
-//         bottom: 0,
-//     }).appendTo(droppedOn);
-// }
-//
-// $(init);
-// function init() {
-//     initializeResize();
-//     initializeDrag();
-//     initializeDrop();
-// }
-
