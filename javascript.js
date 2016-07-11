@@ -51,12 +51,14 @@ function initLoadData() {
         $( ".box-item" ).on( "dragstart", function( event, ui ) {
             // alert("stop");
             // alert("start");
-            $('#userTableFooter').append("<img style='width: 50px; height: 50px' src='../images/recycle.png'>");
+            $('#recycle').css("visibility", "visible");
+            // $('#recycle').param("visibility", "hidden");
         });
         $( ".box-item" ).on( "dragstop", function( event, ui ) {
             // alert("stop");
             // alert("stop");
             // alert(ui.helper.html());
+            $('#recycle').css("visibility", "hidden");
         });
         $('.box-item').draggable({
             cursor: 'move',
