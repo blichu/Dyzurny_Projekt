@@ -1,15 +1,12 @@
-function clearForm(formName){
-    if(formName == "addForm"){
-        $('#nameField').val('');
-        $('#surnameField').val('');
-        $('#avatarURL').val('');
-        $('#imageView').html("<img height='70px' class='avatars' src='../images/noImage.png'>");
-        // document.getElementById("imageView").innerHTML = "<img height='70px' class='avatars' src='noImage.png'>";
-    }
+function clearForm(){
+    $('#nameField').val('');
+    $('#surnameField').val('');
+    $('#avatarURL').val('');
+    $('#imageView').html("<img height='70px' class='avatars' src='../images/noImage.png'>");
 }
 function actionResetButton(){
     $('#resetButton').click(function(){
-        clearForm("addForm");
+        clearForm();
     });
 }
 function actionRemoveButton() {
@@ -26,7 +23,7 @@ function actionAddButton() {
         // selectRowAction(tableGlobal);
         // actionRemoveButton(tableGlobal);
         addUserToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val(), "noAssigned");
-        clearForm("addForm");
+        clearForm();
         // });
     });
 }
