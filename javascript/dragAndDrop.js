@@ -1,7 +1,7 @@
 function initDroppableContainer() {
     $('#calendarContainer')
         .on( "drop", function( event, ui ) {
-            alert(ui.draggable.attr("id"));
+            // alert(ui.draggable.attr("id"));
         })
         .droppable({
             drop: function(event, ui) {
@@ -33,10 +33,12 @@ function initDroppableContainer() {
         });
     $( "#editDragContainer" )
         .on( "drop", function( event, ui ) {
-            // alert("edytuj: " + ui.draggable.attr("itemid"));
             var id = ui.draggable.attr("id");
-            editUserInBase(id);
-        })
+            var name = $(ui.draggable).children("#name").html();
+            var surname = $(ui.draggable).children("#surname").html();
+            var avatar = $(ui.draggable).children("#avatar").children("img").attr("src");
+            editUser(id, name, surname, avatar);
+        } )
         .droppable({
             drop: function(event, ui) {
                 var itemid = $(event.originalEvent.toElement).attr("itemid");

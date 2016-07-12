@@ -1,7 +1,8 @@
 @charset "UTF-8";
 #calendar{
-    width: 1000px;
-    height: 600px;
+    width: 70%;
+    float: right;
+    height: 100%;
     background-color: #58959a;
 }
 
