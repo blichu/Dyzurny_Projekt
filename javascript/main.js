@@ -4,7 +4,7 @@ $(document).ready(function () {
     initLook();
     itmId = 1;    
     initDroppableContainer();
-    getUsers(addUsersToTable, initDragableElements);
+    getUsersFromBase(addUsersToTable, initDragableElements);
 });
 function initLook() {
     $('body').css('font-size', ($(window).width() * 0.01) + 'px');

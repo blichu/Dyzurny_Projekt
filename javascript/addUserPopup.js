@@ -11,18 +11,21 @@ function actionResetButton(){
 }
 function actionRemoveButton() {
     // $('#removeButton').click(function () {
-    //     removeUser($('.ui-selected').attr('id'));
+    //     removeUserFromBase($('.ui-selected').attr('id'));
     //     $('.ui-selected').remove();
     // });
 }
 function actionAddButton() {
     $('#addButton').click(function () {
-        addUser($('#nameField').val(), $('#surnameField').val(), $('#avatarURL').val())
+        var name = $('#nameField').val();
+        var surname = $('#surnameField').val();
+        var avatarURL = $('#avatarURL').val();
+        addUserToBase(name, surname, avatarURL)
         // .done(function( data ) {
         // addUserToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val());
         // selectRowAction(tableGlobal);
         // actionRemoveButton(tableGlobal);
-        addUserToTable(data.id, $('#avatarURL').val(), $('#nameField').val(), $('#surnameField').val(), "noAssigned");
+        addUserToTable(data.id, avatarURL, name, surname, "noAssigned");
         clearForm();
         // });
     });

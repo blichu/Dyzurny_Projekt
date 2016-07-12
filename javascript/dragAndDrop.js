@@ -17,7 +17,7 @@ function initDroppableContainer() {
         .on( "drop", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "hidden");
             $('#editDragContainer').css("visibility", "hidden");
-            removeUser(ui.draggable.attr("id"));
+            removeUserFromBase(ui.draggable.attr("id"));
             // alert("usuwam: " + ui.draggable.attr("id"));
             // ui.draggable.remove();
         })
@@ -35,7 +35,7 @@ function initDroppableContainer() {
         .on( "drop", function( event, ui ) {
             // alert("edytuj: " + ui.draggable.attr("itemid"));
             var id = ui.draggable.attr("id");
-            editUser(id);
+            editUserInBase(id);
         })
         .droppable({
             drop: function(event, ui) {

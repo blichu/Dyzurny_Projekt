@@ -1,4 +1,4 @@
-function removeUser(id) {
+function removeUserFromBase(id) {
     $.ajax({
         type: 'DELETE',
         url: 'http://localhost:3000/lol/' + id,
@@ -8,7 +8,7 @@ function removeUser(id) {
         $('#' + id).remove();
     });
 }
-function editUser(name) {
+function editUserInBase(name) {
     $.ajax({
         type: 'PUT',
         url: 'http://localhost:3000/lol/' + id,
@@ -17,7 +17,7 @@ function editUser(name) {
         data : JSON.stringify({name: name})
     })
 }
-function addUser(name, surname, avatarLink) {
+function addUserToBase(name, surname, avatarLink) {
     $.post( "http://localhost:3000/lol", {
         name: name,
         surname: surname,
@@ -25,7 +25,7 @@ function addUser(name, surname, avatarLink) {
         assigned: "noAssigned"
     })
 }
-function getUsers(whatDoAfter, whatDoAfter2) {
+function getUsersFromBase(whatDoAfter, whatDoAfter2) {
     $.get("http://localhost:3000/lol", function (r) {
         whatDoAfter(r);
         whatDoAfter2();
