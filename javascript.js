@@ -21,7 +21,7 @@ $(document).ready(function () {
     //     alert(ui.helper.html());
     // });
 
-    $( "#calendarContainer" ).on( "drop", function( event, ui ) {
+    $( "#calendarContainer").on( "drop", function( event, ui ) {
         alert(ui.draggable.attr("id"));
     } );
     $("#calendarContainer").droppable({
@@ -52,7 +52,11 @@ $(document).ready(function () {
         }
     });
     $( "#editDragContainer" ).on( "drop", function( event, ui ) {
-        alert("edytuj: " + ui.draggable.attr("itemid"));
+        var id = ui.draggable.attr("id");
+        var name = $(ui.draggable).children("#name").html();
+        var surname = $(ui.draggable).children("#surname").html();
+        var avatar = $(ui.draggable).children("#avatar").children("img").attr("src");
+        editData(id, name, surname, avatar);
     } );
     $("#editDragContainer").droppable({
         drop: function(event, ui) {
@@ -113,13 +117,13 @@ function addRowToTable(id, avatarLink, name, surname, assigned){
     }
     $("#selectable").append('' +
         '<li id="' + id + '" assigned "' + assigned + '" itemid=itm-' + itmId + ' class="ui-state-default drag btn btn-default box-item" style="background-color: ' + tableRowColor + '">\n    ' +
-            '<div class="tableElement"; style="float: left; width: 33%">\n' +
+            '<div class="tableElement"; id="avatar" style="float: left; width: 33%">\n' +
                 '<img width="70px" style="align-self: center" class="avatars" src="' + avatarLink + '"/>' +
             '</div>' +
-            '<div class="tableElement"; style="float: left; width: 33%">' +
+            '<div class="tableElement"; id="name" style="float: left; width: 33%">' +
                 name +
             '</div>' +
-            '<div class="tableElement"; style="float: left; width: 33%">' +
+            '<div class="tableElement"; id="surname" style="float: left; width: 33%">' +
                 surname +
             '</div>' +
         '</li>');
@@ -144,7 +148,6 @@ function buildTable() {
     // selectRowAction(table);
     // removeButtonAction();
     // addButtonAction(table);
-    // viewButtonAction();
     // resetButtonAction();
     // }
 }
@@ -188,6 +191,85 @@ function removeData(id) {
     });
 }
 
-function editData(id){
-    
+function editData(id, tableName, tableSurname, tableAvatar){
+    alert(id);
+    alert(tableName);
+    alert(tableSurname);
+    alert(tableAvatar);
+    w2popup.open({
+        title: 'Popup Title',
+        body: '<div style="height: 80%" class="parentOfDynamicSizeElements">' +
+              '<div id="addUserAvatarView" class="rightDynamicSizeElement"> <!--id="imageView"-->' +
+              '<img id="avatarViewImage" src="../images/noImage.png">' +
+              '</div>' +
+              '<div id="addUserForm" class="leftDynamicSizeElement">' +
+              '<div style="height: 30%;">' +
+              '<label for="nameField" class="addUserFormLabel">Name</label>' +
+              '<input type="text" id="nameField" class="addUserFormInput"/>' +
+              '</div>' +
+              '<div style="height: 5%"></div>' +
+              '<div style="height: 30%;">' +
+              '<label for="surnameField" class="addUserFormLabel">Surname</label>' +
+
+              '<div  class="addUserFormInput" style="width: 30%; float: left">' +
+              '<input type="text" id="surnameField"/>' +
+              '<button id="viewButton" type="button">View</button>' +
+              '</div>' +
+
+              '</div>' +
+              '<div style="height: 5%"></div>' +
+              '<div style="height: 30%;">' +
+              '<label for="avatarURL" class="addUserFormLabel">Avatar URL</label>' +
+              '<input type="text" class="addUserFormInput" id="avatarURL"/>' +
+              '</div>' +
+              '</div>' +
+              '</div>' +
+              '<div style="height: 2%"></div>' +
+              '<div id="addUserButtons">' +
+              '<div id="addButtonDiv" style="float: left">' +
+              '<button id="addButton">Edit</button>' +
+              '</div>' +
+              '<div id="resetButtonDiv" style="float: left">' +
+              '<button id="resetButton">Reset</button>' +
+              '</div>' +
+              '</div>'
+    });
+    viewButtonAction();
+
+    $('#addButton').on("click", function(){
+        var name = $('#nameField').val();
+        var surname = $('#surnameField').val();
+        var avatar = $('#avatarURL').val();
+
+       /*if(name !== "") {
+            alert(name);
+            $.ajax({
+                type: 'UPDATE',
+                url: 'http://localhost:3000/lol/' + id,
+                contentType: "application/json",
+                dataType: 'json',
+                data: JSON.stringify({name: name})
+            })
+        }
+        if(surname !== ""){
+            alert(surname);
+            $.ajax({
+                type: 'PUT',
+                url: 'http://localhost:3000/lol/' + id,
+                contentType: "application/json",
+                dataType: 'json',
+                data: JSON.stringify({name: tableName, surname: surname, avatarLink: tableAvatar})
+            })
+        }
+        if(avatar !== ""){
+            alert(avatar);
+            $.ajax({
+                type: 'PUT',
+                url: 'http://localhost:3000/lol/' + id,
+                contentType: "application/json",
+                dataType: 'json',
+                data: JSON.stringify({name: tableName, surname: tableSurname, avatarLink: avatar})
+            })
+        }*/
+    })
 }

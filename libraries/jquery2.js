@@ -5032,7 +5032,7 @@
             if ( jQuery.isEmptyObject( events ) ) {
                 delete elemData.handle;
 
-                // removeData also checks for emptiness and clears the expando if empty
+                // removeUserFromBase also checks for emptiness and clears the expando if empty
                 // so use it instead of delete
                 jQuery._removeData( elem, "events" );
             }

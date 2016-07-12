@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
 .parentOfDynamicSizeElements {
   overflow: hidden;
   height: 100%; }
@@ -14,80 +19,31 @@
 
 .tableElement {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  pointer-events: none; }
-
-#addUserForm {
-  height: 100%; }
-
-#addUserAvatarView {
-  margin-left: 2%;
-  height: 100%; }
-
-.addUserFormLabel {
-  width: 30%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  float: left; }
-
-.addUserFormInput {
-  width: 70%;
-  height: 100%;
-  float: left; }
-
-#columnHeader {
-  background-color: #646464; }
-
-.avatars {
-  max-width: 100%; }
-
-#selectable .ui-selecting {
-  background: #FECA40; }
-
-#selectable .ui-selected {
-  background: #F39814;
-  color: white; }
-
-#selectable {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 100%; }
-
-#selectable li {
-  margin: 3px;
-  padding: 1px;
+  pointer-events: none;
   float: left;
-  height: 80px;
-  text-align: center; }
-
-#calendarContainer {
-  background-color: red; }
-
-#avatarViewImage {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 100%;
-  max-height: 100%; }
-
-#viewButton {
-  width: 100%;
-  float: right; }
+  width: 33%; }
 
 html body {
   margin: 0;
   padding: 0;
   width: 100%; }
   html body::-webkit-scrollbar {
-    width: 0em; }
+    width: 0; }
+
+button {
+  background-color: #ff9c38;
+  border: 2px solid #ff8444; }
+  button:hover {
+    background-color: #ff8238;
+    border-color: #ff7124; }
+
+​#header {
+  height: 10%;
+  width: 100%;
+  background-color: #ffab44; }
 
 #logoBlock {
-  width: 50%;
+  width: 90%;
   text-align: center;
   position: relative;
   top: 50%;
@@ -98,51 +54,8 @@ html body {
   max-width: 100%;
   max-height: 100%; }
 
-#addButtonDiv {
-  width: 50%;
-  height: 100%; }
-
-#resetButtonDiv {
-  width: 50%;
-  height: 100%; }
-
-#addButton {
-  width: 100%;
-  height: 100%; }
-
-#resetButton {
-  width: 100%;
-  height: 100%; }
-
-#addUserBlock {
-  width: 30%;
-  height: 90%;
-  float: left;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%); }
-
-#addUserButtons {
-  width: 100%;
-  height: 18%;
-  clear: both; }
-
-#example_filter {
-  background-color: #c8c8c8;
-  width: 100%; }
-
-#example_info {
-  background-color: gainsboro; }
-
-#example_wrapper {
-  background-color: gainsboro; }
-
-#headerTable {
-  background-color: #ffab44;
-  width: 100%; }
-
-#removeUserBlock {
-  width: 20%;
+#addUserButtonBlock {
+  width: 10%;
   height: 90%;
   padding: 0;
   margin: 0;
@@ -152,28 +65,13 @@ html body {
   top: 50%;
   transform: translateY(-50%); }
 
-#removeButton {
-  width: 30%;
-  height: 100%; }
-
-​#header {
-  height: 15%;
-  width: 100%;
-  background-color: #ffab44; }
-
-.sorting {
-  background-color: #c8c8c8; }
-
-#example_wrapper {
-  background-color: gainsboro; }
-
 #content {
   background-color: gainsboro;
   position: absolute;
-  top: 15%;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: auto; }
 
 #userTable {
@@ -192,16 +90,41 @@ html body {
     background-color: #646464;
     outline: 1px solid slategrey; }
 
-button {
-  background-color: #ff9c38;
-  border: 2px solid #ff8444; }
-  button:hover {
-    background-color: #ff8238;
-    border-color: #ff7124; }
+.tableRow {
+  list-style-type: none;
+  height: 10%; }
 
-.box-item {
-  width: 100%;
-  z-index: 1000; }
+.avatars {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%; }
+
+#userTableFooter {
+  height: 10%;
+  background-color: darkgrey;
+  text-align: center; }
+
+#recycleDragContainer {
+  width: 50%;
+  height: 100%;
+  visibility: hidden;
+  float: left;
+  background-color: #9a1725; }
+
+#editDragContainer {
+  width: 50%;
+  height: 100%;
+  float: left;
+  visibility: hidden;
+  background-color: #0b9a09; }
+
+#editUserImage {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px; }
 
 #calandar {
   width: 70%;
@@ -225,29 +148,75 @@ button {
 #dayscontainter {
   width: 100%; }
 
-.drag {
-  width: 20em;
-  height: 100px;
-  clear: left;
-  text-align: center; }
+#addUserForm {
+  height: 100%; }
+
+#addUserAvatarView {
+  margin-left: 2%;
+  height: 100%; }
+
+.addUserFormLabel {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  float: left; }
+
+.addUserFormInput {
+  width: 70%;
+  height: 100%;
+  float: left; }
+
+#addButtonDiv {
+  width: 50%;
+  height: 100%; }
+
+#addUserButtons {
+  width: 100%;
+  height: 18%;
+  clear: both; }
+
+#addButton {
+  width: 100%;
+  height: 100%; }
+
+#resetButtonDiv {
+  width: 50%;
+  height: 100%; }
+
+#resetButton {
+  width: 100%;
+  height: 100%; }
+
+#removeButton {
+  width: 30%;
+  height: 100%; }
+
+#viewButton {
+  width: 100%;
+  float: right; }
+
+#avatarViewImage {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 100%;
+  max-height: 100%; }
+
+#columnHeader {
+  background-color: #646464; }
+
+#calendarContainer {
+  background-color: red; }
 
 .daysdivs {
   width: 50%;
   float: left;
   height: 70%; }
 
-#htmlTable {
-  width: 100%; }
-
-#htmlTable tr td {
-  border: 5px; }
-
-#htmlTableTop {
-  background-color: #c8c8c8;
-  height: 10%; }
-
-#htmlTableTop tr td {
-  margin: 0;
-  padding: 0; }
+.box-item {
+  width: 100%;
+  z-index: 1000; }
 
 /*# sourceMappingURL=style.css.map */
