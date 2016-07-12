@@ -3,9 +3,13 @@ $headerButtons: rgb(255,156,56);
 $headerButtonsBorder: rgb(255,132,68);
 $headerButtonsHover: rgb(255,130,56);
 $headerButtonsBorderHover: rgb(255,113,36);
-$headerSize: 15%;
 $lightGrey: rgb(220,220,220);
 $darkGrey: rgb(200,200,200);
+.center {
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+}
 .parentOfDynamicSizeElements {
   overflow: hidden;
   height: 100%;
@@ -21,11 +25,137 @@ $darkGrey: rgb(200,200,200);
 }
 .tableElement {
   height: 100%;
+  pointer-events: none;
+  float: left;
+  width: 33%;
+}
+
+html body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  &::-webkit-scrollbar {
+    width: 0em;
+  }
+}
+button {
+  background-color: $headerButtons;
+  border: 2px solid $headerButtonsBorder;
+  &:hover {
+    background-color: $headerButtonsHover;
+    border-color: $headerButtonsBorderHover;
+  }
+}
+
+​#header {
+  height: 10%;
+  width: 100%;
+  background-color: #ffab44;
+}
+  #logoBlock {
+  width: 90%;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  float: left;
+}
+    #logoImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+  #addUserButtonBlock {
+  width: 10%;
+  height: 90%;
+  padding: 0;
+  margin: 0;
+  float: right;
+  background-color: $headerColor;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#content {
+  background-color: $lightGrey;
+  position: absolute;
+  top: 10%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: auto;
+}
+  #userTable {
+  width: 30%;
+  float: left;
+  overflow-y: scroll;
+  & td {
+    text-align: center;
+  }
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(100,100,100);
+    outline: 1px solid slategrey;
+  }
+  background-color: rgb(210,210,210);
+  height: 100%;
+}
+    .tableRow {
+      list-style-type: none;
+      height: 10%;
+    }
+    //#selectable {  }
+      .avatars {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    #userTableFooter {
+      height: 10%; background-color: darkgrey; text-align: center
+    }
+      #recycleDragContainer {
+        width: 50%; height: 100%; visibility: hidden; float: left; background-color: #9a1725
+      }
+      #editDragContainer {
+        width: 50%; height: 100%; float: left; visibility: hidden; background-color: #0b9a09
+      }
+        #editUserImage {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 50px;
+          height: 50px;
+        }
+  #calandar {
+  width: 70%;
+  float: right;
+}
+    #calandarBanner {
+  text-align: center;
+  height: 10%;
+  background-color: #359A35;
+}
+    .weekdays {
   display: flex;
   justify-content:center;
   flex-direction:column;
-  pointer-events: none;
+  width: 20%;
+  background-color:#ddd;
+  float: left;
+  text-align: center;
+  height: 5%;
 }
+    #dayscontainter {
+  width: 100%;
+}
+
+
+// popup:
 #addUserForm {
   height: 100%;
 }
@@ -46,18 +176,34 @@ $darkGrey: rgb(200,200,200);
   height: 100%;
   float: left;
 }
-#columnHeader {
-  background-color: rgb(100,100,100);
+#addButtonDiv {
+  width: 50%;
+  height: 100%;
 }
-.avatars {
-  max-width: 100%;
+#addUserButtons {
+  width: 100%;
+  height: 18%;
+  clear: both;
 }
-#selectable .ui-selecting { background: #FECA40; }
-#selectable .ui-selected { background: #F39814; color: white; }
-#selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
-#selectable li { margin: 3px; padding: 1px; float: left; height: 80px; text-align: center; }
-#calendarContainer {
-  background-color: red;
+#addButton {
+  width: 100%;
+  height: 100%;
+}
+#resetButtonDiv {
+  width: 50%;
+  height: 100%;
+}
+#resetButton {
+  width: 100%;
+  height: 100%;
+}
+#removeButton {
+  width: 30%;
+  height: 100%;
+}
+#viewButton {
+  width: 100%;
+  float: right;
 }
 #avatarViewImage {
   position: relative;
@@ -66,195 +212,46 @@ $darkGrey: rgb(200,200,200);
   max-width: 100%;
   max-height: 100%;
 }
-#viewButton {
-  width: 100%;
-  float: right;
-}
-html body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  &::-webkit-scrollbar {
-    width: 0em;
-  }
-}
-#logoBlock {
-  width: 50%;
-  text-align: center;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  float: left;
-}
-#logoImage {
-  max-width: 100%;
-  max-height: 100%;
-}
-#addButtonDiv {
-  width: 50%;
-  height: 100%;
-}
-#resetButtonDiv {
-  width: 50%;
-  height: 100%;
-}
-#addButton {
-  width: 100%;
-  height: 100%;
-}
-#resetButton {
-  width: 100%;
-  height: 100%;
-}
-#addUserBlock {
-  width: 30%;
-  height: 90%;
-  float: left;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-#addUserButtons {
-  width: 100%;
-  height: 18%;
-  clear: both;
-}
-#example_filter {
-  background-color: $darkGrey;
-  width: 100%;
-}
-#example_info {
-  background-color: $lightGrey;
-}
-#example_wrapper {
-  background-color: $lightGrey;
-}
-#headerTable {
-  background-color: $headerColor;
-  width: 100%;
-}
-#removeUserBlock {
-  width: 20%;
-  height: 90%;
-  padding: 0;
-  margin: 0;
-  float: right;
-  background-color: $headerColor;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-#removeButton {
-  width: 30%;
-  height: 100%;
-}
-​#header {
-  height: 15%;
-  width: 100%;
-  background-color: #ffab44;
+#columnHeader {
+  // ?????
+  background-color: rgb(100,100,100);
 }
 
-.sorting {
-  background-color: $darkGrey;
-}
-#example_wrapper {
-  background-color: $lightGrey;
-}
-#content {
-  background-color: $lightGrey;
-  position: absolute;
-  top: $headerSize;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  height: auto;
-}
-#userTable {
-  width: 30%;
-  float: left;
-  overflow-y: scroll;
-  & td {
-    text-align: center;
-  }
-  &::-webkit-scrollbar {
-    width: 1em;
-  }
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(100,100,100);
-    outline: 1px solid slategrey;
-  }
-  background-color: rgb(210,210,210);
-  height: 100%;
-}
-button {
-  background-color: $headerButtons;
-  border: 2px solid $headerButtonsBorder;
-  &:hover {
-    background-color: $headerButtonsHover;
-    border-color: $headerButtonsBorderHover;
-  }
-}
-.box-container {
-  //height: 200px;
-}
-.box-item {
-  width: 100%;
-  z-index: 1000
-}
-#calandar {
-  width: 70%;
-  float: right;
-}
-#calandarBanner {
-  text-align: center;
-  height: 10%;
-  background-color: #359A35;
-}
-.weekdays {
-  display: flex;
-  justify-content:center;
-  flex-direction:column;
-  width: 20%;
-  background-color:#ddd;
-  float: left;
-  text-align: center;
-  height: 5%;
-}
-#dayscontainter {
-  width: 100%;
-}
-.drag {
-  width: 20em;
-  height: 100px;
-  clear: left;
-  text-align: center;
+
+
+#calendarContainer {
+  background-color: red;
 }
 .daysdivs{
   width: 50%;
   float: left;
   height: 70%;
 }
-#htmlTable {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.box-item {
   width: 100%;
-}
-#htmlTable tr td {
-  border: 5px;
-}
-#htmlTableTop {
-  background-color: $darkGrey;
-  height: 10%;
-}
-#htmlTableTop tr td {
-  margin: 0;
-  padding: 0;
+  z-index: 1000
 }
 
 
 
-
-
-
-
+//.sorting {
+//  background-color: $darkGrey;
+//}
+//#example_wrapper {
+//  background-color: $lightGrey;
+//}
