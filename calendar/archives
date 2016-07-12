@@ -1,0 +1,27 @@
+<!-- box-container class removed in
+remo-->
+
+<!--         <div id="calandarBanner">
+             Sierpień 2016
+         </div>
+         <div class="weekdays">
+             <span>Poniedziałek</span>
+         </div>
+         <div class="weekdays">
+             Wtorek
+         </div>
+         <div class="weekdays">
+             Środa
+         </div>
+         <div class="weekdays">
+             Czwartek
+         </div>
+         <div class="weekdays">
+             Piątek
+         </div>
+         <div id="dayscontainter">
+             <div id="calendarContainer" class="daysdivs panel-body " style="background-color: crimson">
+                 &lt;!&ndash;<div itemid="itm-1" class="drag btn btn-default box-item"></div>&ndash;&gt;
+                 &lt;!&ndash;<div itemid="itm-2" class="drag btn btn-default box-item"></div>&ndash;&gt;
+             </div>
+         </div>-->
