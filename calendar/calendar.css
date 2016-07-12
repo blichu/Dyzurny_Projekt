@@ -52,6 +52,56 @@
     text-align: center;
 }
 
+#weekDays{
+    width: 100%;
+    height: 10%;
+}
+
+#weeksNumbersTop{
+    float: left;
+    width: 10%;
+    height: 100%;
+    background-color: #0b9a09;
+}
+
+#weeksNumbersTopLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: 70%;
+    background-color: #0dd90b;
+    text-align: center;
+}
+
+#weekDaysNameTop{
+    height: 100%;
+    width: 100%;
+    background-color: #0b9a09;
+}
+
+.daysTopLayout{
+    float: left;
+    height: 100%;
+    width: 12.855%;
+    background-color: #0b9a09;
+}
+
+.daysInTopLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 90%;
+    background-color: #0dd90b;
+    text-align: center;
+    font-size: 140%;
+}
+
 #weeksNumbers{
     width: 10%;
     height: 90%;

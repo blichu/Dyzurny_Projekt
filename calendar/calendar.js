@@ -8,6 +8,8 @@ var daysInMonth;
 var firstMonthDay;
 var actualMonth;
 
+var weekDays = new Array(7);
+
 var dt = new Date();
 
 $(document).ready(function (){
@@ -16,9 +18,17 @@ $(document).ready(function (){
     currentMonth = dt.getMonth() + 1;
     actualMonth = currentMonth;
     currentYear = dt.getFullYear();
+    weekDays[1] = "Poniedziałek";
+    weekDays[2] = "Wtorek";
+    weekDays[3] = "Środa";
+    weekDays[4] = "Czwartek";
+    weekDays[5] = "Piątek";
+    weekDays[6] = "Sobota";
+    weekDays[7] = "Niedziela";
     initMonth();
     setMonth();
     insertDaysToCalendar();
+    alert(getDropppedDate("week3"));
 });
 
 function isLeapYear(year){
@@ -202,3 +212,32 @@ function insertDaysToCalendar() {
     }
 }
 
+function getDropppedDate(div){
+    if (div.substring(0, 3) == "day"){
+        var month = currentMonth;
+        var year = currentYear;
+        var firstDay = firstMonthDay;
+        var idDiv = div.substring(3, 5);
+        var day = idDiv - (firstDay - 1);
+        if (day < 1) {
+            var daysInPreviousMonth = set_daysInPreviousMonth(month - 1);
+            day = daysInPreviousMonth + day;
+            --month;
+        }
+        var dayNumberOfCurrentMonth = set_daysInPreviousMonth(month);
+        if (day > dayNumberOfCurrentMonth){
+            day -= dayNumberOfCurrentMonth;
+            month++;
+        }
+        if (month < 10) month = "0" + month;
+        return (day + "." + month + "." + year);
+    }
+    if (div.substring(0, 4) == "week"){
+        if (div.substring(4, 5) == "1") return getDropppedDate("day1");
+        if (div.substring(4, 5) == "2") return getDropppedDate("day8");
+        if (div.substring(4, 5) == "3") return getDropppedDate("day15");
+        if (div.substring(4, 5) == "4") return getDropppedDate("day22");
+        if (div.substring(4, 5) == "5") return getDropppedDate("day29");
+        if (div.substring(4, 5) == "6") return getDropppedDate("day36");
+    }
+}
