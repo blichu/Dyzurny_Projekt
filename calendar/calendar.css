@@ -1,8 +1,7 @@
 @charset "UTF-8";
 #calendar{
-    width: 70%;
-    float: right;
-    height: 100%;
+    width: 1000px;
+    height: 700px;
     background-color: #58959a;
 }
 
@@ -13,8 +12,6 @@
     background-color: #8b8b8b;
 }
 
-
-
 #buttonLeft{
     display: block;
     width: 10%;
@@ -24,10 +21,6 @@
     text-align: center;
 }
 
-#buttonLeft:hover{
-    background-color: #9a1725;
-}
-
 #buttonRight{
     display: block;
     width: 10%;
@@ -35,10 +28,6 @@
     background-color: #359A35;
     float: left;
     text-align: center;
-}
-
-#buttonRight:hover{
-    background-color: #9a1725;
 }
 
 #monthName{
@@ -122,6 +111,7 @@
     width: 70%;
     height: 70%;
     background-color: #0dd90b;
+
 }
 
 #days{
@@ -192,12 +182,28 @@
     text-align: center;
 }
 
-.daysInLayout:hover{
-    background-color: #9a1725;
-}
-
 .centeredText{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.daysInLayout:hover,
+.actualDayInLayout:hover,
+.actualMonthDaysLayout:hover,
+.otherMonthDaysLayout:hover,
+.weeksInLayout:hover,
+#buttonLeft:hover,
+#buttonRight:hover{
+    background-color: #9a1725;
+}
+
+.daysInLayout:active,
+.actualDayInLayout:active,
+.actualMonthDaysLayout:active,
+.otherMonthDaysLayout:active,
+.weeksInLayout:active,
+#buttonLeft:active,
+#buttonRight:active{
+    background-color: #9a5c5f;
 }

@@ -17,9 +17,11 @@ $(document).ready(function (){
     actualMonth = currentMonth;
     currentYear = dt.getFullYear();
     initMonth();
-    setMonthName(currentMonth);
+    set_MonthName(currentMonth);
     daysInMonth = set_daysInPreviousMonth(currentMonth);
     insertDaysToCalendar();
+    alert(get_Week("week4"));
+    getDutys(addDataToCalendar);
 });
 
 function isLeapYear(year){
@@ -38,7 +40,7 @@ function changeMonthName(string) {
     element.innerText = string;
 }
 
-function setMonthName(month){
+function set_MonthName(month){
     switch (month) {
         case 1:
             changeMonthName("Styczeń " + currentYear);
@@ -104,17 +106,17 @@ function set_daysInPreviousMonth(month){
     return daysAmount;
 }
 
-
 function buttonLeftAction(){
     --currentMonth;
     if(currentMonth === 0) {
         currentMonth = 12;
         --currentYear;
     }
-    setMonthName(currentMonth);
+    set_MonthName(currentMonth);
     daysInMonth = set_daysInPreviousMonth(currentMonth);
     initMonth();
     insertDaysToCalendar();
+    getDutys();
 }
 
 function buttonRightAction() {
@@ -123,10 +125,11 @@ function buttonRightAction() {
         currentMonth = 1;
         currentYear++;
     }
-    setMonthName(currentMonth);
+    set_MonthName(currentMonth);
     daysInMonth = set_daysInPreviousMonth(currentMonth);
     initMonth();
     insertDaysToCalendar();
+    getDutys();
 }
 
 function insertDaysToCalendar() {
@@ -135,7 +138,7 @@ function insertDaysToCalendar() {
     var dayNumberOfCurrentMonth = 1;
     var dayNumberOfNextMonth = 1;
     var daysInPreviousMonth = set_daysInPreviousMonth(currentMonth - 1);
-    var daysOfPreviousMonthInCalendar = firstMonthDay - 1; //Liczba dni w kalendarzu poprzedniego miesiąca
+    var daysOfPreviousMonthInCalendar = firstMonthDay - 1;
     for (var index = 0; index < daysInCalendar; index++) {
         if (index < firstMonthDay - 1) {
             --daysOfPreviousMonthInCalendar;
@@ -170,32 +173,76 @@ function insertDaysToCalendar() {
     }
 }
 
-function getDropppedDate(div){
-    if (div.substring(0, 3) == "day"){
-        var month = currentMonth;
-        var year = currentYear;
-        var firstDay = firstMonthDay;
-        var idDiv = div.substring(3, 5);
-        var day = idDiv - (firstDay - 1);
-        if (day < 1) {
-            var daysInPreviousMonth = set_daysInPreviousMonth(month - 1);
-            day = daysInPreviousMonth + day;
-            --month;
-        }
-        var dayNumberOfCurrentMonth = set_daysInPreviousMonth(month);
-        if (day > dayNumberOfCurrentMonth){
-            day -= dayNumberOfCurrentMonth;
-            month++;
-        }
-        if (month < 10) month = "0" + month;
-        return (day + "." + month + "." + year);
+function get_day(div){
+    var month = currentMonth;
+    var year = currentYear;
+    var firstDay = firstMonthDay;
+    var idDiv = div.substring(3, 5);
+    var day = idDiv - (firstDay - 1);
+    if (day < 1) {
+        var daysInPreviousMonth = set_daysInPreviousMonth(month - 1);
+        day = daysInPreviousMonth + day;
+        --month;
     }
-    if (div.substring(0, 4) == "week"){
-        if (div.substring(4, 5) == "1") return getDropppedDate("day1");
-        if (div.substring(4, 5) == "2") return getDropppedDate("day8");
-        if (div.substring(4, 5) == "3") return getDropppedDate("day15");
-        if (div.substring(4, 5) == "4") return getDropppedDate("day22");
-        if (div.substring(4, 5) == "5") return getDropppedDate("day29");
-        if (div.substring(4, 5) == "6") return getDropppedDate("day36");
+    var dayNumberOfCurrentMonth = set_daysInPreviousMonth(month);
+    if (day > dayNumberOfCurrentMonth){
+        day -= dayNumberOfCurrentMonth;
+        month++;
+    }
+    if (month < 10) month = "0" + month;
+    return (day + "." + month + "." + year);
+}
+
+function get_Week(div){
+    var week = new Array(7);
+    for (var index = 0; index < week.length; index++) week[index] = 0;
+    var numberOfWeek = div.substring(4, 5);
+    var temp = ((numberOfWeek - 1) * 7) + 1;
+    for (var index = 0; index < week.length; index++){
+        week[index] = get_day("day" + temp);
+        temp++;
+    }
+    var correctDays = 0;
+    for (var index = 0; index < week.length; index++){
+        if (week[index] != 0) correctDays++;
+    }
+    if (correctDays == 7){
+        return week;
+    }
+    else{
+        alert("Taki tydzień nie istnieje!");
     }
 }
+
+function insertPicture(div, imageURL) {
+    var element = document.getElementById(div);
+    element.innerHTML = "<img src='" + imageURL + "' width='100%' heigth='100%'/>";
+}
+
+function addDataToCalendar() {
+    
+}
+
+function getDutys(addDataToCalendar){
+    $.get("http://localhost:3000/lol")
+        .done(function (response) {
+            addDataToCalendar();
+        });
+}
+
+// function getDutys(){
+//     var data = new Array();
+//     $.get("http://localhost:3000/lol", function (response) {
+//         for (var i = 0; i < response.length; i++){
+//             // alert(response[i].name);
+//             data[i] = response[i].name;
+//         }
+//         for (var i = 0; i < response.length; i++){
+//             insertPicture("day13", response[i].avatarLink);
+//         }
+//
+//     }).done(function () {
+//         alert("OK");
+//
+//     })
+// }
