@@ -89,26 +89,33 @@ button {
   bottom: 0;
   height: auto;
 }
-  #userTable {
+.contentLeft {
   width: 30%;
   float: left;
-  overflow-y: scroll;
-  & td {
-    text-align: center;
-  }
-  &::-webkit-scrollbar {
-    width: 1em;
-  }
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(100,100,100);
-    outline: 1px solid slategrey;
-  }
-  background-color: rgb(210,210,210);
+
+}
+  #userTable {
+    overflow-y: scroll;
+    & td {
+      text-align: center;
+    }
+    &::-webkit-scrollbar {
+      width: 1em;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(100,100,100);
+      outline: 1px solid slategrey;
+    }
+    background-color: rgb(210,210,210);
+  width: 100%;
   height: 100%;
 }
+  .userTableDecrease {
+    height: 90% !important;
+  }
     .tableRow {
       list-style-type: none;
       height: 10%;
@@ -196,6 +203,20 @@ $lightRowColor: ($darkRowColor + $colorDiff);
   left: (100%-$width)/2 !important;
   top: (100%-$height)/2 !important;
 }
+.popupTop {
+  height: 80%;
+}
+.popupBot {
+  width: 100%;
+  height: 20%;
+}
+.w2ui-msg-title {
+  height: 10% !important;
+}
+.w2ui-msg-buttons {
+  height: 90% !important;
+  padding: 0 !important;
+}
 #addUserForm {
   height: 100%;
 }
@@ -226,14 +247,9 @@ $lightRowColor: ($darkRowColor + $colorDiff);
     height: 100%;
     width: 30%;
   }
-#addButtonDiv {
+#addAndEditButtonDiv {
   width: 50%;
   height: 100%;
-}
-#addUserButtons {
-  width: 100%;
-  height: 18%;
-  clear: both;
 }
 #addButton {
   width: 100%;
@@ -270,7 +286,9 @@ $lightRowColor: ($darkRowColor + $colorDiff);
   // ?????
   background-color: rgb(100,100,100);
 }
-
+.trueHidden {
+  height: 0 !important;
+}
 
 
 #calendarContainer {
@@ -281,7 +299,10 @@ $lightRowColor: ($darkRowColor + $colorDiff);
   float: left;
   height: 70%;
 }
-
+#calendar {
+  width: 70%;
+  float: left;
+}
 #addUserButtonDiv {
   width: 10%;
   height: 90%;

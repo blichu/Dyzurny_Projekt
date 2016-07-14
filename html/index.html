@@ -12,6 +12,7 @@
     <script src="../javascript/userTable.js"></script>
     <script src="../javascript/jsonServer.js"></script>
     <script src="../javascript/addUserPopup.js"></script>
+    <script src="../javascript/editUserPopup.js"></script>
     <script src="../javascript/dragAndDrop.js"></script>
 
     <link rel="stylesheet" href="../style/style.css">
@@ -30,7 +31,7 @@
             <!--<button type="submit" id="r emoveButton">Remove selected</button>-->
             <!--<div id="addUserDiv">-->
                 <!--style="width: 90%; height: 100%; float: left; background-color: #dc963b"      ^^^^^^^^^^^^^ -->
-                <div class="addUserButtonDiv" onclick="addUserPopupInit()">
+                <div class="addUserButtonDiv" onclick="showAddUserPopUp()">
                     <div class="inLine verticalCenterChilds">
                         Add user
                     </div>
@@ -42,11 +43,13 @@
         <!--</div>-->
     </div>
     <div id="content">
-        <div id="userTable">
-            <ol id="selectable">
+        <div class="contentLeft">
+            <div id="userTable">
+                <ol id="selectable">
 
-            </ol>
-            <div id="userTableFooter">
+                </ol>
+            </div>
+            <div id="userTableFooter" class="trueHidden">
                 <div id="recycleDragContainer" class="panel-body">
                     Remove user
                     <img id="removeUserImage" src='../images/recycle.png'>

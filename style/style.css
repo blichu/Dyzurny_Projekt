@@ -78,11 +78,14 @@ button {
   bottom: 0;
   height: auto; }
 
-#userTable {
+.contentLeft {
   width: 30%;
-  float: left;
+  float: left; }
+
+#userTable {
   overflow-y: scroll;
   background-color: #d2d2d2;
+  width: 100%;
   height: 100%; }
   #userTable td {
     text-align: center; }
@@ -93,6 +96,9 @@ button {
   #userTable::-webkit-scrollbar-thumb {
     background-color: #646464;
     outline: 1px solid slategrey; }
+
+.userTableDecrease {
+  height: 90% !important; }
 
 .tableRow {
   list-style-type: none;
@@ -169,6 +175,20 @@ button {
   left: 32.5% !important;
   top: 35% !important; }
 
+.popupTop {
+  height: 80%; }
+
+.popupBot {
+  width: 100%;
+  height: 20%; }
+
+.w2ui-msg-title {
+  height: 10% !important; }
+
+.w2ui-msg-buttons {
+  height: 90% !important;
+  padding: 0 !important; }
+
 #addUserForm {
   height: 100%; }
 
@@ -199,14 +219,9 @@ button {
   height: 100%;
   width: 30%; }
 
-#addButtonDiv {
+#addAndEditButtonDiv {
   width: 50%;
   height: 100%; }
-
-#addUserButtons {
-  width: 100%;
-  height: 18%;
-  clear: both; }
 
 #addButton {
   width: 100%;
@@ -234,6 +249,9 @@ button {
 #columnHeader {
   background-color: #646464; }
 
+.trueHidden {
+  height: 0 !important; }
+
 #calendarContainer {
   background-color: red; }
 
@@ -241,6 +259,10 @@ button {
   width: 50%;
   float: left;
   height: 70%; }
+
+#calendar {
+  width: 70%;
+  float: left; }
 
 #addUserButtonDiv {
   width: 10%;

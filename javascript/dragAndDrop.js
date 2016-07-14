@@ -18,6 +18,8 @@ function initDroppableContainer() {
         .on( "drop", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "hidden");
             $('#editDragContainer').css("visibility", "hidden");
+            $('#userTableFooter').addClass("trueHidden");
+            $('#userTable').removeClass("userTableDecrease");
             removeUserFromBase(ui.draggable.attr("id"));
             // alert("usuwam: " + ui.draggable.attr("id"));
             // ui.draggable.remove();
@@ -42,10 +44,7 @@ function initDroppableContainer() {
     $( "#editDragContainer" )
         .on( "drop", function( event, ui ) {
             var id = ui.draggable.attr("id");
-            var name = $(ui.draggable).children("#name").html();
-            var surname = $(ui.draggable).children("#surname").html();
-            var avatar = $(ui.draggable).children("#avatar").children("img").attr("src");
-            editUser(id, name, surname, avatar);
+            showEditUserPopUp(id);
         } )
         .on( "dropover", function( event, ui ) {
             $('#editDragContainer').addClass("hover");
@@ -70,12 +69,16 @@ function initDraggableElements() {
         .on( "dragstart", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "visible");
             $('#editDragContainer').css("visibility", "visible");
+            $('#userTableFooter').removeClass("trueHidden");
+            $('#userTable').addClass("userTableDecrease");
             $(ui.helper).css({width:'10%', 'border-radius': '10em', height:'50px', opacity: '0.6', "background-color": "white"});
             // w2alert($(ui.helper).parent().html());
         })
         .on( "dragstop", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "hidden");
             $('#editDragContainer').css("visibility", "hidden");
+            $('#userTableFooter').addClass("trueHidden");
+            $('#userTable').removeClass("userTableDecrease");
         })
         // .draggable({
         //     cursor: 'move',

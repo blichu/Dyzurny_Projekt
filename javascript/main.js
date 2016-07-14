@@ -59,7 +59,7 @@ function addUserToCalendar(id, name, surname, avatarLink){
 // function buildTable() {
 // selectRowAction(table);
 // actionRemoveButton();
-// actionsAddUserButton(table);
+// actionsEditUserButton(table);
 // actionViewButton();
 // actionResetButton();
 // }

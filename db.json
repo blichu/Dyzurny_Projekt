@@ -18,7 +18,7 @@
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
+      "assigned": "assigned",
       "id": 9
     },
     {
@@ -29,11 +29,18 @@
       "id": 10
     },
     {
-      "name": "asdasdsa",
-      "surname": "adsad",
-      "avatarLink": "asdsda",
+      "name": "asdasd",
+      "surname": "asdasd",
+      "avatarLink": "asdasdsa",
       "assigned": "noAssigned",
       "id": 11
+    },
+    {
+      "name": "Maciej",
+      "surname": "surname",
+      "avatarLink": "http://www.womkat.edu.pl/files/standaryzacja/Belferplus/grupa_3/pa_figury/33.jpg",
+      "assigned": "noAssigned",
+      "id": 12
     }
   ]
 }

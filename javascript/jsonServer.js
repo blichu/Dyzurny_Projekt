@@ -10,19 +10,36 @@ function removeUserFromBase(id) {
 }
 function editUserInBase(id, name, surname, avatarLink, assigned) {
     var data = "{";
+    var isOne = false;
     if(name !== "") {
-        data += '"name": "' + name + '",'
+        if(isOne) {
+            data += ",";
+        }
+        data += '"name": "' + name + '"';
+        isOne = true;
     }
     if(surname !== "") {
-        data += '"surname": "' + surname + '",'
+        if(isOne) {
+            data += ",";
+        }
+        data += '"surname": "' + surname + '"';
+        isOne = true;
     }
     if(avatarLink !== "") {
-        data += '"avatarLink": "' + avatarLink + '",'
+        if(isOne) {
+            data += ",";
+        }
+        data += '"avatarLink": "' + avatarLink + '"';
+        isOne = true;
     }
     if(assigned !== "") {
-        data += '"assigned": "' + assigned + '"'
+        if(isOne) {
+            data += ",";
+        }
+        data += '"assigned": "' + assigned + '"';
     }
     data += "}";
+    alert(data);
     $.ajax({
         type: 'PATCH',
         url: 'http://localhost:3000/lol/' + id,
