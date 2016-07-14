@@ -1,17 +1,17 @@
 {
   "lol": [
     {
-      "name": "Zbigniew",
-      "surname": "Suraj",
-      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
+      "name": "Maciek",
+      "surname": "Blicharz",
+      "avatarLink": 12123,
+      "assigned": "assigned",
       "id": 7
     },
     {
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
+      "assigned": "assigned",
       "id": 8
     },
     {
@@ -25,8 +25,15 @@
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
+      "assigned": "assigned",
       "id": 10
+    },
+    {
+      "name": "asdasdsa",
+      "surname": "adsad",
+      "avatarLink": "asdsda",
+      "assigned": "noAssigned",
+      "id": 11
     }
   ]
 }

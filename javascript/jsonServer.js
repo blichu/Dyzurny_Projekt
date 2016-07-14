@@ -8,13 +8,27 @@ function removeUserFromBase(id) {
         $('#' + id).remove();
     });
 }
-function editUserInBase(name, surname, avatarURl) {
+function editUserInBase(id, name, surname, avatarLink, assigned) {
+    var data = "{";
+    if(name !== "") {
+        data += '"name": "' + name + '",'
+    }
+    if(surname !== "") {
+        data += '"surname": "' + surname + '",'
+    }
+    if(avatarLink !== "") {
+        data += '"avatarLink": "' + avatarLink + '",'
+    }
+    if(assigned !== "") {
+        data += '"assigned": "' + assigned + '"'
+    }
+    data += "}";
     $.ajax({
         type: 'PATCH',
-        url: 'http://localhost:3000/lol/6',
+        url: 'http://localhost:3000/lol/' + id,
         contentType: "application/json",
         dataType: 'json',
-        data : JSON.stringify({name: "Elżbieta"})
+        data: data
     });
 }
 function addUserToBase(name, surname, avatarLink) {

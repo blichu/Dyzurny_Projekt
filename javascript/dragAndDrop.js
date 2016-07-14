@@ -1,17 +1,18 @@
 function initDroppableContainer() {
     $('#calendarContainer')
         .on( "drop", function( event, ui ) {
-            alert(ui.draggable.attr("id"));
+            $("#" + ui.draggable.attr("id")).appendTo("#calendarContainer");
+            editUserInBase(ui.draggable.attr("id"), "", "", "", "assigned");
         })
         .droppable({
-            drop: function(event, ui) {
-                var itemid = $(event.originalEvent.toElement).attr("itemid");
-                $('.box-item').each(function() {
-                    if ($(this).attr("itemid") === itemid) {
-                        $(this).appendTo("#calendarContainer");
-                    }
-                });
-            }
+            // drop: function(event, ui) {
+            //     // var itemid = $(event.originalEvent.toElement).attr("itemid");
+            //     // $('.box-item').each(function() {
+            //     //     if ($(this).attr("itemid") === itemid) {
+            //     //         $(this).appendTo("#calendarContainer");
+            //     //     }
+            //     // });
+            // }
         });
     $("#recycleDragContainer")
         .on( "drop", function( event, ui ) {
@@ -29,14 +30,14 @@ function initDroppableContainer() {
             $('#recycleDragContainer').removeClass("hover");
         })
         .droppable({
-            drop: function(event, ui) {
-                var itemid = $(event.originalEvent.toElement).attr("itemid");
-                $('.box-item').each(function() {
-                    if ($(this).attr("itemid") === itemid) {
-                        // $(this).appendTo("#recycleDragContainer");
-                    }
-                });
-            }
+            // drop: function(event, ui) {
+            //     var itemid = $(event.originalEvent.toElement).attr("itemid");
+            //     $('.box-item').each(function() {
+            //         if ($(this).attr("itemid") === itemid) {
+            //             // $(this).appendTo("#recycleDragContainer");
+            //         }
+            //     });
+            // }
         });
     $( "#editDragContainer" )
         .on( "drop", function( event, ui ) {
@@ -53,14 +54,14 @@ function initDroppableContainer() {
             $('#editDragContainer').removeClass("hover");
         })
         .droppable({
-            drop: function(event, ui) {
-                var itemid = $(event.originalEvent.toElement).attr("itemid");
-                $('.box-item').each(function() {
-                    if ($(this).attr("itemid") === itemid) {
-                        // $(this).appendTo("#editDragContainer");
-                    }
-                });
-            }
+            // drop: function(event, ui) {
+            //     var itemid = $(event.originalEvent.toElement).attr("itemid");
+            //     $('.box-item').each(function() {
+            //         if ($(this).attr("itemid") === itemid) {
+            //             // $(this).appendTo("#editDragContainer");
+            //         }
+            //     });
+            // }
         });
 }
 function initDraggableElements() {

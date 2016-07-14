@@ -12,7 +12,7 @@
     <script src="../javascript/userTable.js"></script>
     <script src="../javascript/jsonServer.js"></script>
     <script src="../javascript/addUserPopup.js"></script>
-    <script src="../javascript/dragAndDropActions.js"></script>
+    <script src="../javascript/dragAndDrop.js"></script>
 
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../calendar/calendar.css">
@@ -26,16 +26,20 @@
         <div class="logoBlock">
             <img class="logoImage" src="../images/logoConnectedDigital.svg"/>
         </div>
-        <div class="addUserButtonBlock">
+        <!--<div class="addUserButtonBlock">-->
             <!--<button type="submit" id="r emoveButton">Remove selected</button>-->
-            <div id="addUserDiv" class="panel-body ">
+            <!--<div id="addUserDiv">-->
                 <!--style="width: 90%; height: 100%; float: left; background-color: #dc963b"      ^^^^^^^^^^^^^ -->
-                <div onclick="addUserPopupInit()">
-                    Add user
-                    <img class="addUserImage" src='../images/add.png'>
+                <div class="addUserButtonDiv" onclick="addUserPopupInit()">
+                    <div class="inLine verticalCenterChilds">
+                        Add user
+                    </div>
+                    <div class="inLine verticalCenterChilds">
+                        <img class="addUserImage" src='../images/add.png'>
+                    </div>
                 </div>
-            </div>
-        </div>
+            <!--</div>-->
+        <!--</div>-->
     </div>
     <div id="content">
         <div id="userTable">

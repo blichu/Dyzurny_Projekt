@@ -1,4 +1,4 @@
-$headerColor: rgb(255,171,68);
+$headerColor: rgb(255, 71, 36);
 $headerButtons: rgb(255,156,56);
 $headerButtonsBorder: rgb(255,132,68);
 $headerButtonsHover: rgb(255,130,56);
@@ -282,12 +282,31 @@ $lightRowColor: ($darkRowColor + $colorDiff);
   height: 70%;
 }
 
+#addUserButtonDiv {
+  width: 10%;
+  height: 90%;
+  padding: 0;
+  margin: 0;
+  float: right;
+  background-color: $headerColor;
+}
 
 
 
-
-
-
+.inLine {
+  float: left;
+  height: 100%;
+}
+.verticalCenterChilds {
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+}
+#addUserDiv {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 
 
@@ -309,3 +328,7 @@ $lightRowColor: ($darkRowColor + $colorDiff);
 //#example_wrapper {
 //  background-color: $lightGrey;
 //}
+
+//display: flex;
+//justify-content:center;
+//flex-direction:column;
