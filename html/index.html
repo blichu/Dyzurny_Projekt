@@ -1,4 +1,4 @@
-<html style="height: 100%; width: 100%">
+<html>
 <head>
     <meta charset="UTF-8">
 
@@ -12,51 +12,40 @@
     <script src="../javascript/userTable.js"></script>
     <script src="../javascript/jsonServer.js"></script>
     <script src="../javascript/addUserPopup.js"></script>
-    <script src="../javascript/dragAndDrop.js"></script>
+    <script src="../javascript/dragAndDropActions.js"></script>
 
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../calendar/calendar.css">
     <!-- popups -->
-    <link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.2.min.css" />
-    <script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../libraries/w2ui-1.4.2.css" />   <!--http://w2ui.com/src/w2ui-1.4.2.min.css-->
+    <script type="text/javascript" src="../libraries/w2ui-1.4.2.min.js"></script>   <!--http://w2ui.com/src/w2ui-1.4.2.min.js-->
     <!---->
 </head>
-<body style="height: 100%; width: 100%">
-    <div id="header">
-        <div id="logoBlock">
-            <img id="logoImage" src="../images/logoConnectedDigital.svg"/>
+<body>
+    <div class="header">
+        <div class="logoBlock">
+            <img class="logoImage" src="../images/logoConnectedDigital.svg"/>
         </div>
-
-        <div id="addUserButtonBlock">
-            <!--<button type="submit" id="removeButton">Remove selected</button>-->
+        <div class="addUserButtonBlock">
+            <!--<button type="submit" id="r emoveButton">Remove selected</button>-->
             <div id="addUserDiv" class="panel-body ">
                 <!--style="width: 90%; height: 100%; float: left; background-color: #dc963b"      ^^^^^^^^^^^^^ -->
-                <div>
+                <div onclick="addUserPopupInit()">
                     Add user
-                    <img style='width: 50px; height: 50px' src='../images/add.png'>
+                    <img class="addUserImage" src='../images/add.png'>
                 </div>
             </div>
         </div>
     </div>
     <div id="content">
         <div id="userTable">
-            <ol id="selectable" style="height: 90%; background-color: darkgrey; margin: 0; padding: 0">
-                <!--<li itemid="itm-4" class="drag btn btn-default box-item">-->
-                    <!--<div id="13123" class="tableElement" style="float: left; width: 33%">-->
-                        <!--<img width="70px" style="align-self: center" class="avatars" src="avatarLink"/>-->
-                    <!--</div>-->
-                    <!--<div id="131232" class="tableElement" style="float: left; width: 33%">-->
-                        <!--name-->
-                    <!--</div>-->
-                    <!--<div id="131233" class="tableElement" style="float: left; width: 33%">-->
-                        <!--surname-->
-                    <!--</div>-->
-                <!--</li>-->
+            <ol id="selectable">
+
             </ol>
             <div id="userTableFooter">
                 <div id="recycleDragContainer" class="panel-body">
                     Remove user
-                    <img style='position: relative; top: 50%; transform: translateY(-50%); width: 50px; height: 50px' src='../images/recycle.png'>
+                    <img id="removeUserImage" src='../images/recycle.png'>
                 </div>
                 <div id="editDragContainer" class="panel-body">
                     Edit user
@@ -84,7 +73,7 @@
                 Piątek
             </div>
             <div id="dayscontainter">
-                <div id="calendarContainer" class="daysdivs panel-body " style="background-color: crimson">
+                <div id="calendarContainer" class="daysdivs panel-body" style="background-color: crimson">
                     <div itemid="itm-1" class="drag btn btn-default box-item"></div>
                     <div itemid="itm-2" class="drag btn btn-default box-item"></div>
                 </div>

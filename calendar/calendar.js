@@ -20,8 +20,19 @@ $(document).ready(function (){
     set_MonthName(currentMonth);
     daysInMonth = set_daysInPreviousMonth(currentMonth);
     insertDaysToCalendar();
-    alert(get_Week("week4"));
-    getDutys(addDataToCalendar);
+    // alert(get_Week("week4"));
+    var data = [];
+    getUsersFromBase().done(function (response) {
+        for (var i = 0; i < response.length; i++){
+            // alert(response[i].name);
+            data[i] = response[i].name;
+        }
+        // for (var i = 0; i < response.length; i++){
+        //     insertPicture("day13", response[i].avatarLink);
+        // }
+        alert(data);
+
+    });
 });
 
 function isLeapYear(year){
@@ -222,27 +233,3 @@ function insertPicture(div, imageURL) {
 function addDataToCalendar() {
     
 }
-
-function getDutys(addDataToCalendar){
-    $.get("http://localhost:3000/lol")
-        .done(function (response) {
-            addDataToCalendar();
-        });
-}
-
-// function getDutys(){
-//     var data = new Array();
-//     $.get("http://localhost:3000/lol", function (response) {
-//         for (var i = 0; i < response.length; i++){
-//             // alert(response[i].name);
-//             data[i] = response[i].name;
-//         }
-//         for (var i = 0; i < response.length; i++){
-//             insertPicture("day13", response[i].avatarLink);
-//         }
-//
-//     }).done(function () {
-//         alert("OK");
-//
-//     })
-// }

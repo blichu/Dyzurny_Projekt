@@ -37,12 +37,12 @@ button {
     background-color: #ff8238;
     border-color: #ff7124; }
 
-#header {
+.header {
   height: 10%;
   width: 100%;
   background-color: #ffab44; }
 
-#logoBlock {
+.logoBlock {
   width: 90%;
   text-align: center;
   position: relative;
@@ -50,11 +50,11 @@ button {
   transform: translateY(-50%);
   float: left; }
 
-#logoImage {
+.logoImage {
   max-width: 100%;
   max-height: 100%; }
 
-#addUserButtonBlock {
+.addUserButtonBlock {
   width: 10%;
   height: 90%;
   padding: 0;
@@ -64,6 +64,10 @@ button {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
+
+.addUserImage {
+  width: 50px;
+  height: 50px; }
 
 #content {
   background-color: gainsboro;
@@ -94,6 +98,12 @@ button {
   list-style-type: none;
   height: 10%; }
 
+#selectable {
+  height: 90%;
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+
 .avatars {
   width: auto;
   height: auto;
@@ -102,7 +112,6 @@ button {
 
 #userTableFooter {
   height: 10%;
-  background-color: darkgrey;
   text-align: center; }
 
 #recycleDragContainer {
@@ -111,6 +120,15 @@ button {
   visibility: hidden;
   float: left;
   background-color: #9a1725; }
+  #recycleDragContainer.hover {
+    background-color: #B91927; }
+
+#removeUserImage, #editUserImage {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px; }
 
 #editDragContainer {
   width: 50%;
@@ -118,13 +136,8 @@ button {
   float: left;
   visibility: hidden;
   background-color: #0b9a09; }
-
-#editUserImage {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px; }
+  #editDragContainer.hover {
+    background-color: #0BB909; }
 
 #calandarBanner {
   text-align: center;
@@ -143,6 +156,18 @@ button {
 
 #dayscontainter {
   width: 100%; }
+
+.darkTableRow {
+  background-color: #b4b4b4; }
+
+.lightTableRow {
+  background-color: #bfbfbf; }
+
+#w2ui-popup {
+  height: 30% !important;
+  width: 35% !important;
+  left: 32.5% !important;
+  top: 35% !important; }
 
 #addUserForm {
   height: 100%; }

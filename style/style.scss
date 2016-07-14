@@ -48,12 +48,12 @@ button {
   }
 }
 
-#header {
+.header {
   height: 10%;
   width: 100%;
   background-color: #ffab44;
 }
-  #logoBlock {
+  .logoBlock {
   width: 90%;
   text-align: center;
   position: relative;
@@ -61,11 +61,11 @@ button {
   transform: translateY(-50%);
   float: left;
 }
-    #logoImage {
+    .logoImage {
   max-width: 100%;
   max-height: 100%;
 }
-  #addUserButtonBlock {
+  .addUserButtonBlock {
   width: 10%;
   height: 90%;
   padding: 0;
@@ -76,6 +76,10 @@ button {
   top: 50%;
   transform: translateY(-50%);
 }
+  .addUserImage {
+    width: 50px;
+    height: 50px;
+  }
 #content {
   background-color: $lightGrey;
   position: absolute;
@@ -109,7 +113,12 @@ button {
       list-style-type: none;
       height: 10%;
     }
-    //#selectable {  }
+    #selectable {
+      height: 90%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
       .avatars {
         width: auto;
         height: auto;
@@ -117,21 +126,37 @@ button {
         max-height: 100%;
       }
     #userTableFooter {
-      height: 10%; background-color: darkgrey; text-align: center
+      height: 10%;
+      //background-color: darkgrey;
+      text-align: center
     }
       #recycleDragContainer {
-        width: 50%; height: 100%; visibility: hidden; float: left; background-color: #9a1725
+        width: 50%;
+        height: 100%;
+        visibility: hidden;
+        float: left;
+        background-color: #9a1725;
+        &.hover {
+          background-color: #B91927;
+        }
       }
-      #editDragContainer {
-        width: 50%; height: 100%; float: left; visibility: hidden; background-color: #0b9a09
-      }
-        #editUserImage {
+        #removeUserImage, #editUserImage{
           position: relative;
           top: 50%;
           transform: translateY(-50%);
           width: 50px;
           height: 50px;
         }
+      #editDragContainer {
+        width: 50%;
+        height: 100%;
+        float: left;
+        visibility: hidden;
+        background-color: #0b9a09;
+        &.hover {
+          background-color: #0BB909;
+        }
+      }
     #calandarBanner {
   text-align: center;
   height: 10%;
@@ -151,8 +176,26 @@ button {
   width: 100%;
 }
 
+$colorDiff: 11;
+$darkRowColor: 180;
+$lightRowColor: ($darkRowColor + $colorDiff);
+.darkTableRow {
+  background-color: rgb($darkRowColor, $darkRowColor, $darkRowColor);
+}
+.lightTableRow {
+  background-color: rgb($lightRowColor, $lightRowColor, $lightRowColor);
+}
+
 
 // popup:
+#w2ui-popup {
+  $height: 30%;
+  $width: 35%;
+  height: $height !important;
+  width: $width !important;
+  left: (100%-$width)/2 !important;
+  top: (100%-$height)/2 !important;
+}
 #addUserForm {
   height: 100%;
 }
