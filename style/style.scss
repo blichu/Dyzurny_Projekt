@@ -1,4 +1,4 @@
-$headerColor: rgb(255,171,68);
+$headerColor: rgb(255, 71, 36);
 $headerButtons: rgb(255,156,56);
 $headerButtonsBorder: rgb(255,132,68);
 $headerButtonsHover: rgb(255,130,56);
@@ -48,12 +48,12 @@ button {
   }
 }
 
-#header {
+.header {
   height: 10%;
   width: 100%;
   background-color: #ffab44;
 }
-  #logoBlock {
+  .logoBlock {
   width: 90%;
   text-align: center;
   position: relative;
@@ -61,11 +61,11 @@ button {
   transform: translateY(-50%);
   float: left;
 }
-    #logoImage {
+    .logoImage {
   max-width: 100%;
   max-height: 100%;
 }
-  #addUserButtonBlock {
+  .addUserButtonBlock {
   width: 10%;
   height: 90%;
   padding: 0;
@@ -76,6 +76,10 @@ button {
   top: 50%;
   transform: translateY(-50%);
 }
+  .addUserImage {
+    width: 50px;
+    height: 50px;
+  }
 #content {
   background-color: $lightGrey;
   position: absolute;
@@ -85,31 +89,43 @@ button {
   bottom: 0;
   height: auto;
 }
-  #userTable {
+.contentLeft {
   width: 30%;
   float: left;
-  overflow-y: scroll;
-  & td {
-    text-align: center;
-  }
-  &::-webkit-scrollbar {
-    width: 1em;
-  }
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(100,100,100);
-    outline: 1px solid slategrey;
-  }
-  background-color: rgb(210,210,210);
+
+}
+  #userTable {
+    overflow-y: scroll;
+    & td {
+      text-align: center;
+    }
+    &::-webkit-scrollbar {
+      width: 1em;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(100,100,100);
+      outline: 1px solid slategrey;
+    }
+    background-color: rgb(210,210,210);
+  width: 100%;
   height: 100%;
 }
+  .userTableDecrease {
+    height: 90% !important;
+  }
     .tableRow {
       list-style-type: none;
       height: 10%;
     }
-    //#selectable {  }
+    #selectable {
+      height: 90%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
       .avatars {
         width: auto;
         height: auto;
@@ -117,21 +133,37 @@ button {
         max-height: 100%;
       }
     #userTableFooter {
-      height: 10%; background-color: darkgrey; text-align: center
+      height: 10%;
+      //background-color: darkgrey;
+      text-align: center
     }
       #recycleDragContainer {
-        width: 50%; height: 100%; visibility: hidden; float: left; background-color: #9a1725
+        width: 50%;
+        height: 100%;
+        visibility: hidden;
+        float: left;
+        background-color: #9a1725;
+        &.hover {
+          background-color: #B91927;
+        }
       }
-      #editDragContainer {
-        width: 50%; height: 100%; float: left; visibility: hidden; background-color: #0b9a09
-      }
-        #editUserImage {
+        #removeUserImage, #editUserImage{
           position: relative;
           top: 50%;
           transform: translateY(-50%);
           width: 50px;
           height: 50px;
         }
+      #editDragContainer {
+        width: 50%;
+        height: 100%;
+        float: left;
+        visibility: hidden;
+        background-color: #0b9a09;
+        &.hover {
+          background-color: #0BB909;
+        }
+      }
     #calandarBanner {
   text-align: center;
   height: 10%;
@@ -151,8 +183,40 @@ button {
   width: 100%;
 }
 
+$colorDiff: 11;
+$darkRowColor: 180;
+$lightRowColor: ($darkRowColor + $colorDiff);
+.darkTableRow {
+  background-color: rgb($darkRowColor, $darkRowColor, $darkRowColor);
+}
+.lightTableRow {
+  background-color: rgb($lightRowColor, $lightRowColor, $lightRowColor);
+}
+
 
 // popup:
+#w2ui-popup {
+  $height: 30%;
+  $width: 35%;
+  height: $height !important;
+  width: $width !important;
+  left: (100%-$width)/2 !important;
+  top: (100%-$height)/2 !important;
+}
+.popupTop {
+  height: 80%;
+}
+.popupBot {
+  width: 100%;
+  height: 20%;
+}
+.w2ui-msg-title {
+  height: 10% !important;
+}
+.w2ui-msg-buttons {
+  height: 90% !important;
+  padding: 0 !important;
+}
 #addUserForm {
   height: 100%;
 }
@@ -183,14 +247,9 @@ button {
     height: 100%;
     width: 30%;
   }
-#addButtonDiv {
+#addAndEditButtonDiv {
   width: 50%;
   height: 100%;
-}
-#addUserButtons {
-  width: 100%;
-  height: 18%;
-  clear: both;
 }
 #addButton {
   width: 100%;
@@ -227,7 +286,9 @@ button {
   // ?????
   background-color: rgb(100,100,100);
 }
-
+.trueHidden {
+  height: 0 !important;
+}
 
 
 #calendarContainer {
@@ -238,13 +299,35 @@ button {
   float: left;
   height: 70%;
 }
+#calendar {
+  width: 70%;
+  float: left;
+}
+#addUserButtonDiv {
+  width: 10%;
+  height: 90%;
+  padding: 0;
+  margin: 0;
+  float: right;
+  background-color: $headerColor;
+}
 
 
 
-
-
-
-
+.inLine {
+  float: left;
+  height: 100%;
+}
+.verticalCenterChilds {
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+}
+#addUserDiv {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 
 
@@ -266,3 +349,7 @@ button {
 //#example_wrapper {
 //  background-color: $lightGrey;
 //}
+
+//display: flex;
+//justify-content:center;
+//flex-direction:column;

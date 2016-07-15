@@ -1,0 +1,40 @@
+<div id="popup" style="display: none; width: 600px; height: 400px; overflow: hidden">
+    <div rel="title">
+        Adding user
+    </div>
+    <div rel="buttons">
+        <div class="parentOfDynamicSizeElements popupTop">
+            <div id="addUserAvatarView" class="rightDynamicSizeElement"> <!--id="imageView"-->
+                <img id="avatarViewImage" src="../images/noImage.png">
+            </div>
+            <div id="addUserForm" class="leftDynamicSizeElement">
+                <div style="height: 30%">
+                    <label for="nameField" class="addUserFormLabel">Name</label>
+                    <input type="text" id="nameField" class="addUserFormInput"/>
+                </div>
+                <div style="height: 5%"></div>
+                <div style="height: 30%">
+                    <label for="surnameField" class="addUserFormLabel">Surname</label>
+                    <input type="text" id="surnameField" class="addUserFormInput"/>
+                </div>
+                <div style="height: 5%"></div>
+                <div style="height: 30%">
+                    <label for="avatarURLView" class="addUserFormLabel">URL view</label>
+                    <div class="addUserFormInput" rel="buttons">
+                        <input type="text" class="addUserFormInputMain" id="avatarURL"/>
+                        <button id="avatarURLView" class="addUserFormInputShow" onclick="actionViewButton()">View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popupBot">
+            <div id="addAndEditButtonDiv" style="float: left">
+                <button onclick="actionsEditUserButton()" id="addButton">Add user</button>
+            </div>
+            <div id="resetButtonDiv" style="float: left">
+                <button onclick="actionResetButton()"  id="resetButton">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+

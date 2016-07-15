@@ -1,39 +1,46 @@
 {
   "lol": [
     {
-      "name": "Zbigniew",
-      "surname": "Suraj",
-      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
-      "id": 6
-    },
-    {
-      "name": "Zbigniew",
-      "surname": "Suraj",
-      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
+      "name": "Maciek",
+      "surname": "Blicharz",
+      "avatarLink": 12123,
+      "assigned": "assigned",
       "id": 7
     },
     {
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
+      "assigned": "assigned",
       "id": 8
     },
     {
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "assigned": "noAssigned",
+      "assigned": "assigned",
       "id": 9
     },
     {
-      "name": "Rafał",
-      "surname": "Rak",
-      "avatarLink": "http://www.ur.edu.pl/image/72070/default/Rafal_Rak.jpg",
-      "assigned": "noAssigned",
+      "name": "Zbigniew",
+      "surname": "Suraj",
+      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
+      "assigned": "assigned",
       "id": 10
+    },
+    {
+      "name": "asdasd",
+      "surname": "asdasd",
+      "avatarLink": "asdasdsa",
+      "assigned": "noAssigned",
+      "id": 11
+    },
+    {
+      "name": "Maciej",
+      "surname": "surname",
+      "avatarLink": "http://www.womkat.edu.pl/files/standaryzacja/Belferplus/grupa_3/pa_figury/33.jpg",
+      "assigned": "noAssigned",
+      "id": 12
     }
   ]
 }
