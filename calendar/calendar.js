@@ -255,18 +255,18 @@ function getDateStringToArray(date){
     return dateArray;
 }
 
-function addDutysToCalendar(data) {
+function addDutysToCalendar(users) {
     var dateArray = new Array();
     for (i = 0; i < 7; i++) {
         dateArray[i] = new Array(3);
     }
-    for(var index in data){
-        var name = data[index].name;
-        var surname = data[index].surname;
-        var avatarURL = data[index].avatarLink;
-        for(var dutyIndex in data[index].duty){
-            if (data[index].duty[dutyIndex].replacement == "0") {
-                var processDate = data[index].duty[dutyIndex].dates[0].date1;
+    for(var index in users){
+        var name = users[index].name;
+        var surname = users[index].surname;
+        var avatarURL = users[index].avatarLink;
+        for(var dutyIndex in users[index].duty){
+            if (users[index].duty[dutyIndex].replacement == "0") {
+                var processDate = users[index].duty[dutyIndex].dates[0].date1;
                 for (numberOfWeek = 1; numberOfWeek <= 6; numberOfWeek++){
                     var temp = ((numberOfWeek - 1) * 7) + 1;
                     if (processDate == get_day("day" + temp)){
@@ -281,7 +281,7 @@ function addDutysToCalendar(data) {
                 }
             }
             else {
-                var processDate = data[index].duty[dutyIndex].dates[0].date1;
+                var processDate = users[index].duty[dutyIndex].dates[0].date1;
                 var tempDiv = get_actualDayDiv();
                 var tempDay = get_day(tempDiv);
                 if (processDate == tempDay) {
