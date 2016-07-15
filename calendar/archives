@@ -1,27 +1,216 @@
-<!-- box-container class removed in
-remo-->
+@charset "UTF-8";
+/*#calendar{*/
+    /*width: 1000px;*/
+    /*height: 700px;*/
+    /*background-color: #58959a;*/
+/*}*/
 
-<!--         <div id="calandarBanner">
-             Sierpień 2016
-         </div>
-         <div class="weekdays">
-             <span>Poniedziałek</span>
-         </div>
-         <div class="weekdays">
-             Wtorek
-         </div>
-         <div class="weekdays">
-             Środa
-         </div>
-         <div class="weekdays">
-             Czwartek
-         </div>
-         <div class="weekdays">
-             Piątek
-         </div>
-         <div id="dayscontainter">
-             <div id="calendarContainer" class="daysdivs panel-body " style="background-color: crimson">
-                 &lt;!&ndash;<div itemid="itm-1" class="drag btn btn-default box-item"></div>&ndash;&gt;
-                 &lt;!&ndash;<div itemid="itm-2" class="drag btn btn-default box-item"></div>&ndash;&gt;
-             </div>
-         </div>-->
+#top{
+    display: block;
+    width: 100%;
+    height: 10%;
+    background-color: #8b8b8b;
+}
+
+#buttonLeft{
+    display: block;
+    width: 10%;
+    height: 100%;
+    background-color: #359A35;
+    float: left;
+    text-align: center;
+}
+
+#buttonRight{
+    display: block;
+    width: 10%;
+    height: 100%;
+    background-color: #359A35;
+    float: left;
+    text-align: center;
+}
+
+#monthName{
+    float: left;
+    width: 80%;
+    height: 100%;
+    background-color: #455e9a;
+    text-align: center;
+}
+
+#weekDays{
+    width: 100%;
+    height: 10%;
+}
+
+#dutyLayout{
+    float: left;
+    width: 10%;
+    height: 100%;
+    background-color: #0b9a09;
+}
+
+#dutyInLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: 70%;
+    background-color: #0dd90b;
+    text-align: center;
+}
+
+#weekDaysNameTop{
+    height: 100%;
+    width: 100%;
+    background-color: #0b9a09;
+}
+
+.daysTopLayout{
+    float: left;
+    height: 100%;
+    width: 12.855%;
+    background-color: #0b9a09;
+}
+
+.daysInTopLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 90%;
+    background-color: #0dd90b;
+    text-align: center;
+    font-size: 140%;
+}
+
+#weeksNumbers{
+    width: 10%;
+    height: 80%;
+    background-color: #94219a;
+    text-align: center;
+    float: left;
+}
+
+.weeksLayout{
+    height: 16.67%;
+    background-color: #0b9a09;
+    text-align: center;
+}
+
+.weeksInLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: 70%;
+    background-color: #0dd90b;
+
+}
+
+#days{
+    float: left;
+    background-color: #d90d0a;
+    width: 90%;
+    height: 80%;
+}
+
+.weekDaysLayout{
+    width: 100%;
+    height: 16.67%;
+    background-color: #0dd90b;
+}
+
+.daysLayout{
+    float: left;
+    width: 14.285%;
+    height: 100%;
+    background-color: #0b9a09;
+}
+
+.daysLayoutDuty{
+    float: left;
+    width: 14.285%;
+    height: 100%;
+    background-color: #6a011f;
+}
+
+.daysInLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 90%;
+    background-color: #0dd90b;
+    text-align: center;
+}
+
+.actualDayInLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 90%;
+    background-color: #0407d9;
+    text-align: center;
+}
+
+.otherMonthDaysLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 90%;
+    background-color: #d90005;
+    text-align: center;
+}
+
+.actualMonthDaysLayout{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 90%;
+    background-color: #00d0d9;
+    text-align: center;
+}
+
+.centeredText{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.daysInLayout:hover,
+.actualDayInLayout:hover,
+.actualMonthDaysLayout:hover,
+.otherMonthDaysLayout:hover,
+.weeksInLayout:hover,
+#buttonLeft:hover,
+#buttonRight:hover{
+    background-color: #9a1725;
+}
+
+.daysInLayout:active,
+.actualDayInLayout:active,
+.actualMonthDaysLayout:active,
+.otherMonthDaysLayout:active,
+.weeksInLayout:active,
+#buttonLeft:active,
+#buttonRight:active{
+    background-color: #9a5c5f;
+}

@@ -1,4 +1,4 @@
-var id;
+var id, oldName, oldSurname, oldImage;
 function clearForm(){
     $('#nameField').val('');
     $('#surnameField').val('');
@@ -16,13 +16,23 @@ function actionsEditUserButton() {
     //     addUserToTable(result.id, name, surname, avatarURL);
     // });
     editUserInBase(id, name, surname, avatarURL, "");
+    if(name === "") {
+        name = oldName;
+    }
+    if(surname === "") {
+        surname = oldSurname;
+    }
+    if(avatarURL === "") {
+        avatarURL = oldImage;
+    }
+    editUserInTable(id, name, surname, avatarURL);
     w2popup.close();
 }
 function actionViewButton() {
     // document.getElementById("avatarViewImage").att = "<img height='70px' class='avatars' src='" + $('#avatarURL').val() + "'>";
     $('#avatarViewImage').attr("src", $('#avatarURL').val());
 }
-function showEditUserPopUp(idd){
+function showEditUserPopUp(idd, oldNamed, oldSurnamed, oldImaged){
     /*    w2popup.open({
      title: "Dodanie użytkownika",
      // url: '../html/addUserPopupHtml.html',
@@ -61,8 +71,10 @@ function showEditUserPopUp(idd){
      '</div>'
      });*/
     id = idd;
+    oldName = oldNamed;
+    oldSurname = oldSurnamed;
+    oldImage = oldImaged;
     $.get( "../html/editUserPopupHtml.html", function( data ) {
         w2popup.load({ url: '../html/editUserPopupHtml.html#popup' });
     });
-
 }

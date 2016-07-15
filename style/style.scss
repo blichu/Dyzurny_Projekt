@@ -142,9 +142,9 @@ button {
         height: 100%;
         visibility: hidden;
         float: left;
-        background-color: #9a1725;
+        background-color: rgb(150, 0, 0);
         &.hover {
-          background-color: #B91927;
+          background-color: rgb(255, 0, 0);
         }
       }
         #removeUserImage, #editUserImage{
@@ -159,9 +159,9 @@ button {
         height: 100%;
         float: left;
         visibility: hidden;
-        background-color: #0b9a09;
+        background-color: rgb(0,150,0);
         &.hover {
-          background-color: #0BB909;
+          background-color: rgb(0, 208, 0);
         }
       }
     #calandarBanner {
@@ -282,25 +282,22 @@ $lightRowColor: ($darkRowColor + $colorDiff);
   max-width: 100%;
   max-height: 100%;
 }
-#columnHeader {
-  // ?????
-  background-color: rgb(100,100,100);
-}
 .trueHidden {
   height: 0 !important;
 }
 
-
-#calendarContainer {
-  background-color: red;
-}
-.daysdivs{
-  width: 50%;
-  float: left;
-  height: 70%;
-}
+//
+//#calendarContainer {
+//  background-color: red;
+//}
+//.daysdivs{
+//  width: 50%;
+//  float: left;
+//  height: 70%;
+//}
 #calendar {
   width: 70%;
+  height: 100%;
   float: left;
 }
 #addUserButtonDiv {
