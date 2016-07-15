@@ -4,109 +4,8 @@
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "duty": [
-        {
-          "replacement": "0",
-          "dates": [
-            {
-              "date1": "27.06.2016",
-              "date2": "28.06.2016",
-              "date3": "29.06.2016",
-              "date4": "30.06.2016",
-              "date5": "01.07.2016",
-              "date6": "02.07.2016",
-              "date7": "03.07.2016"
-            }
-          ]
-        },
-        {
-          "replacement": "1",
-          "dates": [
-            {
-              "date1": "14.07.2016",
-              "date2": "",
-              "date3": "",
-              "date4": "",
-              "date5": "",
-              "date6": "",
-              "date7": ""
-            }
-          ]
-        }
-      ],
+      "duty": "[{ 'replacement':'0' }]:",
       "id": 6
-    },
-    {
-      "name": "Zbigniew",
-      "surname": "Suraj",
-      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "duty": [
-        {
-          "replacement": "0",
-          "dates": [
-            {
-              "date1": "25.07.2016",
-              "date2": "26.07.2016",
-              "date3": "27.07.2016",
-              "date4": "28.07.2016",
-              "date5": "29.07.2016",
-              "date6": "30.07.2016",
-              "date7": "31.07.2016"
-            }
-          ]
-        },
-        {
-          "replacement": "1",
-          "dates": [
-            {
-              "date1": "13.07.2016",
-              "date2": "",
-              "date3": "",
-              "date4": "",
-              "date5": "",
-              "date6": "",
-              "date7": ""
-            }
-          ]
-        }
-      ],
-      "id": 8
-    },
-    {
-      "name": "Zbigniew",
-      "surname": "Suraj",
-      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "duty": [
-        {
-          "replacement": "0",
-          "dates": [
-            {
-              "date1": "11.07.2016",
-              "date2": "12.07.2016",
-              "date3": "13.07.2016",
-              "date4": "14.07.2016",
-              "date5": "15.07.2016",
-              "date6": "16.07.2016",
-              "date7": "17.07.2016"
-            }
-          ]
-        },
-        {
-          "replacement": "1",
-          "dates":[
-            {
-              "date1": "12.07.2016",
-              "date2": "",
-              "date3": "",
-              "date4": "",
-              "date5": "",
-              "date6": "",
-              "date7": ""
-            }
-          ]
-        }
-      ],
-      "id": 9
     },
     {
       "name": "Rafał",
@@ -116,16 +15,16 @@
         {
           "replacement": "0",
           "dates": [
-          {
-            "date1": "04.07.2016",
-            "date2": "05.07.2016",
-            "date3": "06.07.2016",
-            "date4": "07.07.2016",
-            "date5": "08.07.2016",
-            "date6": "09.07.2016",
-            "date7": "10.07.2016"
-          }
-        ]
+            {
+              "date1": "04.07.2016",
+              "date2": "05.07.2016",
+              "date3": "06.07.2016",
+              "date4": "07.07.2016",
+              "date5": "08.07.2016",
+              "date6": "09.07.2016",
+              "date7": "10.07.2016"
+            }
+          ]
         },
         {
           "replacement": "1",
