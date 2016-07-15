@@ -13,6 +13,7 @@ function actionsAddUserButton() {
     var avatarURL = $('#avatarURL').val();
     addUserToBase(name, surname, avatarURL).done( function (result) {
         addUserToTable(result.id, name, surname, avatarURL);
+        initDraggableElements();
     });
     w2popup.close();
 }

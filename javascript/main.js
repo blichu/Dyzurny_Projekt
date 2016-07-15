@@ -6,10 +6,9 @@ $(document).ready(function () {
     initDroppableContainer();
     getUsersFromBase().done(function (response) {
         addUsersToSite(response);
-        addDutysToCalendar(response);
+        // addDutysToCalendar(response);
         initDraggableElements();
     });
-    addDuty(10, 1, "132")
 });
 function initLook() {
     $('body').css('font-size', ($(window).width() * 0.01) + 'px');

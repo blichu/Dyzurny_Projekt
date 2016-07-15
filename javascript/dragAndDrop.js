@@ -50,7 +50,7 @@ function initDroppableContainer() {
             var oldImageURL = ele;
             var oldName = ele = ele.next();
             var oldSurname = ele.next();
-            showEditUserPopUp(id, oldName.html(), oldSurname.html(), oldImageURL.html());
+            showEditUserPopUp(id, oldName.html(), oldSurname.html(), oldImageURL.attr("src"));
         } )
         .on( "dropover", function( event, ui ) {
             $('#editDragContainer').addClass("hover");

@@ -8,7 +8,7 @@ function removeUserFromBase(id) {
         $('#' + id).remove();
     });
 }
-function editUserInBase(id, name, surname, avatarLink) {
+function editUserInBase(id, name, surname, avatarLink, replacement, dates) {
     var data = "{";
     var isOne = false;
     if(name !== "") {
@@ -32,30 +32,17 @@ function editUserInBase(id, name, surname, avatarLink) {
         data += '"avatarLink": "' + avatarLink + '",';
         isOne = true;
     }
+    if(replacement !== "") {
+        if(isOne) {
+            data += ",";
+        }
+        data += '"assigned": "' + assigned + '"';
+    }
     data += "}";
+    alert(data);
     $.ajax({
         type: 'PATCH',
         url: 'http://localhost:3000/lol/' + id,
-        contentType: "application/json",
-        dataType: 'json',
-        data: data
-    });
-}
-function addDuty(userId, replacement, dates) {
-    var data = '"duty": [{';
-        data += '"replacement": "' + replacement + '",';
-        data += '"dates": [{';
-            data += '"date1": "' + dates + '"';
-        data += '}],';
-        data += '"replacement": "' + replacement + '",';
-        data += '"dates": [{';
-            data += '"date2": "' + dates + '"';
-        data += '}],';
-    data += '}]';
-    alert(data);
-    $.ajax({
-        type: 'PUT',
-        url: 'http://localhost:3000/lol/' + userId,
         contentType: "application/json",
         dataType: 'json',
         data: data

@@ -4,7 +4,36 @@
       "name": "Zbigniew",
       "surname": "Suraj",
       "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",
-      "duty": "[{ 'replacement':'0' }]:",
+      "duty": [
+        {
+          "replacement": "0",
+          "dates": [
+            {
+              "date1": "27.06.2016",
+              "date2": "28.06.2016",
+              "date3": "29.06.2016",
+              "date4": "30.06.2016",
+              "date5": "01.07.2016",
+              "date6": "02.07.2016",
+              "date7": "03.07.2016"
+            }
+          ]
+        },
+        {
+          "replacement": "1",
+          "dates": [
+            {
+              "date1": "14.07.2016",
+              "date2": "",
+              "date3": "",
+              "date4": "",
+              "date5": "",
+              "date6": "",
+              "date7": ""
+            }
+          ]
+        }
+      ],
       "id": 6
     },
     {
@@ -42,6 +71,18 @@
         }
       ],
       "id": 10
+    },
+    {
+      "name": 11,
+      "surname": "asdsa",
+      "avatarLink": "asdasd",
+      "id": 11
+    },
+    {
+      "name": 5555,
+      "surname": "asdasd",
+      "avatarLink": "asdsda",
+      "id": 12
     }
   ]
 }
