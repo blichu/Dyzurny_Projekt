@@ -318,4 +318,5 @@ function addDutysToCalendar(data) {
 
 function getDutys(){
     return $.get("http://localhost:3000/lol");
+    
 }
