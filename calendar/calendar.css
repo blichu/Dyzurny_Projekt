@@ -141,6 +141,13 @@
     background-color: #6a011f;
 }
 
+.daysLayoutReplacement{
+    float: left;
+    width: 14.285%;
+    height: 100%;
+    background-color: #6a0366;
+}
+
 .daysInLayout{
     margin-left: auto;
     margin-right: auto;
