@@ -8,7 +8,6 @@ function actionResetButton(){
     clearForm();
 }
 function actionsAddUserButton() {
-    // $('#addButton').on("click", function(){
     var name = $('#nameField').val();
     var surname = $('#surnameField').val();
     var avatarURL = $('#avatarURL').val();

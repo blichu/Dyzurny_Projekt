@@ -36,24 +36,25 @@ function addUsersToSite(response) {
             addUserToTable(response[i].id, response[i].name, response[i].surname, response[i].avatarLink);
         }
     }
+    function addUserToCalendar(id, name, surname, avatarLink){
+        $("#calendarContainer").append(
+            '<li id="' + id + '" class="tableRow ui-state-default drag btn btn-default box-item">' +
+            '<div class="tableElement">' +
+            '<img class="avatars" src="' + avatarLink + '"/>' +
+            '</div>' +
+            '<div class="tableElement center">' +
+            name +
+            '</div>' +
+            '<div class="tableElement center">' +
+            surname +
+            '</div>' +
+            '</li>'
+        );
+    }
 }
 
 
-function addUserToCalendar(id, name, surname, avatarLink){
-    $("#calendarContainer").append(
-        '<li id="' + id + '" class="tableRow ui-state-default drag btn btn-default box-item">' +
-        '<div class="tableElement">' +
-        '<img class="avatars" src="' + avatarLink + '"/>' +
-        '</div>' +
-        '<div class="tableElement center">' +
-        name +
-        '</div>' +
-        '<div class="tableElement center">' +
-        surname +
-        '</div>' +
-        '</li>'
-    );
-}
+
 
 
 // function buildTable() {

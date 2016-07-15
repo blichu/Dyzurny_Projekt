@@ -3,15 +3,15 @@ var tableRowColor;
 function addUserToTable(id, name, surname, avatarLink){
     $("#selectable").append(
         '<li id="' + id + '" itemid=itm-' + itmId + ' class="tableRow ui-state-default drag btn btn-default box-item">' +
-        '<div class="tableElement">' +
-        '<img class="avatars" src="' + avatarLink + '"/>' +
-        '</div>' +
-        '<div class="tableElement center">' +
-        name +
-        '</div>' +
-        '<div class="tableElement center">' +
-        surname +
-        '</div>' +
+            '<div class="tableElement">' +
+                '<img class="avatars" src="' + avatarLink + '"/>' +
+            '</div>' +
+            '<div class="tableElement center">' +
+                name +
+            '</div>' +
+            '<div class="tableElement center">' +
+                surname +
+            '</div>' +
         '</li>'
     );
     function setTableRowColor() {
@@ -27,4 +27,19 @@ function addUserToTable(id, name, surname, avatarLink){
     }
     setTableRowColor();
     itmId = itmId + 1;
+}
+function editUserInTable(id, name, surname, avatarLink) {
+    $('#' + id)
+        .empty()
+        .append(
+            '<div class="tableElement">' +
+                '<img class="avatars" src="' + avatarLink + '"/>' +
+            '</div>' +
+            '<div class="tableElement center">' +
+                name +
+            '</div>' +
+            '<div class="tableElement center">' +
+                surname +
+            '</div>'
+        );
 }

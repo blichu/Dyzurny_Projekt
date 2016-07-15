@@ -1,19 +1,23 @@
 function initDroppableContainer() {
-    $('#calendarContainer')
-        .on( "drop", function( event, ui ) {
-            $("#" + ui.draggable.attr("id")).appendTo("#calendarContainer");
-            editUserInBase(ui.draggable.attr("id"), "", "", "", "assigned");
-        })
-        .droppable({
-            // drop: function(event, ui) {
-            //     // var itemid = $(event.originalEvent.toElement).attr("itemid");
-            //     // $('.box-item').each(function() {
-            //     //     if ($(this).attr("itemid") === itemid) {
-            //     //         $(this).appendTo("#calendarContainer");
-            //     //     }
-            //     // });
-            // }
-        });
+    for(i=1; i<=42; i++)
+    {
+        $('#day' + i)
+            .on("drop", function (event, ui) {
+                $("#" + ui.draggable.attr("id")).appendTo($(this));
+                // editUserInBase(ui.draggable.attr("id"), "", "", "", "assigned");
+                // editUserInTable(ui.draggable.attr("id"), "", "", "");
+            })
+            .droppable({
+                // drop: function(event, ui) {
+                //     // var itemid = $(event.originalEvent.toElement).attr("itemid");
+                //     // $('.box-item').each(function() {
+                //     //     if ($(this).attr("itemid") === itemid) {
+                //     //         $(this).appendTo("#calendarContainer");
+                //     //     }
+                //     // });
+                // }
+            });
+    }
     $("#recycleDragContainer")
         .on( "drop", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "hidden");
@@ -21,8 +25,6 @@ function initDroppableContainer() {
             $('#userTableFooter').addClass("trueHidden");
             $('#userTable').removeClass("userTableDecrease");
             removeUserFromBase(ui.draggable.attr("id"));
-            // alert("usuwam: " + ui.draggable.attr("id"));
-            // ui.draggable.remove();
         })
         .on( "dropover", function( event, ui ) {
 
@@ -44,7 +46,11 @@ function initDroppableContainer() {
     $( "#editDragContainer" )
         .on( "drop", function( event, ui ) {
             var id = ui.draggable.attr("id");
-            showEditUserPopUp(id);
+            var ele = $("#" + id).find(".tableElement");
+            var oldImageURL = ele;
+            var oldName = ele = ele.next();
+            var oldSurname = ele.next();
+            showEditUserPopUp(id, oldName.html(), oldSurname.html(), oldImageURL.html());
         } )
         .on( "dropover", function( event, ui ) {
             $('#editDragContainer').addClass("hover");
@@ -72,7 +78,6 @@ function initDraggableElements() {
             $('#userTableFooter').removeClass("trueHidden");
             $('#userTable').addClass("userTableDecrease");
             $(ui.helper).css({width:'10%', 'border-radius': '10em', height:'50px', opacity: '0.6', "background-color": "white"});
-            // w2alert($(ui.helper).parent().html());
         })
         .on( "dragstop", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "hidden");
