@@ -20,7 +20,7 @@ jQuery(document).ready(function (){
     set_MonthName(currentMonth);
     daysInMonth = set_daysInMonth(currentMonth);
     insertDaysToCalendar();
-    getDutys().done(function (json) {
+    getUsersFromBase().done(function (json) {
         addDutysToCalendar(json);
     });
 });
@@ -118,7 +118,7 @@ function buttonLeftAction(){
     initMonth();
     insertDaysToCalendar();
     set_calendarDefault();
-    getDutys().done(function (json) {
+    getUsersFromBase().done(function (json) {
         addDutysToCalendar(json);
     });
 }
@@ -134,7 +134,7 @@ function buttonRightAction() {
     initMonth();
     insertDaysToCalendar();
     set_calendarDefault();
-    getDutys().done(function (json) {
+    getUsersFromBase().done(function (json) {
         addDutysToCalendar(json);
     });
 }
@@ -309,14 +309,8 @@ function addDutysToCalendar(data) {
                     tempDay = getDateStringToArray(tempDay);
                     var tempProcessDate = getDateStringToArray(processDate);
                     var temp = tempDay[0] - tempProcessDate[0];
-                    alert(temp);
                 }
             }
         }
     }
-}
-
-function getDutys(){
-    return $.get("http://localhost:3000/lol");
-    
 }
