@@ -10,7 +10,7 @@ var actualMonth;
 
 var dt = new Date();
 
-jQuery(document).ready(function (){
+function loadCalendar() {
     currentDay = dt.getDate();
     currentDayOfTheWeek = dt.getDay();
     currentMonth = dt.getMonth() + 1;
@@ -20,10 +20,10 @@ jQuery(document).ready(function (){
     set_MonthName(currentMonth);
     daysInMonth = set_daysInMonth(currentMonth);
     insertDaysToCalendar();
-    getUsersFromBase().done(function (json) {
-        addDutysToCalendar(json);
+    getUsersFromBase().done(function (users) {
+        addDutyToCalendar(users);
     });
-});
+}
 
 function isLeapYear(year){
     return ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)));
@@ -34,11 +34,6 @@ function initMonth() {
     firstMonthDay = tempDate.getDay();
     if(currentDayOfTheWeek == 0) currentDayOfTheWeek = 7;
     if(firstMonthDay == 0) firstMonthDay = 7;
-}
-
-function changeMonthName(string) {
-    var element = document.getElementById('monthNameText');
-    element.innerText = string;
 }
 
 function set_MonthName(month){
@@ -80,6 +75,10 @@ function set_MonthName(month){
             changeMonthName("Grudzień " + currentYear);
             break;
     }
+    function changeMonthName(string) {
+        var element = document.getElementById('monthNameText');
+        element.innerText = string;
+    }
 }
 
 function set_daysInMonth(month){
@@ -116,10 +115,10 @@ function buttonLeftAction(){
     set_MonthName(currentMonth);
     daysInMonth = set_daysInMonth(currentMonth);
     initMonth();
-    insertDaysToCalendar();
     set_calendarDefault();
+    insertDaysToCalendar();
     getUsersFromBase().done(function (json) {
-        addDutysToCalendar(json);
+        addDutyToCalendar(json);
     });
 }
 
@@ -132,10 +131,10 @@ function buttonRightAction() {
     set_MonthName(currentMonth);
     daysInMonth = set_daysInMonth(currentMonth);
     initMonth();
-    insertDaysToCalendar();
     set_calendarDefault();
+    insertDaysToCalendar();
     getUsersFromBase().done(function (json) {
-        addDutysToCalendar(json);
+        addDutyToCalendar(json);
     });
 }
 
@@ -144,6 +143,8 @@ function set_calendarDefault(){
     for(i = 1; i <= daysInCalendar; i++){
         element = document.getElementById("day" + (i) + "Frame");
         element.className = "daysLayout";
+        element = document.getElementById("day" + (i));
+        element.innerHTML = "<div id='day" + i + "text' class='centeredText'></div>";
     }
     for(i = 1; i <= (daysInCalendar / 7); i++){
         element = document.getElementById("week" + (i));
@@ -253,35 +254,26 @@ function getDateStringToArray(date){
     return dateArray;
 }
 
-function addDutysToCalendar(data) {
+function addDutyToCalendar(users) {
     var dateArray = new Array();
     for (i = 0; i < 7; i++) {
         dateArray[i] = new Array(3);
     }
-    for(var index in data){
-        var name = data[index].name;
-        var surname = data[index].surname;
-        var avatarURL = data[index].avatarLink;
-        for(var dutyIndex in data[index].duty){
-            if (data[index].duty[dutyIndex].replacement == "0") {
-                for(var dateIndex in data[index].duty[dutyIndex].dates){
-                    var tempIndex = 0;
-                    for(var date in data[index].duty[dutyIndex].dates[dateIndex]){
-                        var temp = date;
-                        var tempArray = new Array(3);
-                        tempArray = getDateStringToArray(data[index].duty[dutyIndex].dates[dateIndex][temp]);
-                        dateArray[tempIndex] = tempArray;
-                        tempIndex++;
-                    }
-                }
-                var processDate = dateArray[0][0] + "." + dateArray[0][1] + "." + dateArray[0][2];
+    for(var index in users){
+        // alert(users[index].name);
+        var name = users[index].name;
+        var surname = users[index].surname;
+        var avatarURL = users[index].avatarLink;
+        for(var dutyIndex in users[index].duty){
+            if (users[index].duty[dutyIndex].replacement == "0") {
+                var processDate = users[index].duty[dutyIndex].dates[0].date1;
                 for (numberOfWeek = 1; numberOfWeek <= 6; numberOfWeek++){
                     var temp = ((numberOfWeek - 1) * 7) + 1;
                     if (processDate == get_day("day" + temp)){
                         insertPicture("week" + numberOfWeek, avatarURL);
                         for (i = 0; i < 7; i++){
                             var element = document.getElementById("day" + (temp) + "Frame");
-                            element.className = "daysLayoutDuty";
+                            if (element.className != "daysLayoutReplacement") element.className = "daysLayoutDuty";
                             temp++;
                         }
                         break;
@@ -289,26 +281,62 @@ function addDutysToCalendar(data) {
                 }
             }
             else {
-                for(var dateIndex in data[index].duty[dutyIndex].dates){
-                    var tempIndex = 0;
-                    for(var date in data[index].duty[dutyIndex].dates[dateIndex]){
-                        var temp = date;
-                        var tempArray = new Array(3);
-                        tempArray = getDateStringToArray(data[index].duty[dutyIndex].dates[dateIndex][temp]);
-                        dateArray[tempIndex] = tempArray;
-                        tempIndex++;
-                    }
-                }
-                var processDate = dateArray[0][0] + "." + dateArray[0][1] + "." + dateArray[0][2];
+                var processDate = users[index].duty[dutyIndex].dates[0].date1;
                 var tempDiv = get_actualDayDiv();
                 var tempDay = get_day(tempDiv);
                 if (processDate == tempDay) {
                     insertPicture(tempDiv, avatarURL);
+                    var element = document.getElementById(tempDiv + "Frame");
+                    element.className = "daysLayoutReplacement";
                 }
                 else {
                     tempDay = getDateStringToArray(tempDay);
                     var tempProcessDate = getDateStringToArray(processDate);
                     var temp = tempDay[0] - tempProcessDate[0];
+                    var divDayId = tempDiv.substring(3, 5);
+                    var tempId = parseInt(divDayId);
+                    if (tempProcessDate[1] == currentMonth){
+                        tempId -= temp;
+                        insertPicture("day" + tempId, avatarURL);
+                        var element = document.getElementById("day" + tempId + "Frame");
+                        element.className = "daysLayoutReplacement";
+                    }
+                    else if(tempProcessDate[1] == currentMonth - 1 && tempProcessDate[0] > (set_daysInMonth(currentMonth - 1) - (firstMonthDay - 1))){
+                        tempDay = get_day("day1");
+                        tempDay = getDateStringToArray(tempDay);
+                        for (i = 1; i <= firstMonthDay - 1; i++){
+                            if (tempProcessDate[0] == tempDay[0]){
+                                insertPicture("day" + i, avatarURL);
+                                var elemenet = document.getElementById("day" + i + "Frame");
+                                elemenet.className = "daysLayoutReplacement";
+                                break;
+                            }
+                            else{
+                                tempDay = get_day("day" + (i + 1));
+                                tempDay = getDateStringToArray(tempDay);
+                            }
+                        }
+                    }
+                    else if(tempProcessDate[1] == currentMonth + 1){
+                        tempDay = firstMonthDay + set_daysInMonth(currentMonth);
+                        tempDiv = "day" + tempDay;
+                        temp = (daysInCalendar - tempDay) + 1;
+                        tempDay = get_day(tempDiv);
+                        tempDay = getDateStringToArray(tempDay);
+                        for (i = 1; i <= temp; i++){
+                            if (tempProcessDate[0] == tempDay[0]) {
+                                insertPicture(tempDiv, avatarURL);
+                                var elemenet = document.getElementById(tempDiv + "Frame");
+                                elemenet.className = "daysLayoutReplacement";
+                                break;
+                            }
+                            else {
+                                tempDiv = "day" + (i + ((firstMonthDay + set_daysInMonth(currentMonth)) - 1));
+                                tempDay = get_day(tempDiv);
+                                tempDay = getDateStringToArray(tempDay);
+                            }
+                        }
+                    }
                 }
             }
         }

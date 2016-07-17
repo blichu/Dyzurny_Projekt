@@ -5,10 +5,11 @@ $(document).ready(function () {
     itmId = 1;    
     initDroppableContainer();
     getUsersFromBase().done(function (response) {
-        addUsersToSite(response);
-        // addDutysToCalendar(response);
+        addUsersToTable(response);
+        // addDutyToCalendar(response);
         initDraggableElements();
     });
+    loadCalendar();
 });
 function initLook() {
     $('body').css('font-size', ($(window).width() * 0.01) + 'px');
@@ -27,7 +28,7 @@ function actionRemoveButton() {
     //     $('.ui-selected').remove();
     // });
 }
-function addUsersToSite(response) {
+function addUsersToTable(response) {
     // itemId = 1;
     for (var i = 0; i < response.length; i++) {
         // if(response[i].assigned === "assigned") {

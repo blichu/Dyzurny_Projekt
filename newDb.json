@@ -1,0 +1,76 @@
+{
+  "user": [
+    {
+      "id": 6,
+      "name": "Zbigniew",
+      "surname": "Suraj",
+      "avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Rafał",
+      "surname": "Rak",
+      "avatarLink": "http://www.ur.edu.pl/image/72070/default/Rafal_Rak.jpg"
+    }
+  ],
+  "duty": [
+    {
+      "userId": 6,
+      "replacement": "0",
+      "dates": [
+        {
+          "date1": "27.06.2016",
+          "date2": "28.06.2016",
+          "date3": "29.06.2016",
+          "date4": "30.06.2016",
+          "date5": "01.07.2016",
+          "date6": "02.07.2016",
+          "date7": "03.07.2016"
+        }
+      ]
+    },
+    {
+      "userId": 6,
+      "replacement": "1",
+      "dates": [
+        {
+          "date1": "14.07.2016",
+          "date2": "",
+          "date3": "",
+          "date4": "",
+          "date5": "",
+          "date6": "",
+          "date7": ""
+        }
+      ]
+    },
+    {
+      "replacement": "0",
+      "dates": [
+        {
+          "date1": "04.07.2016",
+          "date2": "05.07.2016",
+          "date3": "06.07.2016",
+          "date4": "07.07.2016",
+          "date5": "08.07.2016",
+          "date6": "09.07.2016",
+          "date7": "10.07.2016"
+        }
+      ]
+    },
+    {
+      "replacement": "1",
+      "dates": [
+        {
+          "date1": "1.07.2016",
+          "date2": "",
+          "date3": "",
+          "date4": "",
+          "date5": "",
+          "date6": "",
+          "date7": ""
+        }
+      ]
+    }
+  ]
+}

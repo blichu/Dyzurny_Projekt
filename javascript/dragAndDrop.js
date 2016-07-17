@@ -1,5 +1,5 @@
 function initDroppableContainer() {
-    for(i=1; i<=42; i++)
+    for(var i=1; i<=42; i++)
     {
         $('#day' + i)
             .on("drop", function (event, ui) {
@@ -18,13 +18,35 @@ function initDroppableContainer() {
                 // }
             });
     }
+    for(i=1; i<=6; i++)
+    {
+        $('#week' + i)
+            .on("drop", function (event, ui) {
+                $("#" + ui.draggable.attr("id")).appendTo($(this));
+                addDutysForUser(ui.draggable.attr("id"), get_week($(this).attr("id")))
+            })
+            .droppable({
+                // drop: function(event, ui) {
+                //     // var itemid = $(event.originalEvent.toElement).attr("itemid");
+                //     // $('.box-item').each(function() {
+                //     //     if ($(this).attr("itemid") === itemid) {
+                //     //         $(this).appendTo("#calendarContainer");
+                //     //     }
+                //     // });
+                // }
+            });
+    }
+
     $("#recycleDragContainer")
         .on( "drop", function( event, ui ) {
             $('#recycleDragContainer').css("visibility", "hidden");
             $('#editDragContainer').css("visibility", "hidden");
             $('#userTableFooter').addClass("trueHidden");
             $('#userTable').removeClass("userTableDecrease");
-            removeUserFromBase(ui.draggable.attr("id"));
+            removeUserFromBase(ui.draggable.attr("id"))
+                .done(function() {
+                    $('#' + id).remove();
+                });
         })
         .on( "dropover", function( event, ui ) {
 

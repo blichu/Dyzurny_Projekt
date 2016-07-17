@@ -32,7 +32,8 @@ function actionViewButton() {
     // document.getElementById("avatarViewImage").att = "<img height='70px' class='avatars' src='" + $('#avatarURL').val() + "'>";
     $('#avatarViewImage').attr("src", $('#avatarURL').val());
 }
-function showEditUserPopUp(idd, oldNamed, oldSurnamed, oldImaged){
+function showEditUse    alert(avatarLink);
+rPopUp(idd, oldNamed, oldSurnamed, oldImaged){
     /*    w2popup.open({
      title: "Dodanie użytkownika",
      // url: '../html/addUserPopupHtml.html',
