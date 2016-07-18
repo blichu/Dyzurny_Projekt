@@ -9,7 +9,7 @@ $(document).ready(function () {
         // addDutyToCalendar(response);
         initDraggableElements();
     });
-    loadCalendar();
+    InitCalendar();
 });
 function initLook() {
     $('body').css('font-size', ($(window).width() * 0.01) + 'px');
