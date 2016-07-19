@@ -23,7 +23,7 @@ function initDroppableContainer() {
         $('#week' + i)
             .on("drop", function (event, ui) {
                 $("#" + ui.draggable.attr("id")).appendTo($(this));
-                addDutysForUser(ui.draggable.attr("id"), get_week($(this).attr("id")))
+                addDutyForUser(ui.draggable.attr("id"), get_week($(this).attr("id")))
             })
             .droppable({
                 // drop: function(event, ui) {

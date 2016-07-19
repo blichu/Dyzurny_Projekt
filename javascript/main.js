@@ -9,7 +9,8 @@ $(document).ready(function () {
         // addDutyToCalendar(response);
         initDraggableElements();
     });
-    InitCalendar();
+    initCalendar();
+    addDutyForUser(13, "", ["date12", "date2", "date3", "date4", "date5", "date6", "date7"]);
 });
 function initLook() {
     $('body').css('font-size', ($(window).width() * 0.01) + 'px');

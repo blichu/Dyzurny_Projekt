@@ -1,12 +1,21 @@
+// import * as $ from "../libraries/jquery";
+function getUsersFromBase() {
+    return $.get("http://localhost:1100/users");
+}
+function getUserFromBase(userId) {
+    return $.get("http://localhost:1100/users/" + userId);
+}
+
 function removeUserFromBase(id) {
     return $.ajax({
         type: 'DELETE',
-        url: 'http://localhost:3000/lol/' + id,
+        url: 'http://localhost:1100/users/' + id,
         contentType: "application/json",
         dataType: 'json'
     });
 }
-function editUserInBase(id, name, surname, avatarLink, replacement, dates) {
+
+function editUserInBase(id, name, surname, avatarLink) {
     var data = "{";
     var isOne = false;
     if(name !== "") {
@@ -30,25 +39,20 @@ function editUserInBase(id, name, surname, avatarLink, replacement, dates) {
         data += '"avatarLink": "' + avatarLink + '",';
         isOne = true;
     }
-    if(replacement !== "") {
-        if(isOne) {
-            data += ",";
-        }
-        data += '"assigned": "' + assigned + '"';
-    }
     data += "}";
     alert(data);
     $.ajax({
         type: 'PATCH',
-        url: 'http://localhost:3000/lol/' + id,
+        url: 'http://localhost:1100/users/' + id,
         contentType: "application/json",
         dataType: 'json',
         data: data
     });
 }
+
 function addUserToBase(name, surname, avatarLink) {
     return $.post(
-        "http://localhost:3000/lol",
+        "http://localhost:1100/users",
         {
             name: name,
             surname: surname,
@@ -56,86 +60,42 @@ function addUserToBase(name, surname, avatarLink) {
         }
     );
 }
-function addUserToBaseWithId(id, name, surname, avatarLink, dutysDates) {
-    // var cos =
-    //     '{' +
-    //     '"replacement": "0",' +
-    //     '"dates": [' +
-    //     '{' +
-    //     '"date1": "04.07.2016",' +
-    //     '"date2": "05.07.2016",' +
-    //     '"date3": "06.07.2016",' +
-    //     '"date4": "07.07.2016",' +
-    //     '"date5": "08.07.2016",' +
-    //     '"date6": "09.07.2016",' +
-    //     '"date7": "10.07.2016"' +
-    //     '}' +
-    //     ']' +
-    //     '}';
-    var json =
-        '{' +
-        '"name": "Zbigniew",' +
-        '"id": 6,' +
-        '"surname": "Suraj",' +
-        '"avatarLink": "http://ii.univ.rzeszow.pl/images/zdjeciapracownikow/zsuraj.jpg",' +
-        '"dutys": [' +
-        '{' +
-        '"replacement": "0",' +
-        '"dates": [' +
-        '{' +
-        '"date1": "27.06.2016",' +
-        '"date2": "28.06.2016",' +
-        '"date3": "29.06.2016",' +
-        '"date4": "30.06.2016",' +
-        '"date5": "01.07.2016",' +
-        '"date6": "02.07.2016",' +
-        '"date7": "03.07.2016"' +
-        '}' +
-        ']' +
-        '}' +
-        ']' +
-        '}';
-    alert(json);
-    return $.post(
-        "http://localhost:3000/lol", JSON.stringify(json));
-
-}
-function getUsersFromBase() {
-    return $.get("http://localhost:3000/lol");
-}
-function getUserFromBase(userId) {
-    return $.get("http://localhost:3000/lol/" + userId);
-}
-function addDutysForUser(userId, dutysDates) {
-    getUserFromBase(userId).done(function (result) {
-        removeUserFromBase(userId).done(function () {
-            addUserToBaseWithId(userId, result.name, result.surname, result.avatarLink, dutysDates);
-        });
-        // addUserToBaseWithId(userId, result.name, result.surname, result.avatarLink);
+function addOrOverwriteUserInBase(data) {
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:1100/users/',
+        contentType: "application/json",
+        dataType: 'json',
+        data: data
     });
-    // alert(userId + ": " + dates);
+//            return $.post(
+//                "http://localhost:1100/duty",
+//                {
+//                    userId: userId,
+//                    dates: dates
+//                }
+//            );
+}
 
+function addDutyForUser(id, replacement, dates) {
+    function getUserFromBase(id) {
+        return $.get("http://localhost:1100/users/" + id);
+    }
+    getUserFromBase(id).done(function (result) {
+        if(replacement !== "") {
+            result.duty[0].replacement = replacement;
+        }
+        if(dates[0] !== "") {
+            var indexOfNewElement = result.duty.length;
+            result.duty[indexOfNewElement] = ''
+            for(var i=1; i<=7; i++) {
+                result.duty[indexOfNewElement].dates[0]["date" + i] = dates[i-1];
+            }
+        }
+        addOrOverwriteUserInBase(JSON.stringify(result));
+    });
 }
 
 
-// function getDutys(){
-//     var data = new Array();
-//     $
-//         .get("http://localhost:3000/lol")
-//         .done(function (response) {
-//             for (var i = 0; i < response.length; i++){
-//                 // alert(response[i].name);
-//                 data[i] = response[i].name;
-//             }
-//             for (var i = 0; i < response.length; i++){
-//                 insertPicture("day13", response[i].avatarLink);
-//             }
-//             alert(data);
-//         });
-// }
 
 
-
-
-
-//TODO: addDuty

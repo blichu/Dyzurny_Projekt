@@ -10,7 +10,7 @@ var actualMonth;
 
 var dt = new Date();
 
-function InitCalendar() {
+function initCalendar() {
     currentDay = dt.getDate();
     currentDayOfTheWeek = dt.getDay();
     currentMonth = dt.getMonth() + 1;
